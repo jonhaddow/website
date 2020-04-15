@@ -1,3 +1,5 @@
 [[redirects]]
   from = "https://haddow.me"
-  to = "https://jon.haddow.me"
+  to = "https://jon.haddow.me"#
+  status = 301
+  force = true
