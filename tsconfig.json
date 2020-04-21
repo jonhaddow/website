@@ -12,7 +12,6 @@
 		"resolveJsonModule": true,
 		"noEmit": false,
 		"jsx": "react",
-		"baseUrl": "src",
 		"skipLibCheck": true
 	},
 	"include": ["src"]

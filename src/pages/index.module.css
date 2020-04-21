@@ -1,0 +1,176 @@
+.header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	padding: 48px 0;
+
+	background: var(--primary);
+}
+
+.header-content {
+	display: flex;
+	flex-direction: column;
+}
+
+.header-top {
+	display: flex;
+}
+
+.header-info {
+	display: flex;
+	flex-direction: column;
+
+	margin-right: 32px;
+}
+
+.header-title {
+	margin: 20px 0 0;
+
+	color: var(--white);
+	font-size: 2rem;
+}
+
+.header-headline {
+	margin: 10px 0 0;
+
+	color: var(--white);
+	font-weight: 300;
+	font-size: 1.2rem;
+}
+
+.header-image {
+	height: 120px;
+	width: 120px;
+
+	border-radius: 50%;
+}
+
+.header-nav-list {
+	margin: 32px 0;
+	padding: 0;
+}
+
+.header-nav-list-item {
+	display: inline;
+
+	margin-right: 15px;
+}
+
+.header-nav-link {
+	padding: 8px 12px;
+
+	background: var(--primary);
+	color: var(--white);
+	text-decoration: none;
+	border-radius: 4px;
+	border: solid var(--white-darken-2) 1px;
+	outline: none;
+	font-size: 1.2rem;
+}
+.header-nav-link:focus,
+.header-nav-link:active,
+.header-nav-link:hover {
+	background: var(--dark-primary);
+	color: var(--white);
+}
+
+.card {
+	width: 90%;
+	max-width: 600px;
+
+	margin: -15px auto 52px;
+	padding: 12px 24px 24px;
+
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 8px;
+	background: var(--white);
+}
+
+.search-label {
+	font-size: 1.4rem;
+}
+
+.search-input {
+	width: 100%;
+
+	display: block;
+	margin-top: 12px;
+}
+
+.recent-posts-header {
+	font-weight: 400;
+	font-size: 1.4rem;
+}
+
+.recent-posts-list {
+	padding: 0;
+
+	list-style-type: none;
+}
+
+.recent-posts-list-item {
+	margin-top: 12px;
+}
+
+.recent-posts-list-item-link {
+	display: flex;
+	align-items: center;
+
+	text-decoration: none;
+}
+.recent-posts-list-item-link:focus {
+	outline: 1px var(--primary) dotted;
+}
+
+.recent-posts-list-item-image {
+	height: 100%;
+	flex-shrink: 0;
+}
+
+.recent-posts-list-item-details {
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+
+	padding-left: 8px;
+
+	overflow: hidden;
+}
+
+.recent-posts-list-item-title {
+	padding-top: 12px;
+	width: 100%;
+	height: calc(1.5rem + 12px);
+
+	color: var(--black-lighten-4);
+	font-size: 1.5rem;
+	font-weight: 400;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.recent-posts-list-item-description {
+	height: 2rem;
+	margin-top: 8px;
+
+	color: var(--black-lighten-2);
+	line-height: 1rem;
+	overflow: hidden;
+}
+.recent-posts-list-item-description:after {
+	content: "";
+	text-align: right;
+	position: absolute;
+	bottom: 1rem;
+	right: 0;
+	width: 60%;
+	height: 1rem;
+	background: linear-gradient(
+		to right,
+		rgba(255, 255, 255, 0),
+		rgba(255, 255, 255, 1) 50%
+	);
+}

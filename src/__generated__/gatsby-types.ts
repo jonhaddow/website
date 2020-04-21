@@ -1776,7 +1776,6 @@ type SiteEdge = {
 enum SiteFieldsEnum {
   buildTime = 'buildTime',
   siteMetadata___title = 'siteMetadata.title',
-  siteMetadata___description = 'siteMetadata.description',
   siteMetadata___author = 'siteMetadata.author',
   port = 'port',
   host = 'host',
@@ -2069,6 +2068,8 @@ enum SitePageFieldsEnum {
   pluginCreator___resolve = 'pluginCreator.resolve',
   pluginCreator___name = 'pluginCreator.name',
   pluginCreator___version = 'pluginCreator.version',
+  pluginCreator___pluginOptions___google___families = 'pluginCreator.pluginOptions.google.families',
+  pluginCreator___pluginOptions___google___text = 'pluginCreator.pluginOptions.google.text',
   pluginCreator___pluginOptions___stages = 'pluginCreator.pluginOptions.stages',
   pluginCreator___pluginOptions___options___emitWarning = 'pluginCreator.pluginOptions.options.emitWarning',
   pluginCreator___pluginOptions___options___failOnError = 'pluginCreator.pluginOptions.options.failOnError',
@@ -2267,6 +2268,8 @@ enum SitePluginFieldsEnum {
   resolve = 'resolve',
   name = 'name',
   version = 'version',
+  pluginOptions___google___families = 'pluginOptions.google.families',
+  pluginOptions___google___text = 'pluginOptions.google.text',
   pluginOptions___stages = 'pluginOptions.stages',
   pluginOptions___options___emitWarning = 'pluginOptions.options.emitWarning',
   pluginOptions___options___failOnError = 'pluginOptions.options.failOnError',
@@ -2392,6 +2395,7 @@ type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 };
 
 type SitePluginPluginOptions = {
+  readonly google: Maybe<SitePluginPluginOptionsGoogle>;
   readonly stages: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly options: Maybe<SitePluginPluginOptionsOptions>;
   readonly name: Maybe<Scalars['String']>;
@@ -2406,6 +2410,7 @@ type SitePluginPluginOptions = {
 };
 
 type SitePluginPluginOptionsFilterInput = {
+  readonly google: Maybe<SitePluginPluginOptionsGoogleFilterInput>;
   readonly stages: Maybe<StringQueryOperatorInput>;
   readonly options: Maybe<SitePluginPluginOptionsOptionsFilterInput>;
   readonly name: Maybe<StringQueryOperatorInput>;
@@ -2417,6 +2422,16 @@ type SitePluginPluginOptionsFilterInput = {
   readonly display: Maybe<StringQueryOperatorInput>;
   readonly icon: Maybe<StringQueryOperatorInput>;
   readonly pathCheck: Maybe<BooleanQueryOperatorInput>;
+};
+
+type SitePluginPluginOptionsGoogle = {
+  readonly families: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+  readonly text: Maybe<Scalars['String']>;
+};
+
+type SitePluginPluginOptionsGoogleFilterInput = {
+  readonly families: Maybe<StringQueryOperatorInput>;
+  readonly text: Maybe<StringQueryOperatorInput>;
 };
 
 type SitePluginPluginOptionsOptions = {
@@ -2436,13 +2451,11 @@ type SitePluginSortInput = {
 
 type SiteSiteMetadata = {
   readonly title: Maybe<Scalars['String']>;
-  readonly description: Maybe<Scalars['String']>;
   readonly author: Maybe<Scalars['String']>;
 };
 
 type SiteSiteMetadataFilterInput = {
   readonly title: Maybe<StringQueryOperatorInput>;
-  readonly description: Maybe<StringQueryOperatorInput>;
   readonly author: Maybe<StringQueryOperatorInput>;
 };
 
@@ -2473,12 +2486,19 @@ type Unnamed_1_Query = { readonly placeholderImage: Maybe<{ readonly childImageS
 type SiteTitleQueryQueryVariables = {};
 
 
-type SiteTitleQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
+type SiteTitleQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly placeholderImage: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> };
 
 type Unnamed_2_QueryVariables = {};
 
 
-type Unnamed_2_Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
+type Unnamed_2_Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'author'>> }> };
+
+type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type homejonhaddowcodewebsitesrcpagesindexTsx1434504150QueryVariables = {};
+
+
+type homejonhaddowcodewebsitesrcpagesindexTsx1434504150Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly placeholderImage: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
@@ -2491,8 +2511,6 @@ type GatsbyImageSharpFixed_withWebp_tracedSVGFragment = Pick<ImageSharpFixed, 't
 type GatsbyImageSharpFixed_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet'>;
 
 type GatsbyImageSharpFixed_withWebp_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
-
-type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpFluid_tracedSVGFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 

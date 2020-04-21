@@ -31,7 +31,6 @@ const SEO: React.FC<SEOProps> = ({
 				site {
 					siteMetadata {
 						title
-						description
 						author
 					}
 				}
@@ -39,7 +38,7 @@ const SEO: React.FC<SEOProps> = ({
 		`
 	);
 
-	const metaDescription = description || site?.siteMetadata?.description;
+	const metaDescription = description;
 
 	return (
 		<Helmet

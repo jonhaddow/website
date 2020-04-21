@@ -1,12 +1,21 @@
 module.exports = {
 	siteMetadata: {
-		title: `Haddow.me`,
-		description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-		author: `@gatsbyjs`,
+		title: `Jon Haddow`,
+		author: `Jon Haddow`,
 	},
 	plugins: [
 		"gatsby-plugin-typescript",
 		"gatsby-plugin-typescript-checker",
+		"gatsby-plugin-css-modules-typings",
+		{
+			resolve: "gatsby-plugin-web-font-loader",
+			options: {
+				google: {
+					families: ["Nunito:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700"],
+					text: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+				},
+			},
+		},
 		"gatsby-plugin-typegen",
 		{
 			resolve: "gatsby-plugin-eslint",
