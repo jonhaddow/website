@@ -28,31 +28,31 @@ const IndexPage: React.FC = () => {
 		<Layout>
 			<SEO title="Home" />
 			<header className={styles.header}>
-				<div className={styles.headerContent}>
-					<div className={styles.headerTop}>
+				<div className={styles.headerTop}>
+					<div className={styles.headerTopContent}>
 						<div className={styles.headerInfo}>
 							<h1 className={styles.headerTitle}>Jon Haddow</h1>
 							<p className={styles.headerHeadline}>Software Engineer</p>
+							<nav>
+								<ul className={styles.headerNavList}>
+									<li className={styles.headerNavListItem}>
+										<Link className={styles.headerNavLink} to="/about">
+											About
+										</Link>
+									</li>
+									<li className={styles.headerNavListItem}>
+										<Link className={styles.headerNavLink} to="/blog">
+											Blog
+										</Link>
+									</li>
+								</ul>
+							</nav>
 						</div>
 						<Img
 							className={styles.headerImage}
 							fluid={data.placeholderImage?.childImageSharp?.fluid}
 						/>
 					</div>
-					<nav>
-						<ul className={styles.headerNavList}>
-							<li className={styles.headerNavListItem}>
-								<Link className={styles.headerNavLink} to="/about">
-									About
-								</Link>
-							</li>
-							<li className={styles.headerNavListItem}>
-								<Link className={styles.headerNavLink} to="/blog">
-									Blog
-								</Link>
-							</li>
-						</ul>
-					</nav>
 				</div>
 			</header>
 			<form className={styles.card}>
@@ -66,11 +66,6 @@ const IndexPage: React.FC = () => {
 				<ul className={styles.recentPostsList}>
 					<li className={styles.recentPostsListItem}>
 						<Link className={styles.recentPostsListItemLink} to="/blog/1">
-							<img
-								className={styles.recentPostsListItemImage}
-								src="https://via.placeholder.com/64"
-								alt=""
-							/>
 							<div className={styles.recentPostsListItemDetails}>
 								<strong className={styles.recentPostsListItemTitle}>
 									Libero facere eligendi Libero facere eligendi Libero facere
@@ -86,11 +81,6 @@ const IndexPage: React.FC = () => {
 					</li>
 					<li className={styles.recentPostsListItem}>
 						<Link className={styles.recentPostsListItemLink} to="/blog/2">
-							<img
-								className={styles.recentPostsListItemImage}
-								src="https://via.placeholder.com/64"
-								alt=""
-							/>
 							<div className={styles.recentPostsListItemDetails}>
 								<strong className={styles.recentPostsListItemTitle}>
 									Libero facere eligendi

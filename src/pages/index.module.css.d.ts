@@ -1,6 +1,6 @@
 export const header: string;
-export const headerContent: string;
 export const headerTop: string;
+export const headerTopContent: string;
 export const headerInfo: string;
 export const headerTitle: string;
 export const headerHeadline: string;
@@ -15,7 +15,6 @@ export const recentPostsHeader: string;
 export const recentPostsList: string;
 export const recentPostsListItem: string;
 export const recentPostsListItemLink: string;
-export const recentPostsListItemImage: string;
 export const recentPostsListItemDetails: string;
 export const recentPostsListItemTitle: string;
 export const recentPostsListItemDescription: string;
