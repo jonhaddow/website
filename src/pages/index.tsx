@@ -6,6 +6,7 @@ import styles from "./index.module.css";
 
 import SEO from "../components/seo";
 import Layout from "../components/layout";
+import { Card } from "../components";
 
 const IndexPage: React.FC = () => {
 	const data = useStaticQuery<GatsbyTypes.SiteTitleQueryQuery>(graphql`
@@ -55,13 +56,15 @@ const IndexPage: React.FC = () => {
 					</div>
 				</div>
 			</header>
-			<form className={styles.card}>
-				<label className={styles.searchLabel} htmlFor="searchPosts">
-					Search posts
-				</label>
-				<input className={styles.searchInput} id="searchPosts" />
-			</form>
-			<section className={styles.card}>
+			<Card className={styles.card}>
+				<form>
+					<label className={styles.searchLabel} htmlFor="searchPosts">
+						Search posts
+					</label>
+					<input className={styles.searchInput} id="searchPosts" />
+				</form>
+			</Card>
+			<Card className={styles.card}>
 				<h2 className={styles.recentPostsHeader}>Recent posts</h2>
 				<ul className={styles.recentPostsList}>
 					<li className={styles.recentPostsListItem}>
@@ -92,7 +95,7 @@ const IndexPage: React.FC = () => {
 						</Link>
 					</li>
 				</ul>
-			</section>
+			</Card>
 		</Layout>
 	);
 };
