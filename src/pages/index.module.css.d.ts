@@ -17,3 +17,4 @@ export const recentPostsListItemLink: string;
 export const recentPostsListItemDetails: string;
 export const recentPostsListItemTitle: string;
 export const recentPostsListItemDescription: string;
+export const recentPostsViewMore: string;

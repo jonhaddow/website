@@ -175,9 +175,21 @@
 	font-size: 1.5rem;
 	font-weight: 400;
 }
+.recent-posts-list-item-link:hover .recent-posts-list-item-title {
+	text-decoration: underline;
+}
 
 .recent-posts-list-item-description {
 	margin-top: 8px;
 
 	color: var(--black-lighten-2);
+}
+
+.recent-posts-view-more {
+	color: var(--primary);
+	text-decoration: none;
+}
+
+.recent-posts-view-more:hover {
+	text-decoration: underline;
 }

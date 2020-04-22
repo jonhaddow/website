@@ -93,6 +93,9 @@ const IndexPage: React.FC = () => {
 						</Link>
 					</li>
 				</ul>
+				<Link className={styles.recentPostsViewMore} to="/blog">
+					View all posts
+				</Link>
 			</Card>
 		</Layout>
 	);
