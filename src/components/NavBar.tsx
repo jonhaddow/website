@@ -46,18 +46,16 @@ export const NavBar: React.FC<NavBarProps> = ({ showProfileImage }) => {
 
 	return (
 		<nav className={styles.nav}>
-			{showProfileImage && (
-				<Img
-					className={styles.nav__image}
-					fluid={data.placeholderImage?.childImageSharp?.fluid}
-					alt=""
-				/>
-			)}
-			<h1 className={styles.nav__title}>
-				<Link to="/" className={styles.nav__titleLink}>
-					{data.site?.siteMetadata?.title}
-				</Link>
-			</h1>
+			<Link to="/" className={styles.nav__titleLink}>
+				{showProfileImage && (
+					<Img
+						className={styles.nav__image}
+						fluid={data.placeholderImage?.childImageSharp?.fluid}
+						alt=""
+					/>
+				)}
+				<h1 className={styles.nav__title}>{data.site?.siteMetadata?.title}</h1>
+			</Link>
 			<ul className={styles.nav__list}>
 				{navItems.map((navItem) => (
 					<li key={navItem.link} className={styles.nav__listItem}>

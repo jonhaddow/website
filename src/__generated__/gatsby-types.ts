@@ -2069,7 +2069,6 @@ enum SitePageFieldsEnum {
   pluginCreator___name = 'pluginCreator.name',
   pluginCreator___version = 'pluginCreator.version',
   pluginCreator___pluginOptions___google___families = 'pluginCreator.pluginOptions.google.families',
-  pluginCreator___pluginOptions___google___text = 'pluginCreator.pluginOptions.google.text',
   pluginCreator___pluginOptions___stages = 'pluginCreator.pluginOptions.stages',
   pluginCreator___pluginOptions___options___emitWarning = 'pluginCreator.pluginOptions.options.emitWarning',
   pluginCreator___pluginOptions___options___failOnError = 'pluginCreator.pluginOptions.options.failOnError',
@@ -2269,7 +2268,6 @@ enum SitePluginFieldsEnum {
   name = 'name',
   version = 'version',
   pluginOptions___google___families = 'pluginOptions.google.families',
-  pluginOptions___google___text = 'pluginOptions.google.text',
   pluginOptions___stages = 'pluginOptions.stages',
   pluginOptions___options___emitWarning = 'pluginOptions.options.emitWarning',
   pluginOptions___options___failOnError = 'pluginOptions.options.failOnError',
@@ -2426,12 +2424,10 @@ type SitePluginPluginOptionsFilterInput = {
 
 type SitePluginPluginOptionsGoogle = {
   readonly families: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
-  readonly text: Maybe<Scalars['String']>;
 };
 
 type SitePluginPluginOptionsGoogleFilterInput = {
   readonly families: Maybe<StringQueryOperatorInput>;
-  readonly text: Maybe<StringQueryOperatorInput>;
 };
 
 type SitePluginPluginOptionsOptions = {
