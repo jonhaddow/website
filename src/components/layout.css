@@ -38,6 +38,7 @@
 body {
 	margin: 0;
 	font-family: var(--font-family);
+	background: var(--white-darken-3);
 }
 
 html {

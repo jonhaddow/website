@@ -1,6 +1,5 @@
 export const header: string;
-export const headerTop: string;
-export const headerTopContent: string;
+export const headerContent: string;
 export const headerInfo: string;
 export const headerTitle: string;
 export const headerHeadline: string;

@@ -29,31 +29,29 @@ const IndexPage: React.FC = () => {
 		<Layout>
 			<SEO title="Home" />
 			<header className={styles.header}>
-				<div className={styles.headerTop}>
-					<div className={styles.headerTopContent}>
-						<div className={styles.headerInfo}>
-							<h1 className={styles.headerTitle}>Jon Haddow</h1>
-							<p className={styles.headerHeadline}>Software Engineer</p>
-							<nav>
-								<ul className={styles.headerNavList}>
-									<li className={styles.headerNavListItem}>
-										<Link className={styles.headerNavLink} to="/about">
-											About
-										</Link>
-									</li>
-									<li className={styles.headerNavListItem}>
-										<Link className={styles.headerNavLink} to="/blog">
-											Blog
-										</Link>
-									</li>
-								</ul>
-							</nav>
-						</div>
-						<Img
-							className={styles.headerImage}
-							fluid={data.placeholderImage?.childImageSharp?.fluid}
-						/>
+				<div className={styles.headerContent}>
+					<div className={styles.headerInfo}>
+						<h1 className={styles.headerTitle}>Jon Haddow</h1>
+						<p className={styles.headerHeadline}>Software Engineer</p>
+						<nav>
+							<ul className={styles.headerNavList}>
+								<li className={styles.headerNavListItem}>
+									<Link className={styles.headerNavLink} to="/about">
+										About
+									</Link>
+								</li>
+								<li className={styles.headerNavListItem}>
+									<Link className={styles.headerNavLink} to="/blog">
+										Blog
+									</Link>
+								</li>
+							</ul>
+						</nav>
 					</div>
+					<Img
+						className={styles.headerImage}
+						fluid={data.placeholderImage?.childImageSharp?.fluid}
+					/>
 				</div>
 			</header>
 			<Card className={styles.card}>
