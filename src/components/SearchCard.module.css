@@ -1,0 +1,17 @@
+.card {
+	width: 90%;
+	max-width: 700px;
+
+	margin: -32px auto 64px;
+}
+
+.search-label {
+	font-size: 1.4rem;
+}
+
+.search-input {
+	width: 100%;
+
+	display: block;
+	margin-top: 12px;
+}

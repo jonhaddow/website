@@ -19,7 +19,7 @@ interface SEOProps {
 	title: string;
 }
 
-const SEO: React.FC<SEOProps> = ({
+export const SEO: React.FC<SEOProps> = ({
 	description,
 	lang = "en",
 	meta = [],
@@ -84,5 +84,3 @@ const SEO: React.FC<SEOProps> = ({
 		/>
 	);
 };
-
-export default SEO;

@@ -7,8 +7,7 @@
 }
 
 .nav__image {
-	height: 45px;
-	width: 45px;
+	width: 64px;
 
 	border-radius: 50%;
 }
@@ -18,12 +17,14 @@
 
 	margin: 0;
 	padding-left: 15px;
+
+	font-weight: 300;
 }
 
 .nav__title-link {
 	color: var(--white);
 	text-decoration: none;
-	font-size: 2rem;
+	font-size: 1.6rem;
 }
 
 .nav__list {

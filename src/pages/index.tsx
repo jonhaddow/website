@@ -4,9 +4,7 @@ import Img from "gatsby-image";
 
 import styles from "./index.module.css";
 
-import SEO from "../components/seo";
-import Layout from "../components/layout";
-import { Card } from "../components";
+import { Card, Layout, SEO } from "../components";
 
 const IndexPage: React.FC = () => {
 	const data = useStaticQuery<GatsbyTypes.SiteTitleQueryQuery>(graphql`

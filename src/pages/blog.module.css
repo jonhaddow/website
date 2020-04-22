@@ -1,0 +1,9 @@
+.header-title {
+	width: 600px;
+	margin: 0 auto;
+	padding-bottom: 64px;
+
+	font-weight: 700;
+	font-size: 3rem;
+	color: var(--white);
+}

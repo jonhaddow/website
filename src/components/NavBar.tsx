@@ -25,11 +25,6 @@ export const NavBar: React.FC<NavBarProps> = ({ showProfileImage }) => {
 			text: "Blog",
 			active: false,
 		},
-		{
-			link: "/contact",
-			text: "Contact",
-			active: true,
-		},
 	];
 
 	const data = useStaticQuery<GatsbyTypes.SiteTitleQueryQuery>(graphql`
@@ -52,7 +47,11 @@ export const NavBar: React.FC<NavBarProps> = ({ showProfileImage }) => {
 	return (
 		<nav className={styles.nav}>
 			{showProfileImage && (
-				<Img fluid={data.placeholderImage?.childImageSharp?.fluid} alt="" />
+				<Img
+					className={styles.nav__image}
+					fluid={data.placeholderImage?.childImageSharp?.fluid}
+					alt=""
+				/>
 			)}
 			<h1 className={styles.nav__title}>
 				<Link to="/" className={styles.nav__titleLink}>

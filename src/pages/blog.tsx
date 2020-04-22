@@ -1,15 +1,19 @@
 import React from "react";
-import { Link } from "gatsby";
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
+import { Card, Layout, NavBar, Header, SEO, SearchCard } from "../components";
+
+import styles from "./blog.module.css";
 
 const Blog: React.FC = () => (
-	<Layout withHeader>
+	<Layout>
+		<SEO title="Blog" />
+		<Header>
+			<NavBar showProfileImage />
+			<h2 className={styles.headerTitle}>Blog</h2>
+		</Header>
 		<main>
-			<SEO title="Blog" />
-			<h1>Blog Posts</h1>
-			<Link to="/">Go back to the homepage</Link>
+			<SearchCard />
+			<Card></Card>
 		</main>
 	</Layout>
 );
