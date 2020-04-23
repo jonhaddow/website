@@ -25,9 +25,9 @@ export const SEO: React.FC<SEOProps> = ({
 	meta = [],
 	title,
 }) => {
-	const { site } = useStaticQuery<GatsbyTypes.Query>(
+	const { site } = useStaticQuery<GatsbyTypes.SEOQuery>(
 		graphql`
-			query {
+			query SEO {
 				site {
 					siteMetadata {
 						title

@@ -2,8 +2,12 @@ import React from "react";
 import { Card } from ".";
 import styles from "./SearchCard.module.css";
 
-export const SearchCard: React.FC = () => (
-	<Card className={styles.card}>
+interface SearchCardProps {
+	className?: string;
+}
+
+export const SearchCard: React.FC<SearchCardProps> = ({ className = "" }) => (
+	<Card className={`${styles.card} ${className}`}>
 		<form>
 			<label className={styles.searchLabel} htmlFor="searchPosts">
 				Search posts

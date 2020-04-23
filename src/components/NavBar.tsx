@@ -9,11 +9,7 @@ interface NavItem {
 	active: boolean;
 }
 
-interface NavBarProps {
-	showProfileImage?: boolean;
-}
-
-export const NavBar: React.FC<NavBarProps> = ({ showProfileImage }) => {
+export const NavBar: React.FC = () => {
 	const navItems: NavItem[] = [
 		{
 			link: "/about",
@@ -27,8 +23,8 @@ export const NavBar: React.FC<NavBarProps> = ({ showProfileImage }) => {
 		},
 	];
 
-	const data = useStaticQuery<GatsbyTypes.SiteTitleQueryQuery>(graphql`
-		query SiteTitleQuery {
+	const data = useStaticQuery<GatsbyTypes.NavBarQuery>(graphql`
+		query NavBar {
 			site {
 				siteMetadata {
 					title
@@ -47,13 +43,11 @@ export const NavBar: React.FC<NavBarProps> = ({ showProfileImage }) => {
 	return (
 		<nav className={styles.nav}>
 			<Link to="/" className={styles.nav__titleLink}>
-				{showProfileImage && (
-					<Img
-						className={styles.nav__image}
-						fluid={data.placeholderImage?.childImageSharp?.fluid}
-						alt=""
-					/>
-				)}
+				<Img
+					className={styles.nav__image}
+					fluid={data.placeholderImage?.childImageSharp?.fluid}
+					alt=""
+				/>
 				<h1 className={styles.nav__title}>{data.site?.siteMetadata?.title}</h1>
 			</Link>
 			<ul className={styles.nav__list}>
