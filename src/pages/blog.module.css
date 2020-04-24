@@ -11,7 +11,7 @@
 	list-style: none;
 }
 
-@media screen and (min-width: 720px) {
+@media (--desktop) {
 	.post-list {
 		width: 100%;
 	}
@@ -22,7 +22,7 @@
 	margin: 32px 0 0;
 }
 
-@media screen and (min-width: 720px) {
+@media (--desktop) {
 	.post-list-item {
 		max-width: 400px;
 		margin: 32px 32px 0;
@@ -37,10 +37,10 @@
 	text-decoration: none;
 	color: var(--black);
 	outline: none;
-}
 
-.post-link:focus {
-	outline: 0 2px 4px var(--dark-primary);
+	&:focus {
+		outline: 0 2px 4px var(--dark-primary);
+	}
 }
 
 .post-title {

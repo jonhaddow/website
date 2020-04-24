@@ -20,7 +20,7 @@
 	display: none;
 }
 
-@media screen and (min-width: 720px) {
+@media (--desktop) {
 	.nav__title {
 		display: initial;
 
@@ -29,15 +29,6 @@
 
 		font-weight: 300;
 		font-size: 1.6rem;
-	}
-
-	.nav__title-link {
-		display: flex;
-		align-items: center;
-		flex-shrink: 0;
-
-		color: var(--white);
-		text-decoration: none;
 	}
 }
 
@@ -60,6 +51,17 @@
 .nav__link {
 	color: var(--white-darken-1);
 	text-decoration: none;
+}
+
+@media (--desktop) {
+	.nav__title-link {
+		display: flex;
+		align-items: center;
+		flex-shrink: 0;
+
+		color: var(--white);
+		text-decoration: none;
+	}
 }
 
 .nav__link__active {

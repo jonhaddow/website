@@ -59,6 +59,17 @@ module.exports = {
 			},
 		},
 		{
+			resolve: `gatsby-plugin-postcss`,
+			options: {
+				postCssPlugins: [
+					require("autoprefixer"),
+					require("postcss-preset-env")({
+						stage: 0,
+					}),
+				],
+			},
+		},
+		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
 				name: `gatsby-starter-default`,

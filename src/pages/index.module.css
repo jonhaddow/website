@@ -20,7 +20,7 @@
 	padding: 16px;
 }
 
-@media screen and (min-width: 720px) {
+@media (--desktop) {
 	.header-content {
 		flex-direction: row;
 	}
@@ -31,7 +31,7 @@
 	flex-direction: column;
 }
 
-@media screen and (min-width: 720px) {
+@media (--desktop) {
 	.header-info {
 		margin-right: 32px;
 	}
@@ -45,7 +45,7 @@
 	text-align: center;
 }
 
-@media screen and (min-width: 720px) {
+@media (--desktop) {
 	.header-title {
 		text-align: left;
 	}
@@ -60,7 +60,7 @@
 	text-align: center;
 }
 
-@media screen and (min-width: 720px) {
+@media (--desktop) {
 	.header-headline {
 		text-align: left;
 	}
@@ -82,7 +82,7 @@
 	padding: 0 8px;
 }
 
-@media screen and (min-width: 720px) {
+@media (--desktop) {
 	.header-nav-list {
 		justify-content: start;
 		padding: 0;
@@ -93,10 +93,10 @@
 	display: inline;
 
 	margin-right: 16px;
-}
 
-.header-nav-list-item:last-child {
-	margin-right: 0;
+	&:last-child {
+		margin-right: 0;
+	}
 }
 
 .header-nav-link {
@@ -109,12 +109,13 @@
 	border: solid var(--white-darken-2) 1px;
 	outline: none;
 	font-size: 1.2rem;
-}
-.header-nav-link:focus,
-.header-nav-link:active,
-.header-nav-link:hover {
-	background: var(--dark-primary);
-	color: var(--white);
+
+	&:focus,
+	&:active,
+	&:hover {
+		background: var(--dark-primary);
+		color: var(--white);
+	}
 }
 
 .card {
@@ -122,17 +123,6 @@
 	max-width: 700px;
 
 	margin: -32px auto 64px;
-}
-
-.search-label {
-	font-size: 1.4rem;
-}
-
-.search-input {
-	width: 100%;
-
-	display: block;
-	margin-top: 12px;
 }
 
 .recent-posts-header {
@@ -155,9 +145,13 @@
 	align-items: center;
 
 	text-decoration: none;
-}
-.recent-posts-list-item-link:focus {
-	outline: 1px var(--primary) dotted;
+
+	&:focus {
+		outline: 1px var(--primary) dotted;
+	}
+	&:hover .recent-posts-list-item-title {
+		text-decoration: underline;
+	}
 }
 
 .recent-posts-list-item-details {
@@ -175,9 +169,6 @@
 	font-size: 1.5rem;
 	font-weight: 400;
 }
-.recent-posts-list-item-link:hover .recent-posts-list-item-title {
-	text-decoration: underline;
-}
 
 .recent-posts-list-item-description {
 	margin-top: 8px;
@@ -188,8 +179,8 @@
 .recent-posts-view-more {
 	color: var(--primary);
 	text-decoration: none;
-}
 
-.recent-posts-view-more:hover {
-	text-decoration: underline;
+	&:hover {
+		text-decoration: underline;
+	}
 }

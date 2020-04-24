@@ -35,6 +35,8 @@
 	--font-family: "Nunito", sans-serif;
 }
 
+@custom-media --desktop (width >= 720px);
+
 body {
 	margin: 0;
 	font-family: var(--font-family);
