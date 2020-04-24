@@ -12,6 +12,7 @@ import {
 
 import styles from "./blog.module.css";
 import { Link, graphql } from "gatsby";
+import Img from "gatsby-image";
 
 interface BlogProps {
 	data: GatsbyTypes.BlogQuery;
@@ -44,10 +45,11 @@ const Blog: React.FC<BlogProps> = ({ data }) => (
 								<p className={styles.postDescription}>
 									{node.frontmatter?.abstract}
 								</p>
-								<img
+								<Img
 									className={styles.postImage}
-									src="https://via.placeholder.com/1500"
-									alt=""
+									fluid={
+										node.frontmatter?.featuredImage?.childImageSharp?.fluid
+									}
 								/>
 							</Card>
 						</Link>
@@ -69,6 +71,13 @@ export const query = graphql`
 					frontmatter {
 						title
 						abstract
+						featuredImage {
+							childImageSharp {
+								fluid(maxWidth: 400) {
+									...GatsbyImageSharpFluid
+								}
+							}
+						}
 						date(formatString: "MMMM DD, YYYY")
 					}
 					fields {

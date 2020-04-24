@@ -1,7 +1,8 @@
 ---
-title: "My first blog post"
-abstract: "This is a story all about how..."
-date: "2019-05-04"
+title: My first blog post
+abstract: This is a story all about how...
+featuredImage: ../images/gatsby-astronaut.png
+date: 2019-05-04
 ---
 
 # My blog Title
@@ -16,6 +17,9 @@ Here is a list:
 > Here is a quote.
 
 `This is an inline code snippet`
+
+Here is an image:
+![Test image](../images/gatsby-astronaut.png)
 
 ```
 This is multi-line code;
