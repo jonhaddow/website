@@ -31,15 +31,12 @@
 	--black-lighten-2: #434343;
 	--black-lighten-3: #555555;
 	--black-lighten-4: #7b7b7b;
-
-	--font-family: "Nunito", sans-serif;
 }
 
 @custom-media --desktop (width >= 720px);
 
 body {
 	margin: 0;
-	font-family: var(--font-family);
 	background: var(--white-darken-3);
 }
 

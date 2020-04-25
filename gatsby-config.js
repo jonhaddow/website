@@ -6,7 +6,6 @@ module.exports = {
 	plugins: [
 		"gatsby-plugin-typescript",
 		"gatsby-plugin-typescript-checker",
-		"gatsby-plugin-css-modules-typings",
 		{
 			resolve: "gatsby-plugin-web-font-loader",
 			options: {
@@ -55,6 +54,7 @@ module.exports = {
 							maxWidth: 800,
 						},
 					},
+					"gatsby-remark-emoji",
 				],
 			},
 		},
@@ -69,6 +69,7 @@ module.exports = {
 				],
 			},
 		},
+		"gatsby-plugin-css-modules-typings",
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
@@ -79,6 +80,12 @@ module.exports = {
 				theme_color: `#663399`,
 				display: `minimal-ui`,
 				icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+			},
+		},
+		{
+			resolve: `gatsby-plugin-typography`,
+			options: {
+				pathToConfigModule: `src/utils/typography`,
 			},
 		},
 		// this (optional) plugin enables Progressive Web App + Offline functionality

@@ -1,5 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
+import { Layout, NavBar, Header, Title, Card } from "../components";
+
+import styles from "./post.module.css";
+
 interface PostProps {
 	data: GatsbyTypes.PostQuery;
 }
@@ -7,10 +11,15 @@ interface PostProps {
 const Post: React.FC<PostProps> = ({ data }) => {
 	const post = data.markdownRemark;
 	return (
-		<div>
-			<h1>{post?.frontmatter?.title}</h1>
-			<div dangerouslySetInnerHTML={{ __html: post?.html ?? "" }} />
-		</div>
+		<Layout>
+			<Header>
+				<NavBar />
+				<Title title={post?.frontmatter?.title ?? ""} />
+			</Header>
+			<Card className={styles.articleCard}>
+				<div dangerouslySetInnerHTML={{ __html: post?.html ?? "" }} />
+			</Card>
+		</Layout>
 	);
 };
 
