@@ -9,7 +9,7 @@ kirkhamTheme.plugins = [new codePlugin()];
 kirkhamTheme.googleFonts = [
 	{
 		name: "Bree Serif",
-		styles: ["400"],
+		styles: ["400", "700"],
 	},
 	{
 		name: "Fira Sans",
@@ -17,7 +17,7 @@ kirkhamTheme.googleFonts = [
 	},
 ];
 kirkhamTheme.headerFontFamily = ["Bree Serif", "serif"];
-kirkhamTheme.headerWeight = 400;
+kirkhamTheme.headerWeight = 700;
 kirkhamTheme.bodyFontFamily = ["Fira Sans", "sans-serif"];
 
 const typography = new Typography(kirkhamTheme);
