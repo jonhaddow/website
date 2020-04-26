@@ -62,9 +62,9 @@ module.exports = {
 			resolve: `gatsby-plugin-postcss`,
 			options: {
 				postCssPlugins: [
-					require("autoprefixer"),
 					require("postcss-preset-env")({
 						stage: 0,
+						importFrom: "./src/utils/custom-media-queries.css",
 					}),
 				],
 			},

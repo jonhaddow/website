@@ -31,9 +31,10 @@
 	--black-lighten-2: #434343;
 	--black-lighten-3: #555555;
 	--black-lighten-4: #7b7b7b;
-}
 
-@custom-media --desktop (width >= 720px);
+	--serif-font: "Bree Serif", serif;
+	--sans-serif-font: "Fira Sans", sans-serif;
+}
 
 body {
 	margin: 0;
@@ -47,4 +48,10 @@ html {
 *:before,
 *:after {
 	box-sizing: inherit;
+}
+
+blockquote {
+	padding-left: 0.75rem;
+	margin-left: 0.75rem;
+	border-left: solid var(--white-darken-4) 3px;
 }
