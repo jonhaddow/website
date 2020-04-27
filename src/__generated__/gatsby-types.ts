@@ -733,6 +733,7 @@ enum FileFieldsEnum {
   childMarkdownRemark___excerpt = 'childMarkdownRemark.excerpt',
   childMarkdownRemark___rawMarkdownBody = 'childMarkdownRemark.rawMarkdownBody',
   childMarkdownRemark___fileAbsolutePath = 'childMarkdownRemark.fileAbsolutePath',
+  childMarkdownRemark___fields___type = 'childMarkdownRemark.fields.type',
   childMarkdownRemark___fields___slug = 'childMarkdownRemark.fields.slug',
   childMarkdownRemark___html = 'childMarkdownRemark.html',
   childMarkdownRemark___htmlAst = 'childMarkdownRemark.htmlAst',
@@ -1498,6 +1499,7 @@ type MarkdownRemarkEdge = {
 };
 
 type MarkdownRemarkFields = {
+  readonly type: Maybe<Scalars['String']>;
   readonly slug: Maybe<Scalars['String']>;
 };
 
@@ -1570,6 +1572,7 @@ enum MarkdownRemarkFieldsEnum {
   excerpt = 'excerpt',
   rawMarkdownBody = 'rawMarkdownBody',
   fileAbsolutePath = 'fileAbsolutePath',
+  fields___type = 'fields.type',
   fields___slug = 'fields.slug',
   html = 'html',
   htmlAst = 'htmlAst',
@@ -1670,6 +1673,7 @@ enum MarkdownRemarkFieldsEnum {
 }
 
 type MarkdownRemarkFieldsFilterInput = {
+  readonly type: Maybe<StringQueryOperatorInput>;
   readonly slug: Maybe<StringQueryOperatorInput>;
 };
 
@@ -3021,11 +3025,6 @@ type StringQueryOperatorInput = {
   readonly glob: Maybe<Scalars['String']>;
 };
 
-type ImageQueryVariables = {};
-
-
-type ImageQuery = { readonly placeholderImage: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> };
-
 type NavBarQueryVariables = {};
 
 
@@ -3038,6 +3037,24 @@ type SEOQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteS
 
 type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
+type HomeQueryVariables = {};
+
+
+type HomeQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly placeholderImage: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }>, readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: (
+        Pick<MarkdownRemark, 'id'>
+        & { readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'abstract' | 'date'>>, readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>> }
+      ) }> } };
+
+type ArticleQueryVariables = {
+  slug: Scalars['String'];
+};
+
+
+type ArticleQuery = { readonly markdownRemark: Maybe<(
+    Pick<MarkdownRemark, 'html'>
+    & { readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title'>> }
+  )> };
+
 type BlogQueryVariables = {};
 
 
@@ -3048,24 +3065,6 @@ type BlogQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{
           & { readonly featuredImage: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
         )>, readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>> }
       ) }> } };
-
-type HomeQueryVariables = {};
-
-
-type HomeQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly placeholderImage: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }>, readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: (
-        Pick<MarkdownRemark, 'id'>
-        & { readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'abstract' | 'date'>>, readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>> }
-      ) }> } };
-
-type PostQueryVariables = {
-  slug: Scalars['String'];
-};
-
-
-type PostQuery = { readonly markdownRemark: Maybe<(
-    Pick<MarkdownRemark, 'html'>
-    & { readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title'>> }
-  )> };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 

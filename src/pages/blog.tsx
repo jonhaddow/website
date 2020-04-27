@@ -43,7 +43,10 @@ const Blog: React.FC<BlogProps> = ({ data }) => {
 				<ul className={styles.postList}>
 					{filteredPosts.map(({ node }) => (
 						<li key={node.id} className={styles.postListItem}>
-							<Link className={styles.postLink} to={node.fields?.slug ?? ""}>
+							<Link
+								className={styles.postLink}
+								to={`/blog/${node.fields?.slug}`}
+							>
 								<Card className={styles.postCard}>
 									<h3 className={styles.postTitle}>
 										{node.frontmatter?.title}
@@ -60,12 +63,14 @@ const Blog: React.FC<BlogProps> = ({ data }) => {
 									<p className={styles.postDescription}>
 										{node.frontmatter?.abstract}
 									</p>
-									<Img
-										className={styles.postImage}
-										fluid={
-											node.frontmatter?.featuredImage?.childImageSharp?.fluid
-										}
-									/>
+									{node.frontmatter?.featuredImage && (
+										<Img
+											className={styles.postImage}
+											fluid={
+												node.frontmatter?.featuredImage?.childImageSharp?.fluid
+											}
+										/>
+									)}
 								</Card>
 							</Link>
 						</li>
@@ -80,7 +85,7 @@ export default Blog;
 
 export const query = graphql`
 	query Blog {
-		allMarkdownRemark {
+		allMarkdownRemark(filter: { fields: { type: { eq: "posts" } } }) {
 			edges {
 				node {
 					id

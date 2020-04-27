@@ -2,13 +2,13 @@ import React from "react";
 import { graphql } from "gatsby";
 import { Layout, NavBar, Header, Title, Card } from "../components";
 
-import styles from "./post.module.css";
+import styles from "./article.module.css";
 
 interface PostProps {
-	data: GatsbyTypes.PostQuery;
+	data: GatsbyTypes.ArticleQuery;
 }
 
-const Post: React.FC<PostProps> = ({ data }) => {
+const Article: React.FC<PostProps> = ({ data }) => {
 	const post = data.markdownRemark;
 	return (
 		<Layout>
@@ -23,10 +23,10 @@ const Post: React.FC<PostProps> = ({ data }) => {
 	);
 };
 
-export default Post;
+export default Article;
 
 export const postQuery = graphql`
-	query Post($slug: String!) {
+	query Article($slug: String!) {
 		markdownRemark(fields: { slug: { eq: $slug } }) {
 			html
 			frontmatter {

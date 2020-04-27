@@ -47,7 +47,7 @@ const Home: React.FC<IndexProps> = ({ data }) => (
 					<li key={node.id} className={styles.recentPostsListItem}>
 						<Link
 							className={styles.recentPostsListItemLink}
-							to={node.fields?.slug ?? "/"}
+							to={`/blog/${node.fields?.slug}`}
 						>
 							<div className={styles.recentPostsListItemDetails}>
 								<strong className={styles.recentPostsListItemTitle}>
@@ -84,7 +84,11 @@ export const query = graphql`
 				}
 			}
 		}
-		allMarkdownRemark {
+		allMarkdownRemark(
+			limit: 3
+			sort: { order: DESC, fields: frontmatter___date }
+			filter: { fields: { type: { eq: "posts" } } }
+		) {
 			edges {
 				node {
 					id
