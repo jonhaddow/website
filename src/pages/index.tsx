@@ -47,7 +47,7 @@ const Home: React.FC<IndexProps> = ({ data }) => (
 					<li key={node.id} className={styles.recentPostsListItem}>
 						<Link
 							className={styles.recentPostsListItemLink}
-							to={node.fields?.slug ?? ""}
+							to={node.fields?.slug ?? "/"}
 						>
 							<div className={styles.recentPostsListItemDetails}>
 								<strong className={styles.recentPostsListItemTitle}>
