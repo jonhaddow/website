@@ -107,7 +107,6 @@
 	text-decoration: none;
 	border-radius: 4px;
 	border: solid var(--white-darken-2) 1px;
-	outline: none;
 	font-size: 1.2rem;
 
 	&:focus,
@@ -115,6 +114,7 @@
 	&:hover {
 		background: var(--dark-primary);
 		color: var(--white);
+		outline: none;
 	}
 }
 
@@ -138,37 +138,35 @@
 }
 
 .recent-posts-list-item {
-	margin-top: 12px;
+	padding: 16px 0;
 }
 
 .recent-posts-list-item-link {
-	display: flex;
-	align-items: center;
-
+	display: block;
+	height: 100%;
 	text-decoration: none;
 
-	&:focus {
-		outline: 1px var(--primary) dotted;
-	}
 	&:hover .recent-posts-list-item-title {
 		text-decoration: underline;
 	}
 }
 
-.recent-posts-list-item-details {
-	position: relative;
-
-	display: flex;
-	flex-direction: column;
-}
-
 .recent-posts-list-item-title {
-	padding-top: 12px;
-	width: 100%;
-
+	margin: 0;
+	padding: 12px 8px 0 0;
 	color: var(--black-lighten-2);
 	font-size: 1.5rem;
 	font-weight: 400;
+}
+
+.recent-posts-list-item-date {
+	display: block;
+	padding: 8px 0 8px;
+	height: 100%;
+	color: var(--black-lighten-4);
+	font-size: 0.8rem;
+	font-weight: 400;
+	font-family: var(--sans-serif-font);
 }
 
 .recent-posts-list-item-description {
@@ -181,7 +179,9 @@
 	color: var(--primary);
 	text-decoration: none;
 
-	&:hover {
+	&:hover,
+	&:focus,
+	&:active {
 		text-decoration: underline;
 	}
 }

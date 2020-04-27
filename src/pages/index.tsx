@@ -49,14 +49,15 @@ const Home: React.FC<IndexProps> = ({ data }) => (
 							className={styles.recentPostsListItemLink}
 							to={`/blog/${node.fields?.slug}`}
 						>
-							<div className={styles.recentPostsListItemDetails}>
-								<strong className={styles.recentPostsListItemTitle}>
-									{node.frontmatter?.title}
-								</strong>
-								<p className={styles.recentPostsListItemDescription}>
-									{node.frontmatter?.abstract}
-								</p>
-							</div>
+							<strong className={styles.recentPostsListItemTitle}>
+								{node.frontmatter?.title}
+							</strong>
+							<time className={styles.recentPostsListItemDate}>
+								{node.frontmatter?.date}
+							</time>
+							<p className={styles.recentPostsListItemDescription}>
+								{node.frontmatter?.abstract}
+							</p>
 						</Link>
 					</li>
 				))}
@@ -96,6 +97,13 @@ export const query = graphql`
 						title
 						abstract
 						date(formatString: "MMMM DD, YYYY")
+						featuredImage {
+							childImageSharp {
+								fluid(maxWidth: 400) {
+									...GatsbyImageSharpFluid
+								}
+							}
+						}
 					}
 					fields {
 						slug

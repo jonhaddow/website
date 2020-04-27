@@ -1,7 +1,7 @@
 ---
 title: My first blog post
 abstract: This is a story all about how...
-featuredImage: ../images/gatsby-astronaut.png
+featuredImage: ../images/gatsby-icon.png
 date: 2019-05-04
 ---
 

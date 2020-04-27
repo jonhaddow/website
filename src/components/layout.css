@@ -55,3 +55,9 @@ blockquote {
 	margin-left: 0.75rem;
 	border-left: solid var(--white-darken-4) 3px;
 }
+
+a {
+	&:focus {
+		outline: 2px var(--dark-primary) solid;
+	}
+}
