@@ -57,6 +57,7 @@ blockquote {
 }
 
 a {
+	color: var(--primary);
 	&:focus {
 		outline: 2px var(--dark-primary) solid;
 	}

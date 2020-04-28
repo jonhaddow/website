@@ -57,11 +57,12 @@
 
 .post-description {
 	margin: 0;
-	padding: 32px 48px;
+	padding: 12px 48px 24px;
 
 	font-weight: 400;
 	font-size: 1.2rem;
 	color: var(--black-lighten-4);
+	line-height: 1.6rem;
 }
 
 .post-image {

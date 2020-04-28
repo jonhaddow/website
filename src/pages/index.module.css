@@ -3,7 +3,7 @@
 	justify-content: center;
 	align-items: center;
 
-	padding: 48px 0;
+	padding: 48px 0 64px;
 
 	background: var(--primary);
 }
@@ -121,8 +121,11 @@
 .card {
 	width: 90%;
 	max-width: 700px;
+	margin: 0 auto 64px;
+}
 
-	margin: -32px auto 64px;
+.card.about-card {
+	margin-top: -64px;
 }
 
 .recent-posts-header {
@@ -161,7 +164,6 @@
 
 .recent-posts-list-item-date {
 	display: block;
-	padding: 8px 0 8px;
 	height: 100%;
 	color: var(--black-lighten-4);
 	font-size: 0.8rem;
@@ -175,8 +177,7 @@
 	color: var(--black-lighten-2);
 }
 
-.recent-posts-view-more {
-	color: var(--primary);
+.view-more {
 	text-decoration: none;
 
 	&:hover,

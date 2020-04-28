@@ -6,14 +6,6 @@ module.exports = {
 	plugins: [
 		"gatsby-plugin-typescript",
 		"gatsby-plugin-typescript-checker",
-		{
-			resolve: "gatsby-plugin-web-font-loader",
-			options: {
-				google: {
-					families: ["Nunito:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700"],
-				},
-			},
-		},
 		"gatsby-plugin-typegen",
 		{
 			resolve: "gatsby-plugin-eslint",

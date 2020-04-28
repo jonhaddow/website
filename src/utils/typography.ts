@@ -5,6 +5,7 @@ const codePlugin = require("typography-plugin-code").default;
 const kirkhamTheme = require("typography-theme-kirkham");
 
 kirkhamTheme.baseFontSize = "20px";
+kirkhamTheme.baseLineHeight = 1.8;
 kirkhamTheme.plugins = [new codePlugin()];
 kirkhamTheme.googleFonts = [
 	{

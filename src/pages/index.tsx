@@ -4,7 +4,7 @@ import Img from "gatsby-image";
 
 import styles from "./index.module.css";
 
-import { Card, Layout, SEO, SearchCard } from "../components";
+import { Card, Layout, SEO } from "../components";
 
 interface IndexProps {
 	data: GatsbyTypes.HomeQuery;
@@ -39,7 +39,15 @@ const Home: React.FC<IndexProps> = ({ data }) => (
 				/>
 			</div>
 		</header>
-		<SearchCard className={styles.card} />
+		<Card className={`${styles.card} ${styles.aboutCard}`}>
+			<p>
+				I am a full stack web engineer that builds quality, scalable web
+				applications. I work primarily with React, TypeScript and .NET.
+			</p>
+			<Link className={styles.viewMore} to="/about">
+				Read more
+			</Link>
+		</Card>
 		<Card className={styles.card}>
 			<h2 className={styles.recentPostsHeader}>Recent posts</h2>
 			<ul className={styles.recentPostsList}>
@@ -62,7 +70,7 @@ const Home: React.FC<IndexProps> = ({ data }) => (
 					</li>
 				))}
 			</ul>
-			<Link className={styles.recentPostsViewMore} to="/blog">
+			<Link className={styles.viewMore} to="/blog">
 				View all posts
 			</Link>
 		</Card>
