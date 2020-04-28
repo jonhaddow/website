@@ -1,0 +1,9 @@
+.header {
+	background: var(--primary);
+}
+
+.header a {
+	&:focus {
+		outline: 2px var(--white) solid;
+	}
+}

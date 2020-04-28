@@ -1,0 +1,188 @@
+.header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	padding: 48px 0 64px;
+
+	background: var(--primary);
+}
+
+.header-content {
+	width: 100%;
+	max-width: 450px;
+
+	display: flex;
+	flex-direction: column-reverse;
+	justify-content: space-between;
+	align-items: center;
+
+	padding: 16px;
+}
+
+@media (--desktop) {
+	.header-content {
+		flex-direction: row;
+	}
+}
+
+.header-info {
+	display: flex;
+	flex-direction: column;
+}
+
+@media (--desktop) {
+	.header-info {
+		margin-right: 32px;
+	}
+}
+
+.header-title {
+	margin: 24px 0 0;
+
+	color: var(--white);
+	font-size: 2rem;
+	text-align: center;
+}
+
+@media (--desktop) {
+	.header-title {
+		text-align: left;
+	}
+}
+
+.header-headline {
+	margin: 12px 0 0;
+
+	color: var(--white);
+	font-weight: 300;
+	font-size: 1.2rem;
+	text-align: center;
+}
+
+@media (--desktop) {
+	.header-headline {
+		text-align: left;
+	}
+}
+
+.header-image {
+	height: 140px;
+	width: 140px;
+
+	border-radius: 50%;
+}
+
+.header-nav-list {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	margin: 32px 0;
+	padding: 0 8px;
+}
+
+@media (--desktop) {
+	.header-nav-list {
+		justify-content: start;
+		padding: 0;
+	}
+}
+
+.header-nav-list-item {
+	display: inline;
+
+	margin-right: 16px;
+
+	&:last-child {
+		margin-right: 0;
+	}
+}
+
+.header-nav-link {
+	padding: 8px 12px;
+
+	background: var(--primary);
+	color: var(--white);
+	text-decoration: none;
+	border-radius: 4px;
+	border: solid var(--white-darken-2) 1px;
+	font-size: 1.2rem;
+
+	&:focus,
+	&:active,
+	&:hover {
+		background: var(--dark-primary);
+		color: var(--white);
+		outline: none;
+	}
+}
+
+.card {
+	width: 90%;
+	max-width: 700px;
+	margin: 0 auto 64px;
+}
+
+.card.about-card {
+	margin-top: -64px;
+}
+
+.recent-posts-header {
+	font-weight: 400;
+	font-size: 1.4rem;
+}
+
+.recent-posts-list {
+	padding: 0;
+	margin-left: 0;
+
+	list-style-type: none;
+}
+
+.recent-posts-list-item {
+	padding: 16px 0;
+}
+
+.recent-posts-list-item-link {
+	display: block;
+	height: 100%;
+	text-decoration: none;
+
+	&:hover .recent-posts-list-item-title {
+		text-decoration: underline;
+	}
+}
+
+.recent-posts-list-item-title {
+	margin: 0;
+	padding: 12px 8px 0 0;
+	color: var(--black-lighten-2);
+	font-size: 1.5rem;
+	font-weight: 400;
+}
+
+.recent-posts-list-item-date {
+	display: block;
+	height: 100%;
+	color: var(--black-lighten-4);
+	font-size: 0.8rem;
+	font-weight: 400;
+	font-family: var(--sans-serif-font);
+}
+
+.recent-posts-list-item-description {
+	margin-top: 8px;
+
+	color: var(--black-lighten-2);
+}
+
+.view-more {
+	text-decoration: none;
+
+	&:hover,
+	&:focus,
+	&:active {
+		text-decoration: underline;
+	}
+}

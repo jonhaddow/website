@@ -19,19 +19,18 @@ interface SEOProps {
 	title: string;
 }
 
-const SEO: React.FC<SEOProps> = ({
+export const SEO: React.FC<SEOProps> = ({
 	description,
 	lang = "en",
 	meta = [],
 	title,
 }) => {
-	const { site } = useStaticQuery<GatsbyTypes.Query>(
+	const { site } = useStaticQuery<GatsbyTypes.SEOQuery>(
 		graphql`
-			query {
+			query SEO {
 				site {
 					siteMetadata {
 						title
-						description
 						author
 					}
 				}
@@ -39,7 +38,7 @@ const SEO: React.FC<SEOProps> = ({
 		`
 	);
 
-	const metaDescription = description || site?.siteMetadata?.description;
+	const metaDescription = description;
 
 	return (
 		<Helmet
@@ -85,5 +84,3 @@ const SEO: React.FC<SEOProps> = ({
 		/>
 	);
 };
-
-export default SEO;

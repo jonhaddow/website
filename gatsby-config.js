@@ -1,8 +1,7 @@
 module.exports = {
 	siteMetadata: {
-		title: `Haddow.me`,
-		description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-		author: `@gatsbyjs`,
+		title: `Jon Haddow`,
+		author: `Jon Haddow`,
 	},
 	plugins: [
 		"gatsby-plugin-typescript",
@@ -25,11 +24,51 @@ module.exports = {
 			resolve: `gatsby-source-filesystem`,
 			options: {
 				name: `images`,
-				path: `${__dirname}/src/images`,
+				path: `${__dirname}/content/images`,
 			},
 		},
-		`gatsby-transformer-sharp`,
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				name: `posts`,
+				path: `${__dirname}/content/posts`,
+			},
+		},
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				name: `pages`,
+				path: `${__dirname}/content/pages`,
+			},
+		},
 		`gatsby-plugin-sharp`,
+		"gatsby-transformer-sharp",
+		{
+			resolve: `gatsby-transformer-remark`,
+			options: {
+				plugins: [
+					{
+						resolve: `gatsby-remark-images`,
+						options: {
+							maxWidth: 800,
+						},
+					},
+					"gatsby-remark-emoji",
+				],
+			},
+		},
+		{
+			resolve: `gatsby-plugin-postcss`,
+			options: {
+				postCssPlugins: [
+					require("postcss-preset-env")({
+						stage: 0,
+						importFrom: "./src/utils/custom-media-queries.css",
+					}),
+				],
+			},
+		},
+		"gatsby-plugin-css-modules-typings",
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
@@ -39,7 +78,14 @@ module.exports = {
 				background_color: `#663399`,
 				theme_color: `#663399`,
 				display: `minimal-ui`,
-				icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+				icon: `content/images/gatsby-icon.png`, // This path is relative to the root of the site.
+			},
+		},
+		"gatsby-plugin-use-query-params",
+		{
+			resolve: `gatsby-plugin-typography`,
+			options: {
+				pathToConfigModule: `src/utils/typography`,
 			},
 		},
 		// this (optional) plugin enables Progressive Web App + Offline functionality
