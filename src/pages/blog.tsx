@@ -42,7 +42,7 @@ const Blog: React.FC<BlogProps> = ({ data }) => {
 				<SearchCard />
 				<ul className={styles.postList}>
 					{filteredPosts.map(({ node }) => (
-						<li key={node.id} className={styles.postListItem}>
+						<li key={node.id}>
 							<Link
 								className={styles.postLink}
 								to={`/blog/${node.fields?.slug}`}

@@ -1,5 +1,4 @@
 export const postList: string;
-export const postListItem: string;
 export const postCard: string;
 export const postLink: string;
 export const postTitle: string;

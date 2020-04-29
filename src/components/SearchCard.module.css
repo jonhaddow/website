@@ -1,8 +1,16 @@
 .card {
-	width: 90%;
+	width: 100%;
 	max-width: 700px;
 
 	margin: -32px auto 0;
+
+	border-radius: 0;
+}
+
+@media screen and (min-width: 700px) {
+	.card {
+		border-radius: 8px;
+	}
 }
 
 .search-label {
