@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Layout, NavBar, Header, Title, Card } from "../components";
+import { Layout, NavBar, Header, Title, Card, SEO } from "../components";
 
 import styles from "./article.module.css";
 
@@ -12,6 +12,7 @@ const Article: React.FC<PostProps> = ({ data }) => {
 	const post = data.markdownRemark;
 	return (
 		<Layout>
+			<SEO title={post?.frontmatter?.title ?? ""} />
 			<Header>
 				<NavBar />
 				<Title title={post?.frontmatter?.title ?? ""} />
