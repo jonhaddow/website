@@ -17,7 +17,7 @@ const Home: React.FC<IndexProps> = ({ data }) => (
 			<div className={styles.headerContent}>
 				<div className={styles.headerInfo}>
 					<h1 className={styles.headerTitle}>Jon Haddow</h1>
-					<p className={styles.headerHeadline}>Software Engineer</p>
+					<p className={styles.headerHeadline}>Web Developer</p>
 					<nav>
 						<ul className={styles.headerNavList}>
 							<li className={styles.headerNavListItem}>
@@ -41,7 +41,7 @@ const Home: React.FC<IndexProps> = ({ data }) => (
 		</header>
 		<Card className={`${styles.card} ${styles.aboutCard}`}>
 			<p>
-				I am a full stack web engineer that builds quality, scalable web
+				I am a full stack web developer that builds quality, scalable web
 				applications. I work primarily with React, TypeScript and .NET.
 			</p>
 			<Link className={styles.viewMore} to="/about">
