@@ -6,9 +6,9 @@ title: About Me
 
 I am a full stack web developer based in Swansea, Wales.
 
-I work at [CDSM](https://www.cdsm.co.uk/) building scalable, e-learning web applications.
+I work at [CDSM](https://www.cdsm.co.uk/) building web applications focused on e-learning.
 
-I am more experienced in React, TypeScript, C#, and .NET Core. I also have experience in CSS (and Sass), AWS, and building static sites using GatsbyJS (like this [website](https://github.com/jonhaddow/website/)!).
+I work primarily with React, TypeScript, C#, and .NET Core. I also have experience in CSS (and Sass), AWS, and building static sites using GatsbyJS (like this [website](https://github.com/jonhaddow/website/)!).
 
 I am passionate about open source projects. I am aiming to contribute to more projects this next year. Check out my progress on [GitHub](https://github.com/jonhaddow/).
 
