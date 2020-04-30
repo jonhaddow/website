@@ -11,7 +11,6 @@ export const card: string;
 export const aboutCard: string;
 export const recentPostsHeader: string;
 export const recentPostsList: string;
-export const recentPostsListItem: string;
 export const recentPostsListItemLink: string;
 export const recentPostsListItemTitle: string;
 export const recentPostsListItemDate: string;

@@ -17,7 +17,7 @@
 	justify-content: space-between;
 	align-items: center;
 
-	padding: 16px;
+	padding: 32px 16px;
 }
 
 @media (--desktop) {
@@ -43,10 +43,12 @@
 	color: var(--white);
 	font-size: 2rem;
 	text-align: center;
+	letter-spacing: 1px;
 }
 
 @media (--desktop) {
 	.header-title {
+		margin: 0;
 		text-align: left;
 	}
 }
@@ -78,7 +80,7 @@
 	justify-content: center;
 	align-items: center;
 
-	margin: 32px 0;
+	margin: 32px 0 0;
 	padding: 0 8px;
 }
 
@@ -129,6 +131,7 @@
 }
 
 .recent-posts-header {
+	margin-bottom: 1.5rem;
 	font-weight: 400;
 	font-size: 1.4rem;
 }
@@ -140,13 +143,10 @@
 	list-style-type: none;
 }
 
-.recent-posts-list-item {
-	padding: 16px 0;
-}
-
 .recent-posts-list-item-link {
 	display: block;
 	height: 100%;
+
 	text-decoration: none;
 
 	&:hover .recent-posts-list-item-title {
@@ -165,6 +165,9 @@
 .recent-posts-list-item-date {
 	display: block;
 	height: 100%;
+
+	margin: -4px 0;
+
 	color: var(--black-lighten-4);
 	font-size: 0.8rem;
 	font-weight: 400;
@@ -175,6 +178,7 @@
 	margin-top: 8px;
 
 	color: var(--black-lighten-2);
+	font-style: italic;
 }
 
 .view-more {
