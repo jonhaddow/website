@@ -55,7 +55,7 @@ const Home: React.FC<IndexProps> = ({ data }) => (
 					<li key={node.id}>
 						<Link
 							className={styles.recentPostsListItemLink}
-							to={`/blog/${node.fields?.slug}`}
+							to={`/blog/${node.frontmatter?.slug}`}
 						>
 							<strong className={styles.recentPostsListItemTitle}>
 								{node.frontmatter?.title}
@@ -102,6 +102,7 @@ export const query = graphql`
 				node {
 					id
 					frontmatter {
+						slug
 						title
 						abstract
 						date(formatString: "MMMM DD, YYYY")
@@ -112,9 +113,6 @@ export const query = graphql`
 								}
 							}
 						}
-					}
-					fields {
-						slug
 					}
 				}
 			}

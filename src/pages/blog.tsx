@@ -45,7 +45,7 @@ const Blog: React.FC<BlogProps> = ({ data }) => {
 						<li key={node.id}>
 							<Link
 								className={styles.postLink}
-								to={`/blog/${node.fields?.slug}`}
+								to={`/blog/${node.frontmatter?.slug}`}
 							>
 								<Card className={styles.postCard}>
 									<h3 className={styles.postTitle}>
@@ -93,6 +93,7 @@ export const query = graphql`
 				node {
 					id
 					frontmatter {
+						slug
 						title
 						abstract
 						featuredImage {
@@ -103,9 +104,6 @@ export const query = graphql`
 							}
 						}
 						date(formatString: "MMMM DD, YYYY")
-					}
-					fields {
-						slug
 					}
 					timeToRead
 				}

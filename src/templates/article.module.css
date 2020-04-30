@@ -12,3 +12,8 @@
 		margin-bottom: 64px;
 	}
 }
+
+.featured-image {
+	margin-bottom: 32px;
+	border-radius: 8px;
+}
