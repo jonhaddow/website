@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Card } from ".";
 import styles from "./SearchCard.module.css";
 import { useQueryParam, StringParam } from "use-query-params";
@@ -10,10 +10,6 @@ interface SearchCardProps {
 export const SearchCard: React.FC<SearchCardProps> = ({ className = "" }) => {
 	const [query, setQuery] = useQueryParam("s", StringParam);
 	const [input, setInput] = useState(query);
-
-	useEffect(() => {
-		setQuery(input);
-	}, [input, setQuery]);
 
 	return (
 		<Card className={`${styles.card} ${className}`}>
@@ -29,7 +25,11 @@ export const SearchCard: React.FC<SearchCardProps> = ({ className = "" }) => {
 					className={styles.searchInput}
 					id="searchPosts"
 					value={input ?? ""}
-					onChange={(e) => setInput(e.currentTarget.value)}
+					onChange={(e) => {
+						const newInput = e.currentTarget.value;
+						setInput(newInput);
+						setQuery(newInput || undefined, "replace");
+					}}
 				/>
 			</form>
 		</Card>
