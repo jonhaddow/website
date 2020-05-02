@@ -2,8 +2,66 @@ module.exports = {
 	siteMetadata: {
 		title: `Jon Haddow`,
 		author: `Jon Haddow`,
+		description: "Blog by Jon Haddow",
+		siteUrl: `https://jon.haddow.me`,
 	},
 	plugins: [
+		{
+			resolve: `gatsby-plugin-feed`,
+			options: {
+				query: `
+				{
+				  site {
+					siteMetadata {
+					  title
+					  description
+					  siteUrl
+					  site_url: siteUrl
+					}
+				  }
+				}
+			  `,
+				feeds: [
+					{
+						serialize: ({ query: { site, allMarkdownRemark } }) => {
+							return allMarkdownRemark.edges.map((edge) => {
+								return Object.assign({}, edge.node.frontmatter, {
+									description:
+										edge.node.frontmatter.abstract || edge.node.excerpt,
+									date: edge.node.frontmatter.date,
+									url: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
+									guid: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
+									custom_elements: [{ "content:encoded": edge.node.html }],
+								});
+							});
+						},
+						query: `
+							{
+								allMarkdownRemark(
+									sort: { order: DESC, fields: [frontmatter___date] },
+									filter: { fields: { type: { eq: "posts" } } }
+								) {
+									edges {
+										node {
+											excerpt
+											html
+											frontmatter {
+												slug
+												title
+												date
+												abstract
+											}
+										}
+									}
+								}
+							}
+						`,
+						output: "/rss.xml",
+						title: "Jon Haddow's blog RSS Feed",
+					},
+				],
+			},
+		},
 		"gatsby-plugin-typescript",
 		"gatsby-plugin-typescript-checker",
 		"gatsby-plugin-typegen",
