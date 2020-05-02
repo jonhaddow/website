@@ -53,7 +53,7 @@ module.exports = {
 							maxWidth: 800,
 						},
 					},
-					"gatsby-remark-emoji",
+					"gatsby-remark-twemoji-shortcut",
 				],
 			},
 		},
