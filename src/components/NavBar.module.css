@@ -36,6 +36,7 @@
 	width: 100%;
 	display: flex;
 	justify-content: flex-end;
+	align-items: center;
 
 	margin: 0;
 	padding: 0;
@@ -66,5 +67,5 @@
 
 .nav__link__active {
 	color: var(--white-darken-2);
-	font-weight: bold;
+	font-weight: 700;
 }

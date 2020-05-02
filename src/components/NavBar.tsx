@@ -6,7 +6,6 @@ import Img from "gatsby-image";
 interface NavItem {
 	link: string;
 	text: string;
-	active: boolean;
 }
 
 export const NavBar: React.FC = () => {
@@ -14,12 +13,10 @@ export const NavBar: React.FC = () => {
 		{
 			link: "/about",
 			text: "About",
-			active: false,
 		},
 		{
 			link: "/blog",
 			text: "Blog",
-			active: false,
 		},
 	];
 
@@ -54,10 +51,10 @@ export const NavBar: React.FC = () => {
 				{navItems.map((navItem) => (
 					<li key={navItem.link} className={styles.nav__listItem}>
 						<Link
-							className={`${styles.nav__link} ${
-								navItem.active ? styles.nav__link__active : ""
-							}`}
+							className={styles.nav__link}
 							to={navItem.link}
+							activeClassName={styles.nav__link__active}
+							partiallyActive={true}
 						>
 							{navItem.text}
 						</Link>
