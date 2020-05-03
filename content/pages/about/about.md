@@ -20,4 +20,6 @@ I live in Swansea with my wife (Mollie), two boys (Oakley and Killian) and dog (
 - [LinkedIn](https://www.linkedin.com/in/jonathan-haddow)
 - [GitHub](https://github.com/jonhaddow/)
 - [CV](https://drive.google.com/file/d/10dIz8YtLZ9lMi3vvb8OCDHpTeAIuejR2/view?usp=sharing)
-- [Source code for this site](https://github.com/jonhaddow/website/)
+- [Dev.to](https://dev.to/jonhaddow)
+
+_This website was built using TypeScript, React and Gatsbyjs. Check out the code [here](https://github.com/jonhaddow/website/)._
