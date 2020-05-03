@@ -24,16 +24,16 @@ module.exports = {
 				feeds: [
 					{
 						serialize: ({ query: { site, allMarkdownRemark } }) => {
-							return allMarkdownRemark.edges.map((edge) => {
-								return Object.assign({}, edge.node.frontmatter, {
-									description:
-										edge.node.frontmatter.abstract || edge.node.excerpt,
-									date: edge.node.frontmatter.date,
-									url: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
-									guid: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
-									custom_elements: [{ "content:encoded": edge.node.html }],
-								});
-							});
+							return allMarkdownRemark.edges.map(({ node }) => ({
+								title: node.frontmatter.title,
+								date: node.frontmatter.date,
+								description: node.frontmatter.abstract || node.excerpt,
+								date: node.frontmatter.date,
+								url: `${site.siteMetadata.siteUrl}/blog/${node.frontmatter.slug}`,
+								guid: `${site.siteMetadata.siteUrl}/blog/${node.frontmatter.slug}`,
+								custom_elements: [{ "content:encoded": node.html }],
+								categories: node.frontmatter.tags,
+							}));
 						},
 						query: `
 							{
@@ -50,6 +50,7 @@ module.exports = {
 												title
 												date
 												abstract
+												tags
 											}
 										}
 									}
