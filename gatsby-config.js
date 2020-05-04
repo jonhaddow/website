@@ -131,13 +131,19 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
-				name: `gatsby-starter-default`,
-				short_name: `starter`,
+				name: `Jon Haddow's Website`,
+				short_name: `Jon's Website`,
 				start_url: `/`,
-				background_color: `#663399`,
-				theme_color: `#663399`,
+				background_color: `#333`,
+				theme_color: `#48718c`,
 				display: `minimal-ui`,
-				icon: `content/images/gatsby-icon.png`, // This path is relative to the root of the site.
+				icon: `content/images/favicon.png`,
+			},
+		},
+		{
+			resolve: `gatsby-plugin-offline`,
+			options: {
+				precachePages: [`/about`, `/blog`, `/blog/*`],
 			},
 		},
 		"gatsby-plugin-use-query-params",

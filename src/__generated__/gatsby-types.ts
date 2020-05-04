@@ -2591,6 +2591,7 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___theme_color = 'pluginCreator.pluginOptions.theme_color',
   pluginCreator___pluginOptions___display = 'pluginCreator.pluginOptions.display',
   pluginCreator___pluginOptions___icon = 'pluginCreator.pluginOptions.icon',
+  pluginCreator___pluginOptions___precachePages = 'pluginCreator.pluginOptions.precachePages',
   pluginCreator___pluginOptions___pathToConfigModule = 'pluginCreator.pluginOptions.pathToConfigModule',
   pluginCreator___pluginOptions___pathCheck = 'pluginCreator.pluginOptions.pathCheck',
   pluginCreator___nodeAPIs = 'pluginCreator.nodeAPIs',
@@ -2805,6 +2806,7 @@ enum SitePluginFieldsEnum {
   pluginOptions___theme_color = 'pluginOptions.theme_color',
   pluginOptions___display = 'pluginOptions.display',
   pluginOptions___icon = 'pluginOptions.icon',
+  pluginOptions___precachePages = 'pluginOptions.precachePages',
   pluginOptions___pathToConfigModule = 'pluginOptions.pathToConfigModule',
   pluginOptions___pathCheck = 'pluginOptions.pathCheck',
   nodeAPIs = 'nodeAPIs',
@@ -2934,6 +2936,7 @@ type SitePluginPluginOptions = {
   readonly theme_color: Maybe<Scalars['String']>;
   readonly display: Maybe<Scalars['String']>;
   readonly icon: Maybe<Scalars['String']>;
+  readonly precachePages: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly pathToConfigModule: Maybe<Scalars['String']>;
   readonly pathCheck: Maybe<Scalars['Boolean']>;
 };
@@ -2969,6 +2972,7 @@ type SitePluginPluginOptionsFilterInput = {
   readonly theme_color: Maybe<StringQueryOperatorInput>;
   readonly display: Maybe<StringQueryOperatorInput>;
   readonly icon: Maybe<StringQueryOperatorInput>;
+  readonly precachePages: Maybe<StringQueryOperatorInput>;
   readonly pathToConfigModule: Maybe<StringQueryOperatorInput>;
   readonly pathCheck: Maybe<BooleanQueryOperatorInput>;
 };
