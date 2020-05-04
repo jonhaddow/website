@@ -2,7 +2,7 @@ module.exports = {
 	siteMetadata: {
 		title: `Jon Haddow`,
 		author: `Jon Haddow`,
-		description: "Blog by Jon Haddow",
+		description: "Jon Haddow's personal site",
 		siteUrl: `https://jon.haddow.me`,
 	},
 	plugins: [
@@ -131,8 +131,8 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
-				name: `Jon Haddow's Website`,
-				short_name: `Jon's Website`,
+				name: `jon.haddow.me`,
+				short_name: `Jon's site`,
 				start_url: `/`,
 				background_color: `#333`,
 				theme_color: `#48718c`,
@@ -146,6 +146,15 @@ module.exports = {
 				precachePages: [`/about`, `/blog`, `/blog/*`],
 			},
 		},
+		{
+			resolve: "gatsby-plugin-robots-txt",
+			options: {
+				host: "https://jon.haddow.me",
+				sitemap: "https://jon.haddow.me/sitemap.xml",
+				policy: [{ userAgent: "*", allow: "/" }],
+			},
+		},
+		"gatsby-plugin-sitemap",
 		"gatsby-plugin-use-query-params",
 		{
 			resolve: `gatsby-plugin-typography`,

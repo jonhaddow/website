@@ -2592,6 +2592,11 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___display = 'pluginCreator.pluginOptions.display',
   pluginCreator___pluginOptions___icon = 'pluginCreator.pluginOptions.icon',
   pluginCreator___pluginOptions___precachePages = 'pluginCreator.pluginOptions.precachePages',
+  pluginCreator___pluginOptions___host = 'pluginCreator.pluginOptions.host',
+  pluginCreator___pluginOptions___sitemap = 'pluginCreator.pluginOptions.sitemap',
+  pluginCreator___pluginOptions___policy = 'pluginCreator.pluginOptions.policy',
+  pluginCreator___pluginOptions___policy___userAgent = 'pluginCreator.pluginOptions.policy.userAgent',
+  pluginCreator___pluginOptions___policy___allow = 'pluginCreator.pluginOptions.policy.allow',
   pluginCreator___pluginOptions___pathToConfigModule = 'pluginCreator.pluginOptions.pathToConfigModule',
   pluginCreator___pluginOptions___pathCheck = 'pluginCreator.pluginOptions.pathCheck',
   pluginCreator___nodeAPIs = 'pluginCreator.nodeAPIs',
@@ -2807,6 +2812,11 @@ enum SitePluginFieldsEnum {
   pluginOptions___display = 'pluginOptions.display',
   pluginOptions___icon = 'pluginOptions.icon',
   pluginOptions___precachePages = 'pluginOptions.precachePages',
+  pluginOptions___host = 'pluginOptions.host',
+  pluginOptions___sitemap = 'pluginOptions.sitemap',
+  pluginOptions___policy = 'pluginOptions.policy',
+  pluginOptions___policy___userAgent = 'pluginOptions.policy.userAgent',
+  pluginOptions___policy___allow = 'pluginOptions.policy.allow',
   pluginOptions___pathToConfigModule = 'pluginOptions.pathToConfigModule',
   pluginOptions___pathCheck = 'pluginOptions.pathCheck',
   nodeAPIs = 'nodeAPIs',
@@ -2937,6 +2947,9 @@ type SitePluginPluginOptions = {
   readonly display: Maybe<Scalars['String']>;
   readonly icon: Maybe<Scalars['String']>;
   readonly precachePages: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+  readonly host: Maybe<Scalars['String']>;
+  readonly sitemap: Maybe<Scalars['String']>;
+  readonly policy: Maybe<ReadonlyArray<Maybe<SitePluginPluginOptionsPolicy>>>;
   readonly pathToConfigModule: Maybe<Scalars['String']>;
   readonly pathCheck: Maybe<Scalars['Boolean']>;
 };
@@ -2973,6 +2986,9 @@ type SitePluginPluginOptionsFilterInput = {
   readonly display: Maybe<StringQueryOperatorInput>;
   readonly icon: Maybe<StringQueryOperatorInput>;
   readonly precachePages: Maybe<StringQueryOperatorInput>;
+  readonly host: Maybe<StringQueryOperatorInput>;
+  readonly sitemap: Maybe<StringQueryOperatorInput>;
+  readonly policy: Maybe<SitePluginPluginOptionsPolicyFilterListInput>;
   readonly pathToConfigModule: Maybe<StringQueryOperatorInput>;
   readonly pathCheck: Maybe<BooleanQueryOperatorInput>;
 };
@@ -3019,6 +3035,20 @@ type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
   readonly maxWidth: Maybe<IntQueryOperatorInput>;
 };
 
+type SitePluginPluginOptionsPolicy = {
+  readonly userAgent: Maybe<Scalars['String']>;
+  readonly allow: Maybe<Scalars['String']>;
+};
+
+type SitePluginPluginOptionsPolicyFilterInput = {
+  readonly userAgent: Maybe<StringQueryOperatorInput>;
+  readonly allow: Maybe<StringQueryOperatorInput>;
+};
+
+type SitePluginPluginOptionsPolicyFilterListInput = {
+  readonly elemMatch: Maybe<SitePluginPluginOptionsPolicyFilterInput>;
+};
+
 type SitePluginSortInput = {
   readonly fields: Maybe<ReadonlyArray<Maybe<SitePluginFieldsEnum>>>;
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
@@ -3057,15 +3087,10 @@ type StringQueryOperatorInput = {
   readonly glob: Maybe<Scalars['String']>;
 };
 
-type NavBarQueryVariables = {};
-
-
-type NavBarQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly placeholderImage: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> };
-
 type SEOQueryVariables = {};
 
 
-type SEOQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'author'>> }> };
+type SEOQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'author' | 'description'>> }> };
 
 type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
@@ -3149,6 +3174,11 @@ type GatsbyImageSharpSizes_withWebp_tracedSVGFragment = Pick<ImageSharpSizes, 't
 type GatsbyImageSharpSizes_noBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpSizes_withWebp_noBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type NavBarQueryVariables = {};
+
+
+type NavBarQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, readonly placeholderImage: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> };
 
 type PagesQueryQueryVariables = {};
 

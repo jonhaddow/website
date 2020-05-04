@@ -32,13 +32,14 @@ export const SEO: React.FC<SEOProps> = ({
 					siteMetadata {
 						title
 						author
+						description
 					}
 				}
 			}
 		`
 	);
 
-	const metaDescription = description;
+	const metaDescription = description ?? site?.siteMetadata?.description;
 
 	return (
 		<Helmet
