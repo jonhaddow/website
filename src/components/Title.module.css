@@ -7,4 +7,11 @@
 	font-weight: 700;
 	font-size: 3rem;
 	color: var(--white);
+	text-align: center;
+}
+
+@media (--desktop) {
+	.title {
+		text-align: left;
+	}
 }
