@@ -3204,9 +3204,9 @@ type ArticleQueryVariables = {
 
 
 type ArticleQuery = { readonly markdownRemark: Maybe<(
-    Pick<MarkdownRemark, 'html'>
+    Pick<MarkdownRemark, 'html' | 'timeToRead'>
     & { readonly frontmatter: Maybe<(
-      Pick<MarkdownRemarkFrontmatter, 'title'>
+      Pick<MarkdownRemarkFrontmatter, 'title' | 'abstract' | 'date'>
       & { readonly featuredImage: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
     )> }
   )> };

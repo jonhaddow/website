@@ -16,7 +16,12 @@ const Article: React.FC<PostProps> = ({ data }) => {
 			<SEO title={post?.frontmatter?.title ?? ""} />
 			<Header>
 				<NavBar />
-				<Title title={post?.frontmatter?.title ?? ""} />
+				<Title
+					title={post?.frontmatter?.title ?? ""}
+					subText={`${post?.frontmatter?.date} - ${post?.timeToRead} ${
+						post?.timeToRead && post.timeToRead > 1 ? "minutes" : "minute"
+					}`}
+				/>
 			</Header>
 			<Card className={styles.articleCard}>
 				{post?.frontmatter?.featuredImage?.childImageSharp?.fluid && (
@@ -25,6 +30,7 @@ const Article: React.FC<PostProps> = ({ data }) => {
 						fluid={post?.frontmatter?.featuredImage?.childImageSharp?.fluid}
 					/>
 				)}
+				<p className={styles.abstract}>{post?.frontmatter?.abstract}</p>
 				<div dangerouslySetInnerHTML={{ __html: post?.html ?? "" }} />
 			</Card>
 		</Layout>
@@ -37,8 +43,11 @@ export const postQuery = graphql`
 	query Article($slug: String!) {
 		markdownRemark(frontmatter: { slug: { eq: $slug } }) {
 			html
+			timeToRead
 			frontmatter {
 				title
+				abstract
+				date(formatString: "MMMM DD, YYYY")
 				featuredImage {
 					childImageSharp {
 						fluid(maxWidth: 900) {

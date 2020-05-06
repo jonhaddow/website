@@ -1,8 +1,8 @@
 .title {
 	width: 100%;
-	max-width: 900px;
+	max-width: 800px;
 	margin: 0 auto;
-	padding: 0 0 64px 48px;
+	padding: 0 0 64px;
 
 	font-weight: 700;
 	font-size: 3rem;
@@ -14,4 +14,13 @@
 	.title {
 		text-align: left;
 	}
+}
+
+.sub-text {
+	display: block;
+	padding-top: 16px;
+	font-size: 0.9rem;
+	font-weight: 400;
+	letter-spacing: 0.5px;
+	color: var(--white-darken-3);
 }

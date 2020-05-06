@@ -17,3 +17,9 @@
 	margin-bottom: 32px;
 	border-radius: 8px;
 }
+
+.abstract {
+	font-weight: 200;
+	color: #555;
+	font-style: italic;
+}
