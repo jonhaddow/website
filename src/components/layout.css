@@ -1,24 +1,7 @@
 :root {
 	/* Main primary color */
 	--primary: #48718c;
-	--lighter-primary: #a5bdcc;
-	--light-primary: #6e90a6;
 	--dark-primary: #2b5672;
-	--darker-primary: #143d58;
-
-	/* Main secondary color (1) */
-	--secondary1: #dabd6b;
-	--secondary1-1: #fff1ca;
-	--secondary1-2: #ffe7a4;
-	--secondary1-3: #b2933c;
-	--secondary1-4: #8a6c18;
-
-	/* Main secondary color (2) */
-	--secondary2: #da876b;
-	--secondary2-1: #ffd8ca;
-	--secondary2-2: #ffbca4;
-	--secondary2-3: #b25a3c;
-	--secondary2-4: #8a3518;
 
 	--white: #ffffff;
 	--white-darken-1: #fafafa;
@@ -26,11 +9,11 @@
 	--white-darken-3: #f0f0f0;
 	--white-darken-4: #dedede;
 
-	--black: #000000;
-	--black-lighten-1: #111111;
-	--black-lighten-2: #222222;
-	--black-lighten-3: #333333;
-	--black-lighten-4: #444444;
+	--black: #000;
+	--black-lighten-1: #111;
+	--black-lighten-2: #222;
+	--black-lighten-3: #333;
+	--black-lighten-4: #444;
 
 	--serif-font: "Bree Serif", serif;
 	--sans-serif-font: "Fira Sans", sans-serif;

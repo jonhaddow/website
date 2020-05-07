@@ -18,9 +18,12 @@ const Article: React.FC<PostProps> = ({ data }) => {
 				<NavBar />
 				<Title
 					title={post?.frontmatter?.title ?? ""}
-					subText={`${post?.frontmatter?.date} - ${post?.timeToRead} ${
-						post?.timeToRead && post.timeToRead > 1 ? "minutes" : "minute"
-					}`}
+					subText={
+						post?.frontmatter?.date &&
+						`${post?.frontmatter?.date} - ${post?.timeToRead} ${
+							post?.timeToRead && post.timeToRead > 1 ? "minutes" : "minute"
+						}`
+					}
 				/>
 			</Header>
 			<Card className={styles.articleCard}>
