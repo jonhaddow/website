@@ -1,0 +1,14 @@
+.button {
+	position: absolute;
+	top: 32px;
+	right: 32px;
+	height: 24px;
+	background: none;
+	border: none;
+	color: var(--background);
+	cursor: pointer;
+
+	&:focus {
+		outline: solid var(--background-light) 1px;
+	}
+}

@@ -79,6 +79,7 @@ module.exports = {
 			},
 		},
 		`gatsby-plugin-react-helmet`,
+		"gatsby-plugin-react-svg",
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
@@ -162,5 +163,6 @@ module.exports = {
 				pathToConfigModule: `src/utils/typography`,
 			},
 		},
+		"gatsby-plugin-use-dark-mode",
 	],
 };

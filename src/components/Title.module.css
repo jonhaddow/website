@@ -6,7 +6,7 @@
 
 	font-weight: 700;
 	font-size: 3rem;
-	color: var(--white);
+	color: var(--background);
 	text-align: center;
 }
 
@@ -22,5 +22,5 @@
 	font-size: 0.9rem;
 	font-weight: 400;
 	letter-spacing: 0.5px;
-	color: var(--white-darken-3);
+	color: var(--background);
 }

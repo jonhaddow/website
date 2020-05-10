@@ -8,12 +8,13 @@
 	align-items: center;
 
 	margin: 0 auto;
-	padding: 20px;
+	padding: 24px 64px 24px 24px;
 }
 
 @media (--desktop) {
 	.nav {
 		flex-direction: row;
+		padding-right: 128px;
 	}
 }
 
@@ -63,7 +64,7 @@
 }
 
 .nav__link {
-	color: var(--white-darken-1);
+	color: var(--background-light);
 	text-decoration: none;
 }
 
@@ -72,11 +73,11 @@
 	align-items: center;
 	flex-shrink: 0;
 
-	color: var(--white);
+	color: var(--background);
 	text-decoration: none;
 }
 
 .nav__link__active {
-	color: var(--white-darken-2);
+	color: var(--background-light);
 	font-weight: 700;
 }

@@ -6,6 +6,7 @@
 	padding: 48px 0 64px;
 
 	background: var(--primary);
+	color: var(--header-text);
 }
 
 .header-content {
@@ -40,7 +41,6 @@
 .header-title {
 	margin: 24px 0 0;
 
-	color: var(--white);
 	font-size: 2rem;
 	text-align: center;
 	letter-spacing: 1px;
@@ -56,7 +56,6 @@
 .header-headline {
 	margin: 12px 0 0;
 
-	color: var(--white);
 	font-weight: 300;
 	font-size: 1.2rem;
 	text-align: center;
@@ -105,17 +104,17 @@
 	padding: 8px 12px;
 
 	background: var(--primary);
-	color: var(--white);
+	color: var(--header-text);
 	text-decoration: none;
 	border-radius: 4px;
-	border: solid var(--white-darken-2) 1px;
+	border: solid var(--header-text) 1px;
 	font-size: 1.2rem;
 
 	&:focus,
 	&:active,
 	&:hover {
 		background: var(--dark-primary);
-		color: var(--white);
+		color: var(--header-text);
 		outline: none;
 	}
 }
@@ -157,7 +156,7 @@
 .recent-posts-list-item-title {
 	margin: 0;
 	padding: 12px 8px 0 0;
-	color: var(--black-lighten-2);
+	color: var(--text);
 	font-size: 1.5rem;
 	font-weight: 400;
 }
@@ -168,7 +167,7 @@
 
 	margin: -4px 0;
 
-	color: var(--black-lighten-3);
+	color: var(--text-light);
 	font-size: 0.8rem;
 	font-weight: 400;
 	font-family: var(--sans-serif-font);
@@ -177,7 +176,7 @@
 .recent-posts-list-item-description {
 	margin-top: 8px;
 
-	color: var(--black-lighten-2);
+	color: var(--text);
 	font-style: italic;
 }
 
