@@ -64,7 +64,7 @@
 }
 
 .nav__link {
-	color: var(--background-light);
+	color: var(--header-text);
 	text-decoration: none;
 }
 
@@ -73,11 +73,11 @@
 	align-items: center;
 	flex-shrink: 0;
 
-	color: var(--background);
+	color: var(--header-text);
 	text-decoration: none;
 }
 
 .nav__link__active {
-	color: var(--background-light);
+	color: var(--header-text);
 	font-weight: 700;
 }

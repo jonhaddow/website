@@ -5,10 +5,10 @@
 	height: 24px;
 	background: none;
 	border: none;
-	color: var(--background);
+	color: var(--header-text);
 	cursor: pointer;
 
 	&:focus {
-		outline: solid var(--background-light) 1px;
+		outline: solid var(--header-text) 1px;
 	}
 }

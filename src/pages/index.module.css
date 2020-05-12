@@ -5,7 +5,7 @@
 
 	padding: 48px 0 64px;
 
-	background: var(--primary);
+	background: var(--header-bg);
 	color: var(--header-text);
 }
 
@@ -102,20 +102,20 @@
 
 .header-nav-link {
 	padding: 8px 12px;
-
-	background: var(--primary);
 	color: var(--header-text);
 	text-decoration: none;
 	border-radius: 4px;
 	border: solid var(--header-text) 1px;
 	font-size: 1.2rem;
+	opacity: 90%;
+	transition: opacity 0.2s, background 0.2s;
 
 	&:focus,
 	&:active,
 	&:hover {
-		background: var(--dark-primary);
-		color: var(--header-text);
+		background: rgba(0, 0, 0, 0.3);
 		outline: none;
+		opacity: 100%;
 	}
 }
 
