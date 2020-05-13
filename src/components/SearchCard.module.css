@@ -22,8 +22,15 @@
 }
 
 .search-input {
+	height: 48px;
 	width: 100%;
+	padding: 4px 16px;
 
 	display: block;
 	margin-top: 12px;
+	background: var(--background-soft);
+	border-radius: 16px;
+	border: 1px var(--text-soft) solid;
+	line-height: 32px;
+	color: var(--text-light);
 }

@@ -1,9 +1,10 @@
 .header {
-	background: var(--primary);
+	background: var(--header-bg);
+	color: #fdfdfd;
 }
 
 .header a {
 	&:focus {
-		outline: 2px var(--white) solid;
+		outline: 2px var(--header-text) solid;
 	}
 }

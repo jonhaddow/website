@@ -5,3 +5,4 @@ export * from "./NavBar";
 export * from "./SearchCard";
 export * from "./seo";
 export * from "./Title";
+export * from "./ThemeSwitcher";

@@ -1,0 +1,17 @@
+.button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 32px;
+	right: 32px;
+	height: 32px;
+	background: none;
+	border: none;
+	color: var(--header-text);
+	cursor: pointer;
+
+	&:focus {
+		outline: solid var(--header-text) 1px;
+	}
+}
