@@ -33,4 +33,9 @@
 	border: 1px var(--text-soft) solid;
 	line-height: 32px;
 	color: var(--text-light);
+
+	&:focus {
+		border: 3px var(--primary) solid;
+		outline: none;
+	}
 }
