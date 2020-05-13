@@ -57,6 +57,7 @@
 .nav__list-item {
 	display: inline;
 	padding-left: 30px;
+	margin: 0;
 }
 
 .nav__list-item:first-child {
