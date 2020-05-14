@@ -19,14 +19,14 @@ const Home: React.FC<IndexProps> = ({ data }) => (
 					<h1 className={styles.headerTitle}>Jon Haddow</h1>
 					<p className={styles.headerHeadline}>Web Developer</p>
 					<nav>
-						<ul className={styles.headerNavList}>
-							<li className={styles.headerNavListItem}>
-								<Link className={styles.headerNavLink} to="/about">
+						<ul className={styles.navList}>
+							<li className={styles.navListItem}>
+								<Link className={styles.navLink} to="/about">
 									About
 								</Link>
 							</li>
-							<li className={styles.headerNavListItem}>
-								<Link className={styles.headerNavLink} to="/blog">
+							<li className={styles.navListItem}>
+								<Link className={styles.navLink} to="/blog">
 									Blog
 								</Link>
 							</li>

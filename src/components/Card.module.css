@@ -1,6 +1,5 @@
 .card {
 	padding: 32px 48px;
-
 	border-radius: 8px;
-	background: var(--background-light);
+	background: var(--card);
 }

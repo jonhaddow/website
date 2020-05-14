@@ -1,15 +1,22 @@
-.button {
+.wrapper {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	position: absolute;
-	top: 32px;
+	top: 24px;
 	right: 32px;
-	height: 32px;
+	height: 64px;
+}
+
+.button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	background: none;
 	border: none;
 	color: var(--header-text);
 	cursor: pointer;
+	padding: 5px;
 
 	&:focus {
 		outline: solid var(--header-text) 1px;

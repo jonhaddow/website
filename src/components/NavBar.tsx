@@ -39,21 +39,21 @@ export const NavBar: React.FC = () => {
 
 	return (
 		<nav className={styles.nav}>
-			<Link to="/" className={styles.nav__titleLink}>
+			<Link to="/" className={styles.titleLink}>
 				<Img
-					className={styles.nav__image}
+					className={styles.titleImage}
 					fluid={data.placeholderImage?.childImageSharp?.fluid}
 					alt=""
 				/>
-				<h1 className={styles.nav__title}>{data.site?.siteMetadata?.title}</h1>
+				<h1 className={styles.title}>{data.site?.siteMetadata?.title}</h1>
 			</Link>
-			<ul className={styles.nav__list}>
+			<ul className={styles.navList}>
 				{navItems.map((navItem) => (
-					<li key={navItem.link} className={styles.nav__listItem}>
+					<li key={navItem.link} className={styles.listItem}>
 						<Link
-							className={styles.nav__link}
+							className={styles.navLink}
 							to={navItem.link}
-							activeClassName={styles.nav__link__active}
+							activeClassName={styles.active}
 							partiallyActive={true}
 						>
 							{navItem.text}

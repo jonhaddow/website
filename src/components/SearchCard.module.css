@@ -1,14 +1,10 @@
 .card {
 	width: 100%;
 	max-width: 700px;
-
 	margin: -32px auto 0;
-
 	border-radius: 0;
-}
 
-@media screen and (min-width: 700px) {
-	.card {
+	@media (--desktop) {
 		border-radius: 8px;
 	}
 }
@@ -25,10 +21,9 @@
 	height: 48px;
 	width: 100%;
 	padding: 4px 16px;
-
 	display: block;
 	margin-top: 12px;
-	background: var(--background-lighter);
+	background: transparent;
 	border-radius: 16px;
 	border: 1px var(--text-lighter) solid;
 	line-height: 32px;

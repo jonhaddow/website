@@ -7,8 +7,7 @@
 	--header-text: #fdfdfd;
 
 	--background: #f0f0f0;
-	--background-light: #f5f5f5;
-	--background-lighter: #fcfcfc;
+	--card: #fcfcfc;
 
 	--text: #333;
 	--text-light: #444;
@@ -16,6 +15,7 @@
 
 	--serif-font: "Bree Serif", serif;
 	--sans-serif-font: "Fira Sans", sans-serif;
+	--animation-speed: 0.2s;
 }
 
 .dark-mode {
@@ -26,8 +26,7 @@
 	--header-text: #48a999;
 
 	--background: #121212;
-	--background-light: #1a1a1a;
-	--background-lighter: #212121;
+	--card: #1a1a1a;
 
 	--text: #f0f0f0;
 	--text-light: #eee;
