@@ -20,6 +20,6 @@
 
 .abstract {
 	font-weight: 200;
-	color: var(--text-soft);
+	color: var(--text-lighter);
 	font-style: italic;
 }

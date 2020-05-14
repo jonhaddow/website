@@ -16,7 +16,7 @@
 .post-link {
 	display: block;
 	text-decoration: none;
-	color: var(--text-bold);
+	color: var(--text);
 	outline: none;
 }
 
@@ -26,7 +26,7 @@
 
 	font-weight: 400;
 	font-size: 1.6rem;
-	color: var(--text-bold);
+	color: var(--text);
 }
 
 .post-detail {
@@ -42,7 +42,7 @@
 
 	font-weight: 400;
 	font-size: 1.2rem;
-	color: var(--text-soft);
+	color: var(--text-lighter);
 	line-height: 1.6rem;
 }
 

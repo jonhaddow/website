@@ -8,12 +8,11 @@
 
 	--background: #f0f0f0;
 	--background-light: #f5f5f5;
-	--background-soft: #fcfcfc;
+	--background-lighter: #fcfcfc;
 
-	--text-bold: #222;
 	--text: #333;
 	--text-light: #444;
-	--text-soft: #555;
+	--text-lighter: #555;
 
 	--serif-font: "Bree Serif", serif;
 	--sans-serif-font: "Fira Sans", sans-serif;
@@ -28,12 +27,11 @@
 
 	--background: #121212;
 	--background-light: #1a1a1a;
-	--background-soft: #1a1a1a;
+	--background-lighter: #212121;
 
-	--text-bold: #fcfcfc;
 	--text: #f0f0f0;
 	--text-light: #eee;
-	--text-soft: #dedede;
+	--text-lighter: #dedede;
 }
 
 body {
@@ -54,7 +52,7 @@ html {
 blockquote {
 	padding-left: 0.75rem;
 	margin-left: 0.75rem;
-	border-left: solid var(--text-soft) 3px;
+	border-left: solid var(--text-lighter) 3px;
 }
 
 a {

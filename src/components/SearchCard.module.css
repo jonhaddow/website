@@ -28,9 +28,9 @@
 
 	display: block;
 	margin-top: 12px;
-	background: var(--background-soft);
+	background: var(--background-lighter);
 	border-radius: 16px;
-	border: 1px var(--text-soft) solid;
+	border: 1px var(--text-lighter) solid;
 	line-height: 32px;
 	color: var(--text-light);
 
