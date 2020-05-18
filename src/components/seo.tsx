@@ -17,6 +17,7 @@ interface SEOProps {
 		HTMLMetaElement
 	>[];
 	title: string;
+	image?: string;
 }
 
 export const SEO: React.FC<SEOProps> = ({
@@ -24,8 +25,9 @@ export const SEO: React.FC<SEOProps> = ({
 	lang = "en",
 	meta = [],
 	title,
+	image,
 }) => {
-	const { site } = useStaticQuery<GatsbyTypes.SEOQuery>(
+	const { site, placeholderImage } = useStaticQuery<GatsbyTypes.SEOQuery>(
 		graphql`
 			query SEO {
 				site {
@@ -35,11 +37,19 @@ export const SEO: React.FC<SEOProps> = ({
 						description
 					}
 				}
+				placeholderImage: file(relativePath: { eq: "profile-img.jpg" }) {
+					childImageSharp {
+						original {
+							src
+						}
+					}
+				}
 			}
 		`
 	);
 
 	const metaDescription = description ?? site?.siteMetadata?.description;
+	const metaImage = image ?? placeholderImage?.childImageSharp?.original?.src;
 
 	return (
 		<Helmet
@@ -64,6 +74,10 @@ export const SEO: React.FC<SEOProps> = ({
 				{
 					property: `og:type`,
 					content: `website`,
+				},
+				{
+					property: "og:image",
+					content: metaImage,
 				},
 				{
 					name: `twitter:card`,

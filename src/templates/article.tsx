@@ -13,7 +13,11 @@ const Article: React.FC<PostProps> = ({ data }) => {
 	const post = data.markdownRemark;
 	return (
 		<Layout>
-			<SEO title={post?.frontmatter?.title ?? ""} />
+			<SEO
+				title={post?.frontmatter?.title ?? ""}
+				description={post?.frontmatter?.abstract}
+				image={post?.frontmatter?.featuredImage?.childImageSharp?.original?.src}
+			/>
 			<Header>
 				<NavBar />
 				<Title
@@ -55,6 +59,9 @@ export const postQuery = graphql`
 					childImageSharp {
 						fluid(maxWidth: 900) {
 							...GatsbyImageSharpFluid
+						}
+						original {
+							src
 						}
 					}
 				}
