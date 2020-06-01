@@ -23,7 +23,7 @@ interface BlogProps {
 const Blog: React.FC<BlogProps> = ({ data }) => {
 	const [query] = useQueryParam("s", StringParam);
 
-	let filteredPosts = data.allMarkdownRemark.edges;
+	let filteredPosts = data.allMdx.edges;
 
 	if (query) {
 		filteredPosts = matchSorter(filteredPosts, query, {
@@ -85,7 +85,7 @@ export default Blog;
 
 export const query = graphql`
 	query Blog {
-		allMarkdownRemark(
+		allMdx(
 			sort: { order: DESC, fields: frontmatter___date }
 			filter: { fields: { type: { eq: "posts" } } }
 		) {

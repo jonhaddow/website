@@ -1,12 +1,10 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import Typography from "typography";
 
-const codePlugin = require("typography-plugin-code").default;
 const kirkhamTheme = require("typography-theme-kirkham");
 
 kirkhamTheme.baseFontSize = "18px";
 kirkhamTheme.baseLineHeight = 1.8;
-kirkhamTheme.plugins = [new codePlugin()];
 kirkhamTheme.googleFonts = [
 	{
 		name: "Bree Serif",

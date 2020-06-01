@@ -2,7 +2,7 @@ const path = require(`path`);
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
 	const { createNodeField } = actions;
-	if (node.internal.type === `MarkdownRemark`) {
+	if (node.internal.type === `Mdx`) {
 		const parent = getNode(node.parent);
 		createNodeField({
 			node,
@@ -16,7 +16,7 @@ exports.createPages = async ({ graphql, actions }) => {
 	const { createPage } = actions;
 	const result = await graphql(`
 		query {
-			allMarkdownRemark {
+			allMdx {
 				edges {
 					node {
 						frontmatter {
@@ -31,7 +31,7 @@ exports.createPages = async ({ graphql, actions }) => {
 		}
 	`);
 
-	result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+	result.data.allMdx.edges.forEach(({ node }) => {
 		if (node.fields.type === "posts") {
 			createPage({
 				path: `blog/${node.frontmatter.slug}`,

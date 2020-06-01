@@ -23,28 +23,28 @@ module.exports = {
 			  `,
 				feeds: [
 					{
-						serialize: ({ query: { site, allMarkdownRemark } }) => {
-							return allMarkdownRemark.edges.map(({ node }) => ({
+						serialize: ({ query: { site, allMdx } }) => {
+							return allMdx.edges.map(({ node }) => ({
 								title: node.frontmatter.title,
 								date: node.frontmatter.date,
 								description: node.frontmatter.abstract || node.excerpt,
 								date: node.frontmatter.date,
 								url: `${site.siteMetadata.siteUrl}/blog/${node.frontmatter.slug}`,
 								guid: `${site.siteMetadata.siteUrl}/blog/${node.frontmatter.slug}`,
-								custom_elements: [{ "content:encoded": node.html }],
+								custom_elements: [{ "content:encoded": node.body }],
 								categories: node.frontmatter.tags,
 							}));
 						},
 						query: `
 							{
-								allMarkdownRemark(
+								allMdx(
 									sort: { order: DESC, fields: [frontmatter___date] },
 									filter: { fields: { type: { eq: "posts" } } }
 								) {
 									edges {
 										node {
 											excerpt
-											html
+											body
 											frontmatter {
 												slug
 												title
@@ -117,6 +117,7 @@ module.exports = {
 				],
 			},
 		},
+		`gatsby-plugin-mdx`,
 		{
 			resolve: `gatsby-plugin-postcss`,
 			options: {

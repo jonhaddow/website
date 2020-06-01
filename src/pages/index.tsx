@@ -51,7 +51,7 @@ const Home: React.FC<IndexProps> = ({ data }) => (
 		<Card className={styles.card}>
 			<h2 className={styles.recentPostsHeader}>Recent posts</h2>
 			<ul className={styles.recentPostsList}>
-				{data.allMarkdownRemark.edges.map(({ node }) => (
+				{data.allMdx.edges.map(({ node }) => (
 					<li key={node.id}>
 						<Link
 							className={styles.recentPostsListItemLink}
@@ -93,7 +93,7 @@ export const query = graphql`
 				}
 			}
 		}
-		allMarkdownRemark(
+		allMdx(
 			limit: 3
 			sort: { order: DESC, fields: frontmatter___date }
 			filter: { fields: { type: { eq: "posts" } } }
