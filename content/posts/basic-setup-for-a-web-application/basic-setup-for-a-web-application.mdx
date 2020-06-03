@@ -1,0 +1,187 @@
+---
+slug: basic-setup-for-a-web-application
+title: Basic setup for a web application
+abstract: A beginners guide to webpack
+date: 2020-06-03
+featuredImage: ./images/featured-image.jpg
+tags: ["webpack", "build", "tools", "javascript"]
+---
+
+Build tools help make developers' lives easier. 
+
+They minimise steps and remove distractions to help you to focus and achieve your goal: to write code and build a good product.
+
+Despite this, it's common to see developers ignore build tools and brush over the configuration of their environment, to write code. There is certainly value in that, however part of the skill of a developer is knowing their tools and how they fit together.
+
+In this tutorial, I will go through the process of building an environment to develop a web application.
+
+The primary tool we'll be using is [webpack](https://webpack.js.org/). This tool generates a dependency graph during the build process, pulls together all the assets (JavaScript, CSS, e.t.c.), processes them (combines, minifies, chunks e.t.c.) and produces a set of files ready to be served by the browser. 
+
+Other tools are available (like [Parcel](https://parceljs.org/) and [Rollup](https://rollupjs.org)), and may be explored in future posts.
+
+Throughout this tutorial, we'll cover bundling JavaScript, injecting scripts and styles into HTML, and styling with CSS.
+
+## Prerequisites
+
+- Install [Node.js](https://nodejs.org/en/download/) to allow you to install and run JavaScript packages.
+
+## Project setup
+
+Lets start by creating a new project and running `npm init` in your command line. This will guide you in generating a `package.json` file which holds information about your project including dependencies and scripts.
+
+Next, run `npm install --save-dev webpack webpack-cli` to install 2 packages required for webpack. We'll also need to add a build script to `package.json`:
+
+```javascript {4}
+{
+	...
+	"scripts": {
+		"build": "webpack"
+	}
+	...
+}
+```
+
+This gets us to the first, and central technology for your project...
+
+## JavaScript
+
+Start by adding a `src` directory and a single `index.js` file. 
+
+```javascript
+alert("Hello!");
+```
+
+Now run `npm run-script build` and if all goes well, you should see a new `/dist/main.js` file generated with your compiled code. :tada:
+
+If you add another file `helpers.js` and export a function `greet`:
+
+```javascript
+export const greet = (name) => {
+	return `Hello ${name}!`;
+};
+```
+
+Within `index.js` you can now import this function and use it: 
+
+```javascript
+import { greet } from "./helpers";
+
+alert(greet("Jon"));	
+```
+
+When you run the build script, webpack will produce a single JavaScript bundle. This is great, but completely useless until run in a browser. This script will need to be loaded within a HTML file. This is where the first plugin comes into play...
+
+## HTML
+
+The next step is to get a single HTML file to open up in the browser with your JavaScript injected into the page.
+
+For that, lets `npm install --save-dev html-webpack-plugin`. We'll need to add this plugin to our webpack config. So far we've benefited from a zero-config setup, but now we'll need to create a configuration file for webpack - `webpack.config.js` - in the root of our project with the following contents:  
+  
+```javascript {4}
+var HtmlWebpackPlugin = require("html-webpack-plugin");
+
+module.exports = {
+	plugins: [new HtmlWebpackPlugin()]
+};
+```
+
+When we run our build script you should now see a `dist/index.html` file. If you open this file in a browser, you'll have your alert box open (running the code from `/dist/index.js`).
+
+Now it would be a pain to have to run the build script every time a code change was made, so lets install another package to have a webpack server run in the console and listen to changes. Install `webpack-dev-server` and add the following script to `package.json`:
+
+```javascript {4}
+{
+	...
+	"scripts": {
+		"start": "webpack-dev-server",
+		"build": "webpack"
+	}
+	...
+}
+```
+
+Now, when running `npm start` and opening your browser to http://localhost:8080/ you'll see the code running in the browser and auto-updating. Nice one!
+
+> You can configure any of the plugins mentioned in this article, by reading the [webpack plugin documentation](https://webpack.js.org/plugins/). 
+>
+> Some popular and helpful configurations include:
+>
+> - Setting a HTML template for `html-webpack-plugin` 
+> - Having your application open automatically in your default browser `webpack-dev-server`
+
+## CSS
+
+To include CSS in your project, you import a stylesheet in your `src/index.js` or any JS file in your project. 
+
+Firstly, add a stylesheet to `src/styles.css`:
+
+```css
+p {
+	background: red;
+	color: white;
+	font-size: 2rem;
+}
+```
+
+Then update your `src/index.js` to import the styles and add a paragraph to the HTML:
+
+```javascript
+import "./styles.css";
+import { greet } from "./helpers";
+
+/**
+ * Create new paragraph and add to the dom.
+ */
+const newElement = document.createElement("p");
+newElement.innerHTML = greet("Jon");
+document.body.appendChild(newElement);
+
+```
+
+When running `npm start` you'll see an error like: 
+
+```
+You may need an appropriate loader to handle this file type, 
+currently no loaders are configured to process this file.
+```
+
+We'll need to install a plugin to handle this new type of file. `css-loader` is a plugin which allows you to import CSS files into JavaScript. Add this loader to the set of module rules in your `webpack.config.js`:
+
+```javascript {4-11}
+var HtmlWebpackPlugin = require("html-webpack-plugin");
+
+module.exports = {
+	module: {
+		rules: [
+			{
+				test: /\.css$/i,
+				use: ["css-loader"],
+			},
+		],
+	},
+	plugins: [new HtmlWebpackPlugin()],
+};
+```
+
+When you run your application, all errors should disappear. However, your CSS styling isn't being imported to your HTML. This is because the styling has been processed in the build, but nothing has been done with it. There are 2 ways to resolve this. You can either:
+
+- install the `style-loader` which will dynamically add all styles to the DOM in a `<style>` tag at runtime, or,
+- install `mini-css-extract-plugin` which generates a separate CSS file output which will be injected into the HTML as a `link` tag.
+
+`mini-css-extract-plugin` is ideal in production as the CSS output can be externally cached, however it's a slower compilation process. `style-loader` is better suited for development, so lets install and add `style-loader` to our `webpack.config.js`:
+
+```javascript
+use: ["style-loader", "css-loader"]
+```
+
+_Note that loader order is applied right to left. So in this case, the styles are firstly imported into the JavaScript bundle (through css-loader), and then injected into the DOM (through style-loader)._
+
+Now run up you're application, and you should see your styles being applied to the paragraph.
+
+---
+
+I hope this articles helps you to setup a basic environment for web development and understand the tools that are needed for a basic web application.
+
+Over time you'll likely want more plugins and greater configurations to support all the various tools and frameworks seen in most modern web applications. 
+
+Let's leave those for a future article.
