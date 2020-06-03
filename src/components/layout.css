@@ -60,3 +60,7 @@ a {
 		outline: 2px var(--dark-primary) solid;
 	}
 }
+
+hr {
+	background: var(--text-lighter);
+}
