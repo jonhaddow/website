@@ -1,5 +1,6 @@
 :root {
 	/* Main primary color */
+	--primary-transparent: #00796b15;
 	--primary: #00796b;
 	--dark-primary: #004c40;
 
@@ -19,6 +20,7 @@
 }
 
 .dark-mode {
+	--primary-transparent: #004c4040;
 	--primary: #004c40;
 	--dark-primary: #48a999;
 
