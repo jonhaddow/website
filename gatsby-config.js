@@ -1,3 +1,5 @@
+const emoji = require(`remark-emoji`);
+
 module.exports = {
 	siteMetadata: {
 		title: `Jon Haddow`,
@@ -104,20 +106,19 @@ module.exports = {
 		`gatsby-plugin-sharp`,
 		"gatsby-transformer-sharp",
 		{
-			resolve: `gatsby-transformer-remark`,
+			resolve: `gatsby-plugin-mdx`,
 			options: {
-				plugins: [
+				gatsbyRemarkPlugins: [
 					{
 						resolve: `gatsby-remark-images`,
 						options: {
 							maxWidth: 800,
 						},
 					},
-					"gatsby-remark-twemoji-shortcut",
 				],
+				remarkPlugins: [emoji],
 			},
 		},
-		`gatsby-plugin-mdx`,
 		{
 			resolve: `gatsby-plugin-postcss`,
 			options: {
@@ -137,7 +138,7 @@ module.exports = {
 				short_name: `Jon's site`,
 				start_url: `/`,
 				background_color: `#333`,
-				theme_color: `#48718c`,
+				theme_color: `#00796b`,
 				display: `minimal-ui`,
 				icon: `content/images/favicon.png`,
 			},
