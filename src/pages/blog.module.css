@@ -8,10 +8,14 @@
 }
 
 .post-card {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 	padding: 0;
 }
 
 .post-link {
+	height: 100%;
 	display: block;
 	text-decoration: none;
 	color: var(--text);
@@ -44,6 +48,7 @@
 .post-image {
 	width: 100%;
 	height: 120px;
+	flex-grow: 1;
 	display: block;
 	object-fit: cover;
 	border-radius: 0 0 5px 5px;
