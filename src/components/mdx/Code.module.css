@@ -1,0 +1,12 @@
+.pre {
+	padding: 16px 0;
+}
+
+.line,
+.highlighted {
+	padding: 0 16px;
+}
+
+.highlighted {
+	background-color: var(--primary-transparent);
+}

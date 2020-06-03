@@ -1,11 +1,12 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Layout, NavBar, Header, Title, Card, SEO } from "../components";
+import { Layout, NavBar, Header, Title, Card, SEO, Code } from "../components";
 import Img from "gatsby-image";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 
 import styles from "./article.module.css";
+import { preToCodeBlock } from "../components/mdx/helpers";
 
 interface PostProps {
 	data: GatsbyTypes.ArticleQuery;
@@ -41,7 +42,26 @@ const Article: React.FC<PostProps> = ({ data }) => {
 					/>
 				)}
 				<p className={styles.abstract}>{post.frontmatter?.abstract}</p>
-				<MDXProvider>
+				<MDXProvider
+					components={{
+						pre: (
+							preProps: React.DetailedHTMLProps<
+								React.HTMLAttributes<HTMLPreElement>,
+								HTMLPreElement
+							>
+						) => {
+							const props = preToCodeBlock(preProps);
+
+							// if there's a codeString and some props, we passed the test
+							if (props) {
+								return <Code {...props} />;
+							} else {
+								// it's possible to have a pre without a code in it
+								return <pre {...preProps} />;
+							}
+						},
+					}}
+				>
 					<MDXRenderer>{post.body}</MDXRenderer>
 				</MDXProvider>
 			</Card>
