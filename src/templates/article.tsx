@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { graphql } from "gatsby";
 import { Layout, NavBar, Header, Title, Card, SEO, Code } from "../components";
 import Img from "gatsby-image";
@@ -48,7 +48,7 @@ const Article: React.FC<PostProps> = ({ data }) => {
 							preProps: React.DetailedHTMLProps<
 								React.HTMLAttributes<HTMLPreElement>,
 								HTMLPreElement
-							>
+							> & { children: ReactElement }
 						) => {
 							const props = preToCodeBlock(preProps);
 

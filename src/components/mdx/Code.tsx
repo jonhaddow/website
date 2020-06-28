@@ -27,14 +27,14 @@ function calculateLinesToHighlight(meta: string): (index: number) => boolean {
 
 export interface CodeProps {
 	codeString: string;
-	language: Language;
-	metastring: string;
+	language?: Language;
+	metastring?: string;
 }
 
 export const Code: React.FC<CodeProps> = ({
 	codeString,
-	language,
-	metastring,
+	language = "javascript",
+	metastring = "",
 }) => {
 	const shouldHighlightLine = calculateLinesToHighlight(metastring);
 	const darkMode = useDarkMode();
