@@ -57,15 +57,21 @@ const Home: React.FC<IndexProps> = ({ data }) => (
 							className={styles.recentPostsListItemLink}
 							to={`/blog/${node.frontmatter?.slug}`}
 						>
-							<strong className={styles.recentPostsListItemTitle}>
-								{node.frontmatter?.title}
-							</strong>
-							<time className={styles.recentPostsListItemDate}>
-								{node.frontmatter?.date}
-							</time>
-							<p className={styles.recentPostsListItemDescription}>
-								{node.frontmatter?.abstract}
-							</p>
+							<Img
+								className={styles.recentPostsListItemImg}
+								fluid={node.frontmatter?.featuredImage?.childImageSharp?.fluid}
+							/>
+							<div className={styles.recentPostsListItemDetails}>
+								<strong className={styles.recentPostsListItemTitle}>
+									{node.frontmatter?.title}
+								</strong>
+								<time className={styles.recentPostsListItemDate}>
+									{node.frontmatter?.date}
+								</time>
+								<p className={styles.recentPostsListItemDescription}>
+									{node.frontmatter?.abstract}
+								</p>
+							</div>
 						</Link>
 					</li>
 				))}

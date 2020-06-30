@@ -13,6 +13,8 @@ export const recentPostsHeader: string;
 export const recentPostsList: string;
 export const recentPostsListItemLink: string;
 export const recentPostsListItemTitle: string;
+export const recentPostsListItemImg: string;
+export const recentPostsListItemDetails: string;
 export const recentPostsListItemDate: string;
 export const recentPostsListItemDescription: string;
 export const viewMore: string;

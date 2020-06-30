@@ -124,12 +124,34 @@
 }
 
 .recent-posts-list-item-link {
-	display: block;
 	height: 100%;
 	text-decoration: none;
 
 	&:hover .recent-posts-list-item-title {
 		text-decoration: underline;
+	}
+
+	@media (--desktop) {
+		display: flex;
+		align-items: center;
+	}
+}
+
+.recent-posts-list-item-img {
+	width: 100%;
+
+	@media (--desktop) {
+		display: inline-block;
+		width: 120px;
+	}
+}
+
+.recent-posts-list-item-details {
+	display: inline-block;
+	padding: 5px 0 10px;
+
+	@media (--desktop) {
+		padding-left: 10px;
 	}
 }
 
