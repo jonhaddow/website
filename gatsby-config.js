@@ -9,7 +9,7 @@ module.exports = {
 	},
 	plugins: [
 		{
-			resolve: `gatsby-plugin-feed`,
+			resolve: `gatsby-plugin-feed-mdx`,
 			options: {
 				query: `
 				{
@@ -33,7 +33,7 @@ module.exports = {
 								date: node.frontmatter.date,
 								url: `${site.siteMetadata.siteUrl}/blog/${node.frontmatter.slug}`,
 								guid: `${site.siteMetadata.siteUrl}/blog/${node.frontmatter.slug}`,
-								custom_elements: [{ "content:encoded": node.body() }],
+								custom_elements: [{ "content:encoded": node.html }],
 								categories: node.frontmatter.tags,
 							}));
 						},
@@ -46,7 +46,7 @@ module.exports = {
 									edges {
 										node {
 											excerpt
-											body
+											html
 											frontmatter {
 												slug
 												title
