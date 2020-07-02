@@ -179,7 +179,6 @@ Let's try to wrap our start date picker in a Controller:
 	as={
 		<DatePicker
 			id="startDate"
-			onChange={(date) => setStartDate(date)}
 			minDate={new Date()}
 			showTimeSelect
 			dateFormat="Pp"
@@ -197,9 +196,25 @@ Let's try to wrap our start date picker in a Controller:
 The key changes that have been made are:
 - the name has been moved up to the Controller. This is so that React Hook Form can track the name of the property and it's value.
 - a control function (which comes from the `useForm` hook) has been passed into the Controller's `control` prop.
-- the `selected` prop on the DatePicker (which was set to the currently selected date/time) has been removed, and the `valueName` prop on the Controller is set to "selected". This is telling React Hook Form that the name of the property that is anticipating the current form value, is not "value" but rather "selected". In a similar way, if DatePicker had an `onEdit` method instead of an `onChange` method, then we'd have to specific that change with the `onChangeName` prop on the Controller. By default React Hook Form expects the controlled input to have a `value` prop and a `onChange` prop. If that's not the case, we need to specify. 
+- the `selected` prop on the DatePicker (which was set to the currently selected date/time) has been removed, and the `valueName` prop on the Controller is set to "selected". This is telling React Hook Form that the name of the property that is anticipating the current form value, is not "value" but rather "selected". In a similar way, if DatePicker had an `onEdit` method instead of an `onChange` method, then we'd have to specific that change with the `onChangeName` prop on the Controller. By default React Hook Form expects the controlled input to have a `value` prop and a `onChange` prop. If that's not the case, we need to specify. This is why the `onChange` prop has also been removed from the internal DatePicker component.
 
 These are the main parts needed to hook an external component into our form. Once the end date picker is also wrapped in a Controller, we'll be able to see the data submitted along with the title and description.
+
+The value of the `startDate` and `endDate` doesn't need to be stored in state anymore, as React Hook Form will keep track of it for us. You can replace
+
+```javascript
+const [startDate, setStartDate] = React.useState(null);
+const [endDate, setEndDate] = React.useState(null);
+```
+
+with
+
+```javascript
+const { handleSubmit, register, watch } = useForm();
+const { startDate, endDate } = watch(["startDate", "endDate"]);
+```
+
+Watch is used to listen to those particular values that are stored on the form. 
 
 ## Validation
 
@@ -305,5 +320,7 @@ For the start date, we'll need to use React Hook Form's custom `validate` functi
 You can read more about the rules available in [React Hook Form's documentation](https://react-hook-form.com/api#register).
 
 ---
+
+You can check out the code for this example form [on GitHub](https://github.com/jonhaddow/event-form).
 
 I hope this article gets you more familar with how you can put together a simple form in React. I'll be covering some more tips and tricks with React Hook Form in a future post.
