@@ -33,7 +33,7 @@ module.exports = {
 								date: node.frontmatter.date,
 								url: `${site.siteMetadata.siteUrl}/blog/${node.frontmatter.slug}`,
 								guid: `${site.siteMetadata.siteUrl}/blog/${node.frontmatter.slug}`,
-								custom_elements: [{ "content:encoded": node.body }],
+								custom_elements: [{ "content:encoded": node.body() }],
 								categories: node.frontmatter.tags,
 							}));
 						},
