@@ -23,3 +23,11 @@
 	color: var(--text-lighter);
 	font-style: italic;
 }
+
+.footer-links {
+	text-align: right;
+}
+
+.edit-link {
+	color: var(--text-lighter);
+}

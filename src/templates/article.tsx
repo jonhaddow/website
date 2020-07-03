@@ -64,6 +64,11 @@ const Article: React.FC<PostProps> = ({ data }) => {
 				>
 					<MDXRenderer>{post.body}</MDXRenderer>
 				</MDXProvider>
+				<p className={styles.footerLinks}>
+					<a className={styles.editLink} href={post.fields?.editLink}>
+						Edit this post on GitHub
+					</a>
+				</p>
 			</Card>
 		</Layout>
 	);
@@ -76,6 +81,9 @@ export const postQuery = graphql`
 		mdx(frontmatter: { slug: { eq: $slug } }) {
 			body
 			timeToRead
+			fields {
+				editLink
+			}
 			frontmatter {
 				title
 				abstract

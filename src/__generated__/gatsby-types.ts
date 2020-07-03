@@ -694,7 +694,6 @@ enum FileFieldsEnum {
   childMdx___fileAbsolutePath = 'childMdx.fileAbsolutePath',
   childMdx___frontmatter___title = 'childMdx.frontmatter.title',
   childMdx___frontmatter___slug = 'childMdx.frontmatter.slug',
-  childMdx___frontmatter___abstract = 'childMdx.frontmatter.abstract',
   childMdx___frontmatter___date = 'childMdx.frontmatter.date',
   childMdx___frontmatter___featuredImage___sourceInstanceName = 'childMdx.frontmatter.featuredImage.sourceInstanceName',
   childMdx___frontmatter___featuredImage___absolutePath = 'childMdx.frontmatter.featuredImage.absolutePath',
@@ -733,6 +732,7 @@ enum FileFieldsEnum {
   childMdx___frontmatter___featuredImage___id = 'childMdx.frontmatter.featuredImage.id',
   childMdx___frontmatter___featuredImage___children = 'childMdx.frontmatter.featuredImage.children',
   childMdx___frontmatter___tags = 'childMdx.frontmatter.tags',
+  childMdx___frontmatter___abstract = 'childMdx.frontmatter.abstract',
   childMdx___body = 'childMdx.body',
   childMdx___excerpt = 'childMdx.excerpt',
   childMdx___headings = 'childMdx.headings',
@@ -746,6 +746,7 @@ enum FileFieldsEnum {
   childMdx___wordCount___sentences = 'childMdx.wordCount.sentences',
   childMdx___wordCount___words = 'childMdx.wordCount.words',
   childMdx___fields___type = 'childMdx.fields.type',
+  childMdx___fields___editLink = 'childMdx.fields.editLink',
   childMdx___id = 'childMdx.id',
   childMdx___parent___id = 'childMdx.parent.id',
   childMdx___parent___parent___id = 'childMdx.parent.parent.id',
@@ -1471,6 +1472,7 @@ type MdxEdge = {
 
 type MdxFields = {
   readonly type: Maybe<Scalars['String']>;
+  readonly editLink: Maybe<Scalars['String']>;
 };
 
 enum MdxFieldsEnum {
@@ -1478,7 +1480,6 @@ enum MdxFieldsEnum {
   fileAbsolutePath = 'fileAbsolutePath',
   frontmatter___title = 'frontmatter.title',
   frontmatter___slug = 'frontmatter.slug',
-  frontmatter___abstract = 'frontmatter.abstract',
   frontmatter___date = 'frontmatter.date',
   frontmatter___featuredImage___sourceInstanceName = 'frontmatter.featuredImage.sourceInstanceName',
   frontmatter___featuredImage___absolutePath = 'frontmatter.featuredImage.absolutePath',
@@ -1542,6 +1543,7 @@ enum MdxFieldsEnum {
   frontmatter___featuredImage___childMdx___id = 'frontmatter.featuredImage.childMdx.id',
   frontmatter___featuredImage___childMdx___children = 'frontmatter.featuredImage.childMdx.children',
   frontmatter___tags = 'frontmatter.tags',
+  frontmatter___abstract = 'frontmatter.abstract',
   body = 'body',
   excerpt = 'excerpt',
   headings = 'headings',
@@ -1555,6 +1557,7 @@ enum MdxFieldsEnum {
   wordCount___sentences = 'wordCount.sentences',
   wordCount___words = 'wordCount.words',
   fields___type = 'fields.type',
+  fields___editLink = 'fields.editLink',
   id = 'id',
   parent___id = 'parent.id',
   parent___parent___id = 'parent.parent.id',
@@ -1645,6 +1648,7 @@ enum MdxFieldsEnum {
 
 type MdxFieldsFilterInput = {
   readonly type: Maybe<StringQueryOperatorInput>;
+  readonly editLink: Maybe<StringQueryOperatorInput>;
 };
 
 type MdxFilterInput = {
@@ -1669,10 +1673,10 @@ type MdxFilterInput = {
 type MdxFrontmatter = {
   readonly title: Scalars['String'];
   readonly slug: Maybe<Scalars['String']>;
-  readonly abstract: Maybe<Scalars['String']>;
   readonly date: Maybe<Scalars['Date']>;
   readonly featuredImage: Maybe<File>;
   readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+  readonly abstract: Maybe<Scalars['String']>;
 };
 
 
@@ -1686,10 +1690,10 @@ type MdxFrontmatter_dateArgs = {
 type MdxFrontmatterFilterInput = {
   readonly title: Maybe<StringQueryOperatorInput>;
   readonly slug: Maybe<StringQueryOperatorInput>;
-  readonly abstract: Maybe<StringQueryOperatorInput>;
   readonly date: Maybe<DateQueryOperatorInput>;
   readonly featuredImage: Maybe<FileFilterInput>;
   readonly tags: Maybe<StringQueryOperatorInput>;
+  readonly abstract: Maybe<StringQueryOperatorInput>;
 };
 
 type MdxGroupConnection = {
@@ -3121,7 +3125,7 @@ type ArticleQueryVariables = {
 
 type ArticleQuery = { readonly mdx: Maybe<(
     Pick<Mdx, 'body' | 'timeToRead'>
-    & { readonly frontmatter: Maybe<(
+    & { readonly fields: Maybe<Pick<MdxFields, 'editLink'>>, readonly frontmatter: Maybe<(
       Pick<MdxFrontmatter, 'title' | 'abstract' | 'date'>
       & { readonly featuredImage: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment>, readonly original: Maybe<Pick<ImageSharpOriginal, 'src'>> }> }> }
     )> }

@@ -9,6 +9,14 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 			name: "type",
 			value: parent.sourceInstanceName,
 		});
+		createNodeField({
+			name: "editLink",
+			node,
+			value: `https://github.com/jonhaddow/website/edit/master${node.fileAbsolutePath.replace(
+				__dirname,
+				""
+			)}`,
+		});
 	}
 };
 
