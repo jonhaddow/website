@@ -79,19 +79,5 @@
 		"serve": "gatsby serve",
 		"clean": "gatsby clean"
 	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "lint-staged"
-		}
-	},
-	"license": "MIT",
-	"lint-staged": {
-		"*.{css,json,js}": [
-			"prettier --write"
-		],
-		"*.{ts,tsx}": [
-			"prettier --write",
-			"eslint --fix"
-		]
-	}
+	"license": "MIT"
 }
