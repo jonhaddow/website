@@ -39,7 +39,7 @@ export function preToCodeBlock(
 			HTMLElement
 		>;
 
-		const matches = className.match(/language-(?<lang>.*)/);
+		const matches = /language-(?<lang>.*)/.exec(className);
 
 		return {
 			codeString: (codeString as string).trim(),
