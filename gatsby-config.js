@@ -29,11 +29,14 @@ module.exports = {
 							return allMdx.edges.map(({ node }) => ({
 								title: node.frontmatter.title,
 								date: node.frontmatter.date,
-								description: node.frontmatter.abstract || node.excerpt,
+								description:
+									node.frontmatter.abstract || node.excerpt,
 								date: node.frontmatter.date,
 								url: `${site.siteMetadata.siteUrl}/blog/${node.frontmatter.slug}`,
 								guid: `${site.siteMetadata.siteUrl}/blog/${node.frontmatter.slug}`,
-								custom_elements: [{ "content:encoded": node.html }],
+								custom_elements: [
+									{ "content:encoded": node.html },
+								],
 								categories: node.frontmatter.tags,
 							}));
 						},
@@ -166,5 +169,6 @@ module.exports = {
 			},
 		},
 		"gatsby-plugin-use-dark-mode",
+		"gatsby-plugin-emotion",
 	],
 };
