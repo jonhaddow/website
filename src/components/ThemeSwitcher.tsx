@@ -1,17 +1,39 @@
-import React from "react";
+/** @jsx jsx */
+import { jsx } from "@emotion/core";
 import LightIcon from "../assets/sun.svg";
 import DarkIcon from "../assets/moon.svg";
-import styles from "./ThemeSwitcher.module.css";
 import useDarkMode from "use-dark-mode";
 
 export const ThemeSwitcher: React.FC = () => {
 	const darkMode = useDarkMode(false);
 
 	return (
-		<div className={styles.wrapper}>
+		<div
+			css={{
+				display: "flex",
+				justifyContent: "center",
+				alignItems: "center",
+				position: "absolute",
+				top: "24px",
+				right: "32px",
+				height: "64px",
+			}}
+		>
 			<button
+				css={{
+					display: "flex",
+					justifyContent: "center",
+					alignItems: "center",
+					background: "none",
+					border: "none",
+					color: "var(--header-text)",
+					cursor: "pointer",
+					padding: "5px",
+					":focus": {
+						outline: "solid var(--header-text) 1px",
+					},
+				}}
 				title={darkMode.value ? "Light mode" : "Dark mode"}
-				className={styles.button}
 				onClick={darkMode.toggle}
 			>
 				{darkMode.value ? <LightIcon /> : <DarkIcon />}

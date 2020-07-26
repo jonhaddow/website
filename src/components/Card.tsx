@@ -1,12 +1,19 @@
-import React from "react";
-import styles from "./Card.module.css";
+/** @jsx jsx */
+import { jsx } from "@emotion/core";
 
 interface CardProps {
 	className?: string;
 }
 
 export const Card: React.FC<CardProps> = (props) => (
-	<section className={`${styles.card} ${props.className ?? ""}`}>
+	<section
+		className={`${props.className ?? ""}`}
+		css={{
+			padding: "32px 48px",
+			borderRadius: "8px",
+			background: "var(--card)",
+		}}
+	>
 		{props.children}
 	</section>
 );

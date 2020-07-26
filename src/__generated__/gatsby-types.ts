@@ -694,6 +694,7 @@ enum FileFieldsEnum {
   childMdx___fileAbsolutePath = 'childMdx.fileAbsolutePath',
   childMdx___frontmatter___title = 'childMdx.frontmatter.title',
   childMdx___frontmatter___slug = 'childMdx.frontmatter.slug',
+  childMdx___frontmatter___abstract = 'childMdx.frontmatter.abstract',
   childMdx___frontmatter___date = 'childMdx.frontmatter.date',
   childMdx___frontmatter___featuredImage___sourceInstanceName = 'childMdx.frontmatter.featuredImage.sourceInstanceName',
   childMdx___frontmatter___featuredImage___absolutePath = 'childMdx.frontmatter.featuredImage.absolutePath',
@@ -732,7 +733,6 @@ enum FileFieldsEnum {
   childMdx___frontmatter___featuredImage___id = 'childMdx.frontmatter.featuredImage.id',
   childMdx___frontmatter___featuredImage___children = 'childMdx.frontmatter.featuredImage.children',
   childMdx___frontmatter___tags = 'childMdx.frontmatter.tags',
-  childMdx___frontmatter___abstract = 'childMdx.frontmatter.abstract',
   childMdx___body = 'childMdx.body',
   childMdx___excerpt = 'childMdx.excerpt',
   childMdx___headings = 'childMdx.headings',
@@ -1480,6 +1480,7 @@ enum MdxFieldsEnum {
   fileAbsolutePath = 'fileAbsolutePath',
   frontmatter___title = 'frontmatter.title',
   frontmatter___slug = 'frontmatter.slug',
+  frontmatter___abstract = 'frontmatter.abstract',
   frontmatter___date = 'frontmatter.date',
   frontmatter___featuredImage___sourceInstanceName = 'frontmatter.featuredImage.sourceInstanceName',
   frontmatter___featuredImage___absolutePath = 'frontmatter.featuredImage.absolutePath',
@@ -1543,7 +1544,6 @@ enum MdxFieldsEnum {
   frontmatter___featuredImage___childMdx___id = 'frontmatter.featuredImage.childMdx.id',
   frontmatter___featuredImage___childMdx___children = 'frontmatter.featuredImage.childMdx.children',
   frontmatter___tags = 'frontmatter.tags',
-  frontmatter___abstract = 'frontmatter.abstract',
   body = 'body',
   excerpt = 'excerpt',
   headings = 'headings',
@@ -1673,10 +1673,10 @@ type MdxFilterInput = {
 type MdxFrontmatter = {
   readonly title: Scalars['String'];
   readonly slug: Maybe<Scalars['String']>;
+  readonly abstract: Maybe<Scalars['String']>;
   readonly date: Maybe<Scalars['Date']>;
   readonly featuredImage: Maybe<File>;
   readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
-  readonly abstract: Maybe<Scalars['String']>;
 };
 
 
@@ -1690,10 +1690,10 @@ type MdxFrontmatter_dateArgs = {
 type MdxFrontmatterFilterInput = {
   readonly title: Maybe<StringQueryOperatorInput>;
   readonly slug: Maybe<StringQueryOperatorInput>;
+  readonly abstract: Maybe<StringQueryOperatorInput>;
   readonly date: Maybe<DateQueryOperatorInput>;
   readonly featuredImage: Maybe<FileFilterInput>;
   readonly tags: Maybe<StringQueryOperatorInput>;
-  readonly abstract: Maybe<StringQueryOperatorInput>;
 };
 
 type MdxGroupConnection = {
