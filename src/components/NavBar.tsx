@@ -112,7 +112,7 @@ export const NavBar: React.FC = () => {
 							display: "inline",
 							paddingLeft: "30px",
 							margin: 0,
-							"&:first-child": {
+							"&:first-of-type": {
 								paddingLeft: 0,
 							},
 						}}

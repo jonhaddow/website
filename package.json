@@ -42,7 +42,6 @@
 		"eslint-config-jonhaddow": "^1.2.0",
 		"eslint-loader": "^4.0.2",
 		"eslint-plugin-emotion": "^10.0.27",
-		"gatsby-plugin-css-modules-typings": "^1.0.1",
 		"gatsby-plugin-eslint": "^2.0.8",
 		"gatsby-plugin-manifest": "^2.3.3",
 		"gatsby-plugin-mdx": "^1.2.13",

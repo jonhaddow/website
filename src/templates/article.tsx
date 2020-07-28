@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx } from "@emotion/core";
 import React, { ReactElement } from "react";
 import { graphql } from "gatsby";
 import { Layout, NavBar, Header, Title, Card, SEO, Code } from "../components";
@@ -5,8 +7,8 @@ import Img from "gatsby-image";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 
-import styles from "./article.module.css";
 import { preToCodeBlock } from "../components/mdx/helpers";
+import { mq } from "../utils/mediaQueries";
 
 interface PostProps {
 	data: GatsbyTypes.ArticleQuery;
@@ -20,7 +22,10 @@ const Article: React.FC<PostProps> = ({ data }) => {
 			<SEO
 				title={post.frontmatter?.title ?? ""}
 				description={post.frontmatter?.abstract}
-				image={post.frontmatter?.featuredImage?.childImageSharp?.original?.src}
+				image={
+					post.frontmatter?.featuredImage?.childImageSharp?.original
+						?.src
+				}
 			/>
 			<Header>
 				<NavBar />
@@ -29,19 +34,46 @@ const Article: React.FC<PostProps> = ({ data }) => {
 					subText={
 						post.frontmatter?.date &&
 						`${post.frontmatter?.date} - ${post?.timeToRead} ${
-							post.timeToRead && post.timeToRead > 1 ? "minutes" : "minute"
+							post.timeToRead && post.timeToRead > 1
+								? "minutes"
+								: "minute"
 						}`
 					}
 				/>
 			</Header>
-			<Card className={styles.articleCard}>
+			<Card
+				css={{
+					width: "100%",
+					maxWidth: 900,
+					borderRadius: 0,
+					margin: "-32px auto 0",
+					[mq.desktop]: {
+						borderRadius: 8,
+						marginBottom: 64,
+					},
+				}}
+			>
 				{post.frontmatter?.featuredImage?.childImageSharp?.fluid && (
 					<Img
-						className={styles.featuredImage}
-						fluid={post.frontmatter?.featuredImage?.childImageSharp?.fluid}
+						css={{
+							marginBottom: 32,
+							borderRadius: 8,
+						}}
+						fluid={
+							post.frontmatter?.featuredImage?.childImageSharp
+								?.fluid
+						}
 					/>
 				)}
-				<p className={styles.abstract}>{post.frontmatter?.abstract}</p>
+				<p
+					css={{
+						fontWeight: 200,
+						color: "var(--text-lighter)",
+						fontStyle: "italic",
+					}}
+				>
+					{post.frontmatter?.abstract}
+				</p>
 				<MDXProvider
 					components={{
 						pre: (
@@ -64,8 +96,15 @@ const Article: React.FC<PostProps> = ({ data }) => {
 				>
 					<MDXRenderer>{post.body}</MDXRenderer>
 				</MDXProvider>
-				<p className={styles.footerLinks}>
-					<a className={styles.editLink} href={post.fields?.editLink}>
+				<p
+					css={{
+						textAlign: "right",
+					}}
+				>
+					<a
+						css={{ color: "var(--text-lighter)" }}
+						href={post.fields?.editLink}
+					>
 						Edit this post on GitHub
 					</a>
 				</p>

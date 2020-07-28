@@ -133,7 +133,6 @@ module.exports = {
 				],
 			},
 		},
-		"gatsby-plugin-css-modules-typings",
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {

@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./layout.css";
+import "../styles.css";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 
 export const Layout: React.FC = ({ children }) => {
