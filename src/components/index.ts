@@ -3,6 +3,7 @@ export * from "./Header";
 export * from "./Layout";
 export * from "./NavBar";
 export * from "./mdx/Code";
+export * from "./RecentPosts";
 export * from "./SearchCard";
 export * from "./SEO";
 export * from "./Title";

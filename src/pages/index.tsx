@@ -1,10 +1,9 @@
 /** @jsx jsx */
-import { jsx, css } from "@emotion/core";
+import { jsx } from "@emotion/core";
 import React from "react";
 import { Link, graphql } from "gatsby";
 import Img from "gatsby-image";
-
-import { Card, Layout, SEO } from "../components";
+import { Card, Layout, SEO, RecentPosts } from "../components";
 import { mq } from "../utils/mediaQueries";
 
 interface IndexProps {
@@ -12,17 +11,6 @@ interface IndexProps {
 }
 
 const Home: React.FC<IndexProps> = ({ data }) => {
-	const cardStyles = css({
-		width: "90%",
-		maxWidth: "700px",
-		margin: "0 auto 64px",
-	});
-	const viewMore = css({
-		textDecoration: "none",
-		"&:hover, &:focus, &:active": {
-			textDecoration: "underline",
-		},
-	});
 	return (
 		<Layout>
 			<SEO title="Home" />
@@ -156,116 +144,31 @@ const Home: React.FC<IndexProps> = ({ data }) => {
 					/>
 				</div>
 			</header>
-			<Card css={[cardStyles, { marginTop: -64 }]}>
+			<Card
+				css={{
+					width: "90%",
+					maxWidth: "700px",
+					margin: "-64px auto 64px",
+				}}
+			>
 				<p>
 					I am a full stack web developer that builds quality,
 					scalable web applications. I work primarily with React,
 					TypeScript and .NET.
 				</p>
-				<Link css={viewMore} to="/about">
+				<Link
+					css={{
+						textDecoration: "none",
+						"&:hover, &:focus, &:active": {
+							textDecoration: "underline",
+						},
+					}}
+					to="/about"
+				>
 					Read more
 				</Link>
 			</Card>
-			<Card css={cardStyles}>
-				<h2
-					css={{
-						marginBottom: "1.5rem",
-						fontWeight: 400,
-						fontSize: "1.4rem",
-					}}
-				>
-					Recent posts
-				</h2>
-				<ul
-					css={{
-						padding: 0,
-						marginLeft: 0,
-						listStyleType: "none",
-					}}
-				>
-					{data.allMdx.edges.map(({ node }) => (
-						<li key={node.id}>
-							<Link
-								css={{
-									height: "100%",
-									textDecoration: "none",
-
-									[mq.desktop]: {
-										display: "flex",
-										alignItems: "center",
-									},
-
-									"&:hover strong": {
-										textDecoration: "underline",
-									},
-								}}
-								to={`/blog/${node.frontmatter?.slug}`}
-							>
-								<Img
-									css={{
-										width: "100%",
-										[mq.desktop]: {
-											display: "inline-block",
-											width: 120,
-										},
-									}}
-									fluid={
-										node.frontmatter?.featuredImage
-											?.childImageSharp?.fluid
-									}
-								/>
-								<div
-									css={{
-										display: "inline-block",
-										padding: "5px 0 10px",
-										[mq.desktop]: {
-											paddingLeft: 10,
-										},
-									}}
-								>
-									<strong
-										css={{
-											margin: 0,
-											padding: "12px 8px 0 0",
-											color: "var(--text)",
-											fontSize: "1.5rem",
-											fontWeight: 400,
-										}}
-									>
-										{node.frontmatter?.title}
-									</strong>
-									<time
-										css={{
-											display: "block",
-											height: "100%",
-											margin: "-4px 0",
-											color: "var(--text-light)",
-											fontSize: "0.8rem",
-											fontWeight: 400,
-											fontFamily:
-												"var(--sans-serif-font)",
-										}}
-									>
-										{node.frontmatter?.date}
-									</time>
-									<p
-										css={{
-											marginTop: 8,
-											color: "var(--text)",
-											fontStyle: "italic",
-										}}
-									>
-										{node.frontmatter?.abstract}
-									</p>
-								</div>
-							</Link>
-						</li>
-					))}
-				</ul>
-				<Link css={viewMore} to="/blog">
-					View all posts
-				</Link>
-			</Card>
+			<RecentPosts />
 		</Layout>
 	);
 };
@@ -283,30 +186,6 @@ export const query = graphql`
 			childImageSharp {
 				fluid(maxWidth: 300) {
 					...GatsbyImageSharpFluid
-				}
-			}
-		}
-		allMdx(
-			limit: 3
-			sort: { order: DESC, fields: frontmatter___date }
-			filter: { fields: { type: { eq: "posts" } } }
-		) {
-			edges {
-				node {
-					id
-					frontmatter {
-						slug
-						title
-						abstract
-						date(formatString: "MMMM DD, YYYY")
-						featuredImage {
-							childImageSharp {
-								fluid(maxWidth: 400) {
-									...GatsbyImageSharpFluid
-								}
-							}
-						}
-					}
 				}
 			}
 		}
