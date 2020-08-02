@@ -35,32 +35,33 @@
 	--text-lighter: #dedede;
 }
 
-body {
-	margin: 0;
-	background: var(--background);
-	color: var(--text);
-}
-
-html {
-	box-sizing: border-box;
-}
 *,
 *:before,
 *:after {
 	box-sizing: inherit;
 }
 
-blockquote {
-	padding-left: 0.75rem;
-	margin-left: 0.75rem;
-	border-left: solid var(--text-lighter) 3px;
+html {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background: var(--background);
+	color: var(--text);
 }
 
 a {
 	color: var(--dark-primary);
-	&:focus {
-		outline: 2px var(--dark-primary) solid;
-	}
+}
+a:focus {
+	outline: 2px var(--dark-primary) solid;
+}
+
+blockquote {
+	padding-left: 0.75rem;
+	margin-left: 0.75rem;
+	border-left: solid var(--text-lighter) 3px;
 }
 
 hr {

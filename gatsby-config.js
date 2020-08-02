@@ -123,17 +123,6 @@ module.exports = {
 			},
 		},
 		{
-			resolve: `gatsby-plugin-postcss`,
-			options: {
-				postCssPlugins: [
-					require("postcss-preset-env")({
-						stage: 0,
-						importFrom: "./src/utils/custom-media-queries.css",
-					}),
-				],
-			},
-		},
-		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
 				name: `jon.haddow.me`,
