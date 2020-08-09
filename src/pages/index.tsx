@@ -151,7 +151,7 @@ const Home: React.FC<IndexProps> = ({ data }) => {
 					margin: "-64px auto 64px",
 				}}
 			>
-				<p data-cy="homeSummary">
+				<p>
 					I am a full stack web developer that builds quality,
 					scalable web applications. I work primarily with React,
 					TypeScript and .NET.
