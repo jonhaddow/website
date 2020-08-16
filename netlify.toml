@@ -6,7 +6,7 @@
 
 [build]
 	command = "yarn build"
-	publish = "publish"
+	publish = "public"
 
 [build.environment]
 	# cache Cypress binary in local "node_modules" folder
