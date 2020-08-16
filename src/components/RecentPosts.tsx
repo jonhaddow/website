@@ -4,8 +4,9 @@ import { useStaticQuery, graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 import { Card } from ".";
 import { mq } from "../utils/mediaQueries";
+import { AllMdx } from "../models";
 export const RecentPosts: React.FC = () => {
-	const data = useStaticQuery<GatsbyTypes.RecentPostsQuery>(graphql`
+	const data = useStaticQuery<{ allMdx: AllMdx }>(graphql`
 		query RecentPosts {
 			allMdx(
 				limit: 3

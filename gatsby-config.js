@@ -70,7 +70,6 @@ module.exports = {
 		},
 		"gatsby-plugin-typescript",
 		"gatsby-plugin-typescript-checker",
-		"gatsby-plugin-typegen",
 		{
 			resolve: "gatsby-plugin-eslint",
 			options: {

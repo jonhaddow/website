@@ -16,9 +16,12 @@ import { Link, graphql } from "gatsby";
 import Img from "gatsby-image";
 import { useQueryParam, StringParam } from "use-query-params";
 import matchSorter from "match-sorter";
+import { AllMdx } from "../models";
 
 interface BlogProps {
-	data: GatsbyTypes.BlogQuery;
+	data: {
+		allMdx: AllMdx;
+	};
 }
 
 const Blog: React.FC<BlogProps> = ({ data }) => {

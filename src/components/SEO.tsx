@@ -20,7 +20,7 @@ export const SEO: React.FC<SEOProps> = ({
 	title,
 	image,
 }) => {
-	const { site, placeholderImage } = useStaticQuery<GatsbyTypes.SEOQuery>(
+	const { site, placeholderImage } = useStaticQuery(
 		graphql`
 			query SEO {
 				site {

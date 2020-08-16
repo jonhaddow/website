@@ -22,7 +22,7 @@ export const NavBar: React.FC = () => {
 		},
 	];
 
-	const data = useStaticQuery<GatsbyTypes.NavBarQuery>(graphql`
+	const data = useStaticQuery(graphql`
 		query NavBar {
 			site {
 				siteMetadata {

@@ -9,9 +9,12 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 
 import { preToCodeBlock } from "../components/mdx/helpers";
 import { mq } from "../utils/mediaQueries";
+import { Mdx } from "../models";
 
 interface PostProps {
-	data: GatsbyTypes.ArticleQuery;
+	data: {
+		mdx: Mdx;
+	};
 }
 
 const Article: React.FC<PostProps> = ({ data }) => {

@@ -5,9 +5,12 @@ import { Link, graphql } from "gatsby";
 import Img from "gatsby-image";
 import { Card, Layout, SEO, RecentPosts } from "../components";
 import { mq } from "../utils/mediaQueries";
+import { FluidImg } from "../models";
 
 interface IndexProps {
-	data: GatsbyTypes.HomeQuery;
+	data: {
+		placeholderImage: FluidImg;
+	};
 }
 
 const Home: React.FC<IndexProps> = ({ data }) => {
@@ -177,11 +180,6 @@ export default Home;
 
 export const query = graphql`
 	query Home {
-		site {
-			siteMetadata {
-				title
-			}
-		}
 		placeholderImage: file(relativePath: { eq: "profile-img.jpg" }) {
 			childImageSharp {
 				fluid(maxWidth: 300) {
