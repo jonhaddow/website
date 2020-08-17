@@ -28,8 +28,6 @@ describe("navigation", () => {
 		cy.findAllByText("Read more").click();
 
 		cy.url().should("include", "/about");
-
-		cy.findByRole("header", {});
 	});
 
 	it('clicking the "View all posts" opens /blog', () => {
