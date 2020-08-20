@@ -1,4 +1,4 @@
-it("homepage successfully loads", () => {
+it("home page successfully loads", () => {
 	cy.visit("/");
 
 	cy.findByText("Jon Haddow").should("exist");
@@ -6,22 +6,6 @@ it("homepage successfully loads", () => {
 });
 
 describe("navigation", () => {
-	it('clicking "About" opens /about', () => {
-		cy.visit("/");
-
-		cy.findAllByText("About").click();
-
-		cy.url().should("include", "/about");
-	});
-
-	it('clicking "Blog" opens /blog', () => {
-		cy.visit("/");
-
-		cy.findAllByText("Blog").click();
-
-		cy.url().should("include", "/blog");
-	});
-
 	it('clicking the "Read more" opens /about', () => {
 		cy.visit("/");
 
