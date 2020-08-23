@@ -22,7 +22,7 @@ describe("about", () => {
 
 		cy.findByText("Jon Haddow").click();
 
-		cy.url().should("equal", Cypress.config().baseUrl);
+		cy.url().should("equal", new RegExp(`${Cypress.config().baseUrl}/?`));
 	});
 
 	it("-> blog", () => {
@@ -40,7 +40,7 @@ describe("blog", () => {
 
 		cy.findByText("Jon Haddow").click();
 
-		cy.url().should("equal", Cypress.config().baseUrl);
+		cy.url().should("equal", new RegExp(`${Cypress.config().baseUrl}/?`));
 	});
 
 	it("-> about", () => {
