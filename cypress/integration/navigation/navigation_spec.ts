@@ -4,7 +4,7 @@ describe("homepage", () => {
 
 		cy.findByText("About").click();
 
-		cy.url().should("include", "/about");
+		cy.findByRole("heading", { name: /About/ }).should("exist");
 	});
 
 	it("-> blog", () => {
@@ -12,7 +12,7 @@ describe("homepage", () => {
 
 		cy.findByText("Blog").click();
 
-		cy.url().should("include", "/blog");
+		cy.findByRole("heading", { name: /Blog/ }).should("exist");
 	});
 });
 
@@ -22,7 +22,8 @@ describe("about", () => {
 
 		cy.findByText("Jon Haddow").click();
 
-		cy.url().should("equal", new RegExp(`${Cypress.config().baseUrl}/?`));
+		cy.findByRole("heading", { name: /Jon Haddow/ }).should("exist");
+		cy.findByText("Web Developer").should("exist");
 	});
 
 	it("-> blog", () => {
@@ -30,7 +31,7 @@ describe("about", () => {
 
 		cy.findByText("Blog").click();
 
-		cy.url().should("include", "/blog");
+		cy.findByRole("heading", { name: /Blog/ }).should("exist");
 	});
 });
 
@@ -40,7 +41,8 @@ describe("blog", () => {
 
 		cy.findByText("Jon Haddow").click();
 
-		cy.url().should("equal", new RegExp(`${Cypress.config().baseUrl}/?`));
+		cy.findByRole("heading", { name: /Jon Haddow/ }).should("exist");
+		cy.findByText("Web Developer").should("exist");
 	});
 
 	it("-> about", () => {
@@ -48,6 +50,6 @@ describe("blog", () => {
 
 		cy.findByText("About").click();
 
-		cy.url().should("include", "/about");
+		cy.findByRole("heading", { name: /About/ }).should("exist");
 	});
 });
