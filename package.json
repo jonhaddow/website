@@ -80,10 +80,8 @@
 		"start": "gatsby develop",
 		"serve": "gatsby serve",
 		"clean": "gatsby clean",
-		"cypress:open": "cypress open",
-		"cypress:run": "cypress run",
-		"ci:tests:open": "start-server-and-test start http://localhost:8000 cypress:open",
-		"ci:tests:run": "start-server-and-test start http://localhost:8000 cypress:run"
+		"test": "start-server-and-test start http://localhost:8000 cypress:run",
+		"test:open": "cypress open"
 	},
 	"license": "MIT",
 	"resolutions": {
