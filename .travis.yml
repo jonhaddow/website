@@ -1,3 +1,9 @@
 language: node_js
 node_js:
   - 14
+
+cache:
+  # cache both npm modules and Cypress binary
+  directories:
+    - ~/.npm
+    - ~/.cache
