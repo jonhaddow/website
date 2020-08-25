@@ -15,3 +15,6 @@
 [[plugins]]
 	# local Cypress plugin will test our site after it is built
 	package = "netlify-plugin-cypress"
+	[plugins.inputs]
+		spa = "index.html"
+		record = true
