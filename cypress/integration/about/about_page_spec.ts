@@ -1,4 +1,4 @@
-it("about page successfully loads", () => {
+it("should render the about page", () => {
 	cy.visit("/about");
 
 	cy.findByRole("heading", { name: "About Me" }).should("exist");

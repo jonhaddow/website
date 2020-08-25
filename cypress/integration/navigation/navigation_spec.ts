@@ -2,17 +2,21 @@ describe("homepage", () => {
 	it("-> about", () => {
 		cy.visit("/");
 
-		cy.findByText("About").click();
-
-		cy.findByRole("heading", { name: /About/ }).should("exist");
+		cy.findByRole("link", { name: "About" }).should(
+			"have.attr",
+			"href",
+			"/about"
+		);
 	});
 
 	it("-> blog", () => {
 		cy.visit("/");
 
-		cy.findByText("Blog").click();
-
-		cy.findByRole("heading", { name: /Blog/ }).should("exist");
+		cy.findByRole("link", { name: "Blog" }).should(
+			"have.attr",
+			"href",
+			"/blog"
+		);
 	});
 });
 
@@ -20,18 +24,21 @@ describe("about", () => {
 	it("-> homepage", () => {
 		cy.visit("/about");
 
-		cy.findByText("Jon Haddow").click();
-
-		cy.findByRole("heading", { name: /Jon Haddow/ }).should("exist");
-		cy.findByText("Web Developer").should("exist");
+		cy.findByRole("link", { name: /Jon Haddow/ }).should(
+			"have.attr",
+			"href",
+			"/"
+		);
 	});
 
 	it("-> blog", () => {
 		cy.visit("/about");
 
-		cy.findByText("Blog").click();
-
-		cy.findByRole("heading", { name: /Blog/ }).should("exist");
+		cy.findByRole("link", { name: "Blog" }).should(
+			"have.attr",
+			"href",
+			"/blog"
+		);
 	});
 });
 
@@ -39,17 +46,20 @@ describe("blog", () => {
 	it("-> homepage", () => {
 		cy.visit("/blog");
 
-		cy.findByText("Jon Haddow").click();
-
-		cy.findByRole("heading", { name: /Jon Haddow/ }).should("exist");
-		cy.findByText("Web Developer").should("exist");
+		cy.findByRole("link", { name: /Jon Haddow/ }).should(
+			"have.attr",
+			"href",
+			"/"
+		);
 	});
 
 	it("-> about", () => {
 		cy.visit("/blog");
 
-		cy.findByText("About").click();
-
-		cy.findByRole("heading", { name: /About/ }).should("exist");
+		cy.findByRole("link", { name: "About" }).should(
+			"have.attr",
+			"href",
+			"/about"
+		);
 	});
 });

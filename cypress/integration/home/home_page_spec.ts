@@ -1,26 +1,26 @@
-it("home page successfully loads", () => {
+it("should render the heading", () => {
 	cy.visit("/");
 
 	cy.findByRole("heading", { name: /Jon Haddow/ }).should("exist");
 	cy.findByText("Web Developer").should("exist");
 });
 
-describe("navigation", () => {
-	it('clicking the "Read more" opens /about', () => {
-		cy.visit("/");
+it('should render the "Read more" link to about page', () => {
+	cy.visit("/");
 
-		cy.findByRole("link", { name: /Read more/ }).click();
+	cy.findByRole("link", { name: /Read more/ }).should(
+		"have.attr",
+		"href",
+		"/about"
+	);
+});
 
-		cy.url().should("include", "/about");
-		cy.findByRole("heading", { name: /About/ }).should("exist");
-	});
+it('should render the "/View all posts" link to blog page', () => {
+	cy.visit("/");
 
-	it('clicking the "View all posts" opens /blog', () => {
-		cy.visit("/");
-
-		cy.findByRole("link", { name: /View all posts/ }).click();
-
-		cy.url().should("include", "/blog");
-		cy.findByRole("heading", { name: /Blog/ }).should("exist");
-	});
+	cy.findByRole("link", { name: /View all posts/ }).should(
+		"have.attr",
+		"href",
+		"/blog"
+	);
 });
