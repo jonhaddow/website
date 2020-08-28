@@ -14,5 +14,3 @@ install:
   - yarn install
   - yarn cypress install
   - yarn cypress verify
-script:
-  - $(npm bin)/cypress run --record
