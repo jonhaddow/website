@@ -21,12 +21,9 @@ install:
 script:
   - yarn test
 
-before_deploy:
-  - yarn build
-
 deploy:
   skip_cleanup: true
   provider: script
-  script: netlify deploy --dir=public --prod
+  script: yarn build && netlify deploy --dir=public --prod
   on:
-    branch: feature/travis
+    branch: master
