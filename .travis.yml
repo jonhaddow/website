@@ -19,6 +19,6 @@ deploy:
   skip_cleanup: true
   provider: script
   on:
-    branch: master
+    branch: feature/travis
   script: netlify deploy
   
