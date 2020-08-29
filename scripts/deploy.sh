@@ -1,1 +1,0 @@
-netlify deploy --trigger
