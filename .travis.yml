@@ -1,24 +1,34 @@
 language: node_js
 node_js:
   - 14
+
 addons:
   apt:
     packages:
       # Ubuntu 16+ does not install this dependency by default, so we need to install it ourselves
       - libgconf-2-4
+
 cache:
   yarn: true
   directories:
     - ~/.cache
-install:
-  - yarn install
-  - yarn cypress install
-  - yarn cypress verify
 
-deploy:
-  skip_cleanup: true
-  provider: script
-  on:
-    branch: feature/travis
-  script: netlify deploy
-  
+jobs:
+  include:
+    - stage: install
+    - script: yarn install
+    - script: yarn cypress install
+    - script: yarn cypress verify
+
+    - stage: test
+      script: yarn test
+
+    - stage: build
+      script: yarn build
+
+    - stage: deploy
+      skip_cleanup: true
+      provider: script
+      script: netlify deploy --trigger
+      on:
+        branch: feature/travis
