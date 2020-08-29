@@ -18,8 +18,7 @@ install:
   - yarn cypress install
   - yarn cypress verify
 
-script:
-  - yarn test
+script: skip
 
 before_deploy:
   - yarn build
@@ -27,6 +26,6 @@ before_deploy:
 deploy:
   skip_cleanup: true
   provider: script
-  script: netlify deploy --trigger
+  script: bash scripts/deploy.sh
   on:
     branch: feature/travis
