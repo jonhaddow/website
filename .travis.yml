@@ -13,22 +13,20 @@ cache:
   directories:
     - ~/.cache
 
-jobs:
-  include:
-    - stage: install
-    - script: yarn install
-    - script: yarn cypress install
-    - script: yarn cypress verify
+install:
+  - yarn install
+  - yarn cypress install
+  - yarn cypress verify
 
-    - stage: test
-      script: yarn test
+script:
+  - yarn test
 
-    - stage: build
-      script: yarn build
+before_deploy:
+  - yarn build
 
-    - stage: deploy
-      skip_cleanup: true
-      provider: script
-      script: netlify deploy --trigger
-      on:
-        branch: feature/travis
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: netlify deploy --trigger
+  on:
+    branch: feature/travis
