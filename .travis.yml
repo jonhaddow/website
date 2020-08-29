@@ -14,3 +14,11 @@ install:
   - yarn install
   - yarn cypress install
   - yarn cypress verify
+
+deploy:
+  skip_cleanup: true
+  provider: script
+  on:
+    branch: master
+  script: netlify deploy
+  
