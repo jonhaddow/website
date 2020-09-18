@@ -168,7 +168,7 @@ const Home: React.FC<IndexProps> = ({ data }) => {
 					}}
 					to="/about"
 				>
-					Read more
+					Read more about me
 				</Link>
 			</Card>
 			<RecentPosts />
