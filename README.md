@@ -1,6 +1,6 @@
 # website
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/e131ce01-7c33-4c35-a5b0-1f7391ec2d03/deploy-status)](https://app.netlify.com/sites/awesome-shaw-a97bfe/deploys)
+[![Build Status](https://travis-ci.org/jonhaddow/website.svg?branch=master)](https://travis-ci.org/jonhaddow/website)
 
 Hosts my website - https://jon.haddow.me
 
