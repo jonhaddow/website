@@ -3,17 +3,3 @@
 	to = "https://jon.haddow.me"
 	status = 301
 	force = true
-
-[build]
-	command = "yarn build"
-	publish = "public"
-
-[build.environment]
-	# cache Cypress binary in local "node_modules" folder
-	CYPRESS_CACHE_FOLDER = "./node_modules/CypressBinary"
-
-[[plugins]]
-	# local Cypress plugin will test our site after it is built
-	package = "netlify-plugin-cypress"
-	[plugins.inputs]
-		record = true
