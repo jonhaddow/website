@@ -4,6 +4,7 @@ import React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import { mq } from "../utils/mediaQueries";
+import { ThemeSwitcher } from ".";
 
 interface NavItem {
 	link: string;
@@ -56,6 +57,7 @@ export const NavBar: React.FC = () => {
 				},
 			}}
 		>
+			<ThemeSwitcher />
 			<Link
 				to="/"
 				css={{

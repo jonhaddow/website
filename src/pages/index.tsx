@@ -3,7 +3,7 @@ import { jsx } from "@emotion/core";
 import React from "react";
 import { Link, graphql } from "gatsby";
 import Img from "gatsby-image";
-import { Card, Layout, SEO, RecentPosts } from "../components";
+import { Card, Layout, SEO, RecentPosts, ThemeSwitcher } from "../components";
 import { mq } from "../utils/mediaQueries";
 import { FluidImg } from "../models";
 
@@ -27,6 +27,7 @@ const Home: React.FC<IndexProps> = ({ data }) => {
 					color: "var(--header-text)",
 				}}
 			>
+				<ThemeSwitcher />
 				<div
 					css={{
 						width: "100%",
@@ -147,31 +148,33 @@ const Home: React.FC<IndexProps> = ({ data }) => {
 					/>
 				</div>
 			</header>
-			<Card
-				css={{
-					width: "90%",
-					maxWidth: "700px",
-					margin: "-64px auto 64px",
-				}}
-			>
-				<p>
-					I am a full stack web developer that builds quality,
-					scalable web applications. I work primarily with React,
-					TypeScript and .NET.
-				</p>
-				<Link
+			<main>
+				<Card
 					css={{
-						textDecoration: "none",
-						"&:hover, &:focus, &:active": {
-							textDecoration: "underline",
-						},
+						width: "90%",
+						maxWidth: "700px",
+						margin: "-64px auto 64px",
 					}}
-					to="/about"
 				>
-					Read more about me
-				</Link>
-			</Card>
-			<RecentPosts />
+					<p>
+						I am a full stack web developer that builds quality,
+						scalable web applications. I work primarily with React,
+						TypeScript and .NET.
+					</p>
+					<Link
+						css={{
+							textDecoration: "none",
+							"&:hover, &:focus, &:active": {
+								textDecoration: "underline",
+							},
+						}}
+						to="/about"
+					>
+						Read more about me
+					</Link>
+				</Card>
+				<RecentPosts />
+			</main>
 		</Layout>
 	);
 };

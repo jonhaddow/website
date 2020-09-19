@@ -44,74 +44,77 @@ const Article: React.FC<PostProps> = ({ data }) => {
 					}
 				/>
 			</Header>
-			<Card
-				css={{
-					width: "100%",
-					maxWidth: 900,
-					borderRadius: 0,
-					margin: "-32px auto 0",
-					[mq.desktop]: {
-						borderRadius: 8,
-						marginBottom: 64,
-					},
-				}}
-			>
-				{post.frontmatter?.featuredImage?.childImageSharp?.fluid && (
-					<Img
-						css={{
-							marginBottom: 32,
-							borderRadius: 8,
-						}}
-						fluid={
-							post.frontmatter?.featuredImage?.childImageSharp
-								?.fluid
-						}
-					/>
-				)}
-				<p
+			<main>
+				<Card
 					css={{
-						fontWeight: 200,
-						color: "var(--text-lighter)",
-						fontStyle: "italic",
-					}}
-				>
-					{post.frontmatter?.abstract}
-				</p>
-				<MDXProvider
-					components={{
-						pre: (
-							preProps: React.DetailedHTMLProps<
-								React.HTMLAttributes<HTMLPreElement>,
-								HTMLPreElement
-							> & { children: ReactElement }
-						) => {
-							const props = preToCodeBlock(preProps);
-
-							// if there's a codeString and some props, we passed the test
-							if (props) {
-								return <Code {...props} />;
-							} else {
-								// it's possible to have a pre without a code in it
-								return <pre {...preProps} />;
-							}
+						width: "100%",
+						maxWidth: 900,
+						borderRadius: 0,
+						margin: "-32px auto 0",
+						[mq.desktop]: {
+							borderRadius: 8,
+							marginBottom: 64,
 						},
 					}}
 				>
-					<MDXRenderer>{post.body}</MDXRenderer>
-				</MDXProvider>
-				<p
-					css={{
-						textAlign: "right",
-					}}
-				>
-					<a
-						css={{ color: "var(--text-lighter)" }}
-						href={post.fields?.editLink}
+					{post.frontmatter?.featuredImage?.childImageSharp
+						?.fluid && (
+						<Img
+							css={{
+								marginBottom: 32,
+								borderRadius: 8,
+							}}
+							fluid={
+								post.frontmatter?.featuredImage?.childImageSharp
+									?.fluid
+							}
+						/>
+					)}
+					<p
+						css={{
+							fontWeight: 200,
+							color: "var(--text-lighter)",
+							fontStyle: "italic",
+						}}
 					>
-						Edit this post on GitHub
-					</a>
-				</p>
-			</Card>
+						{post.frontmatter?.abstract}
+					</p>
+					<MDXProvider
+						components={{
+							pre: (
+								preProps: React.DetailedHTMLProps<
+									React.HTMLAttributes<HTMLPreElement>,
+									HTMLPreElement
+								> & { children: ReactElement }
+							) => {
+								const props = preToCodeBlock(preProps);
+
+								// if there's a codeString and some props, we passed the test
+								if (props) {
+									return <Code {...props} />;
+								} else {
+									// it's possible to have a pre without a code in it
+									return <pre {...preProps} />;
+								}
+							},
+						}}
+					>
+						<MDXRenderer>{post.body}</MDXRenderer>
+					</MDXProvider>
+					<p
+						css={{
+							textAlign: "right",
+						}}
+					>
+						<a
+							css={{ color: "var(--text-lighter)" }}
+							href={post.fields?.editLink}
+						>
+							Edit this post on GitHub
+						</a>
+					</p>
+				</Card>
+			</main>
 		</Layout>
 	);
 };
