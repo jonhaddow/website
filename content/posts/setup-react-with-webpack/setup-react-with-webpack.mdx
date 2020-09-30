@@ -1,0 +1,52 @@
+---
+slug: setup-react-with-webpack
+title: Building a React application with webpack
+abstract: A beginners guide to webpack
+date: 2020-06-03
+featuredImage: ./images/featured-image.jpg
+tags: ["webpack", "build", "tools", "javascript", "react"]
+---
+
+[React](https://reactjs.org) is currently the most popular, modern UI framework for the web. 
+
+It's well known for its functional, declarative style and I would argue it's really easy to get your head around.
+The structure of an application (and its JSX syntax) feels close to HTML, so it's easy to follow logic.
+
+It's well worth trying React if you are a developer or are interested in learning front-end development.
+
+---
+
+When first building a React application you have a few options available. 
+
+- You can add a couple script tags to the HTML and then React should work. 
+However this isn't the recommended approach for a production site.
+- You can also run `npx create-react-app my-app` to have [Create React App](https://github.com/facebookincubator/create-react-app)
+automatically setup a project for you with all the tools you need under the hood.
+- You can build the tooling yourself and learn more about how the tools work.
+
+I tend to recommend the last option as knowing your tools enhances your ability as a developer.
+
+The rest of this post will cover how to setup a React application with a build tool, [webpack](https://webpack.js.org).
+
+I have covered how to build JavaScript, HTML, and CSS using webpack [in a previous post](https://jon.haddow.me/blog/basic-setup-for-a-web-application), so that is worth reading first if unfamiliar.
+
+---
+
+## Prerequisites
+
+- Install [Node.js](https://nodejs.org/en/download/) to allow you to install and run JavaScript packages.
+
+// Startup a new project with package.json (use `npm init`)
+
+// install react+
+
+`npm install react react-dom`
+
+// Setup folder structure
+
+
+// install webpack + babel
+
+`npm install webpack webpack-cli html-webpack-plugin @babel/core @babel/preset-react @babel/preset-env`
+
+// Setup webpack config
