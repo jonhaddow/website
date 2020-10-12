@@ -7,6 +7,11 @@ featuredImage: ./images/featured-image.jpg
 tags: ["webpack", "build", "tools", "javascript", "react"]
 ---
 
+import { CodeSnippet } from "../../../src/components/mdx";
+import srcIndexCode from "!!raw-loader!./example-app/src/index.js";
+import srcAppCode from "!!raw-loader!./example-app/src/App.jsx";
+import srcAssetsIndexCode from "!!raw-loader!./example-app/src/assets/index.html";
+
 [React](https://reactjs.org) is currently the most popular, modern UI framework for the web. 
 
 It's well known for its functional, declarative style and I would argue it's really easy to get your head around.
@@ -36,17 +41,71 @@ I have covered how to build JavaScript, HTML, and CSS using webpack [in a previo
 
 - Install [Node.js](https://nodejs.org/en/download/) to allow you to install and run JavaScript packages.
 
-// Startup a new project with package.json (use `npm init`)
+## Steps
 
-// install react+
+The main dependencies we'll need to install is `react` and `react-dom`. So setup a new repository, run `npm init` to setup the `package.json`, then run `npm install react react-dom`.
 
-`npm install react react-dom`
+Next, we'll create a file `/src/index.js` (this will be the application's entry point) with the following content:
 
-// Setup folder structure
+<CodeSnippet codeString={srcIndexCode} language="jsx" />
 
+then we'll create our `App` component in `/src/App.jsx` with a simple line of text to look out for:
 
-// install webpack + babel
+<CodeSnippet codeString={srcAppCode} language="jsx" />
+ 
+Now we need to have get this compiled into plain JavaScript and injected into a HTML page to load in a browser.
 
-`npm install webpack webpack-cli html-webpack-plugin @babel/core @babel/preset-react @babel/preset-env`
+Lets create a HTML template in `/src/assets/index.html`:
 
-// Setup webpack config
+<CodeSnippet codeString={srcAssetsIndexCode} language="html" />
+
+Now run `npm install webpack webpack-cli` to bring in the basic webpack tooling for running a server for development. 
+
+*Note: For this tutorial, I'm using webpack v5.*
+
+We'll also be using the webpack plugin `html-webpack-plugin` for embeding the bundled javascript into our html template.
+
+We can then add a file to the root of the project called `webpack.config.js` with the following configuration:
+
+```javascript
+var HtmlWebpackPlugin = require("html-webpack-plugin");
+
+module.exports = {
+	plugins: [new HtmlWebpackPlugin()],
+};
+```
+
+Add a script to the `package.json`:
+
+```json
+{
+	...
+	"scripts": {
+		"start": "webpack serve"
+	}
+	...
+}
+```
+
+then run `npm start`. This will give us a lovely... error 😞
+
+We need a loader to handle the funky jsx syntax from react. We'll use babel for this.
+
+Run `npm install babel-loader @babel/core @babel/preset-env @babel/preset-react` (these cover the core babel package along with the webpack loader
+and 2 presets - one for react and one for the latest JS features) and add the following configuration to the webpack config:
+
+```javascript
+var HtmlWebpackPlugin = require("html-webpack-plugin");
+
+module.exports = {
+	module: {
+		rules: [
+			{
+				test: /\.jsx?/,
+				loader: "babel-loader",
+			},
+		],
+	},
+	plugins: [new HtmlWebpackPlugin()],
+};
+```

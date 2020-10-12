@@ -27,13 +27,24 @@ function calculateLinesToHighlight(meta: string): (index: number) => boolean {
 	}
 }
 
-export interface CodeProps {
+interface CodeProps {
+	/**
+	 * The code itself
+	 */
 	codeString: string;
+
+	/**
+	 * The programming language used for syntax highlighting
+	 */
 	language?: Language;
+
+	/**
+	 * Used for marking lines to highlight. E.g. `{2,4-6}`
+	 */
 	metastring?: string;
 }
 
-export const Code: React.FC<CodeProps> = ({
+export const CodeSnippet: React.FC<CodeProps> = ({
 	codeString,
 	language = "javascript",
 	metastring = "",
