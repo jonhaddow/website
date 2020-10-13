@@ -1,15 +1,13 @@
 /** @jsx jsx */
 import { jsx } from "@emotion/core";
-import React, { ReactElement } from "react";
+import React from "react";
 import { graphql } from "gatsby";
-import { Layout, NavBar, Header, Title, Card, SEO, Code } from "../components";
+import { Layout, NavBar, Header, Title, Card, SEO } from "../components";
 import Img from "gatsby-image";
-import { MDXProvider } from "@mdx-js/react";
-import { MDXRenderer } from "gatsby-plugin-mdx";
 
-import { preToCodeBlock } from "../components/mdx/helpers";
 import { mq } from "../utils/mediaQueries";
 import { Mdx } from "../models";
+import { MDXProvider } from "../components/mdx";
 
 interface PostProps {
 	data: {
@@ -79,28 +77,7 @@ const Article: React.FC<PostProps> = ({ data }) => {
 					>
 						{post.frontmatter?.abstract}
 					</p>
-					<MDXProvider
-						components={{
-							pre: (
-								preProps: React.DetailedHTMLProps<
-									React.HTMLAttributes<HTMLPreElement>,
-									HTMLPreElement
-								> & { children: ReactElement }
-							) => {
-								const props = preToCodeBlock(preProps);
-
-								// if there's a codeString and some props, we passed the test
-								if (props) {
-									return <Code {...props} />;
-								} else {
-									// it's possible to have a pre without a code in it
-									return <pre {...preProps} />;
-								}
-							},
-						}}
-					>
-						<MDXRenderer>{post.body}</MDXRenderer>
-					</MDXProvider>
+					<MDXProvider body={post.body} />
 					<p
 						css={{
 							textAlign: "right",

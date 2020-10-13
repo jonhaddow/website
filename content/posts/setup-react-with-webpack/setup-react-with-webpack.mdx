@@ -1,0 +1,120 @@
+---
+slug: setup-react-with-webpack
+title: Building a React application with webpack
+date: 2020-10-13
+featuredImage: ./images/featured-image.jpg
+tags: ["webpack", "build", "tools", "javascript", "react"]
+---
+
+import { CodeSnippet } from "../../../src/components/mdx";
+import srcIndexCode from "!!raw-loader!./example-app/src/index.js";
+import srcAppCode from "!!raw-loader!./example-app/src/App.jsx";
+import srcAssetsIndexCode from "!!raw-loader!./example-app/src/assets/index.html";
+import webpackConfigCode from "!!raw-loader!./example-app/webpack.config.js";
+
+[React](https://reactjs.org) is currently the most popular, modern UI framework for the web. 
+
+It's well known for its functional, declarative style and I would argue it's really easy pick up as a new developer.
+
+The structure of an React application (especially with its [JSX syntax](https://reactjs.org/docs/introducing-jsx.html)) feels close to HTML, so it's easy to follow logic.
+
+It's well worth trying React if you are a developer or are interested in learning front-end development.
+
+---
+
+When first building a React application you have a few options available. 
+
+- You can add a couple script tags to the HTML and then React should work. 
+However this isn't the recommended approach for a production site.
+- You can also run `npx create-react-app my-app` to have [Create React App](https://github.com/facebookincubator/create-react-app)
+automatically setup a project for you with all the tools you need under the hood.
+- You can build the tooling yourself and learn more about how the tools work.
+
+I tend to recommend the last option as knowing your tools enhances your ability as a developer.
+
+The rest of this post will cover how to setup a React application with the build tool, [webpack](https://webpack.js.org).
+
+As part of this tutorial, I've put together an [example app](https://github.com/jonhaddow/website/tree/master/content/posts/setup-react-with-webpack/example-app) you can follow.
+
+I have covered how to build JavaScript, HTML, and CSS using webpack in a [previous post](https://jon.haddow.me/blog/basic-setup-for-a-web-application), so that is worth reading first if unfamiliar.
+
+---
+
+## Prerequisites
+
+- Install [Node.js](https://nodejs.org/en/download/) to allow you to install and run JavaScript packages.
+
+## Steps
+
+The two React dependencies we'll need to install is `react` and `react-dom`. So setup a new repository, run `npm init` to setup the `package.json`, then run `npm install react react-dom`.
+
+Next, we'll create a file `/src/index.js` (this will be the application's entry point) with the following content:
+
+<CodeSnippet codeString={srcIndexCode} language="jsx" />
+
+then we'll create our `App` component in `/src/App.jsx` which prints a joyful message to brighten your day:
+
+<CodeSnippet codeString={srcAppCode} language="jsx" />
+
+Lets create a HTML template in `/src/assets/index.html`:
+
+<CodeSnippet codeString={srcAssetsIndexCode} language="html" />
+
+We'll setup webpack to use this HTML template and inject the JavaScript bundle once built.
+
+React uses the latest Javascript syntax which needs compilation to make it friendly for all browsers. We'll also need to configure this within webpack.
+
+Lets start by installing `webpack` and `webpack-cli` to bring in the basic webpack tooling for running a local development server.
+
+> *Note: For this tutorial, I'm using webpack v5.x and webpack-cli v4.x.*
+
+We'll also need to install `html-webpack-plugin` for embeding the bundled javascript into our html template.
+
+We can then add a file to the root of the project called `webpack.config.js` with the following configuration:
+
+```javascript
+var HtmlWebpackPlugin = require("html-webpack-plugin");
+
+module.exports = {
+	plugins: [
+		new HtmlWebpackPlugin({
+			template: "./src/assets/index.html",
+		}),
+	],
+};
+```
+
+Add a script to the `package.json`:
+
+```json
+{
+	...
+	"scripts": {
+		"start": "webpack serve"
+	}
+	...
+}
+```
+
+then run `npm start`. This will give us a lovely... error 😞
+
+We need a loader to handle the funky JSX syntax from React. We'll use [Babel](https://babeljs.io) for this.
+
+Install the following packages:
+- `babel-loader` (for hooking up babel compilation into webpack), 
+- `@babel/core` (the core babel package),
+- `@babel/preset-env` and `@babel/preset-react` (Babel presets for next generation JavaScript and for React).
+
+Next we'll update the webpack config to look like this:
+
+<CodeSnippet codeString={webpackConfigCode} language="javascript" />
+
+Here we are giving webpack a set of rules on how to handle `.jsx` and `.js` files. We want webpack to use the `babel-loader` to compile our JS files and we've specified to use the 2 presets we've installed to do it.
+
+When you run `npm start` now, it should show up nicely in the browser: http://localhost:8080
+
+---
+
+There you go, you're setup and ready to build a react app. 
+
+You'll likely want to import CSS (or SASS). For that, check out my [other tutorial](/blog/basic-setup-for-a-web-application), or have a browse at some [webpack loaders](https://webpack.js.org/loaders/) on their site.
