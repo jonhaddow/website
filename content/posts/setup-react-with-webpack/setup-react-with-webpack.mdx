@@ -11,6 +11,7 @@ import { CodeSnippet } from "../../../src/components/mdx";
 import srcIndexCode from "!!raw-loader!./example-app/src/index.js";
 import srcAppCode from "!!raw-loader!./example-app/src/App.jsx";
 import srcAssetsIndexCode from "!!raw-loader!./example-app/src/assets/index.html";
+import webpackConfigCode from "!!raw-loader!./example-app/webpack.config.js";
 
 [React](https://reactjs.org) is currently the most popular, modern UI framework for the web. 
 
@@ -71,7 +72,11 @@ We can then add a file to the root of the project called `webpack.config.js` wit
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-	plugins: [new HtmlWebpackPlugin()],
+	plugins: [
+		new HtmlWebpackPlugin({
+			template: "./src/assets/index.html",
+		}),
+	],
 };
 ```
 
@@ -91,21 +96,19 @@ then run `npm start`. This will give us a lovely... error 😞
 
 We need a loader to handle the funky jsx syntax from react. We'll use babel for this.
 
-Run `npm install babel-loader @babel/core @babel/preset-env @babel/preset-react` (these cover the core babel package along with the webpack loader
-and 2 presets - one for react and one for the latest JS features) and add the following configuration to the webpack config:
+Install the following packages: `babel-loader` (for hooking up babel compilation into webpack), `@babel/core` (the core babel package),
+`@babel/preset-env` and `@babel/preset-react` (2 presets - one for react and one for the latest JS features).
 
-```javascript
-var HtmlWebpackPlugin = require("html-webpack-plugin");
+Next we'll update the webpack config to look like this:
 
-module.exports = {
-	module: {
-		rules: [
-			{
-				test: /\.jsx?/,
-				loader: "babel-loader",
-			},
-		],
-	},
-	plugins: [new HtmlWebpackPlugin()],
-};
-```
+<CodeSnippet codeString={webpackConfigCode} language="javascript" />
+
+Here we are giving webpack a set of rules on how to handle `.jsx` and `.js` files. We want webpack
+to use the `babel-loader` to compile our JS files and we've specified to use the 2 presets we've installed
+to do it.
+
+When you run `npm start` now, it should show up nicely in the browser: http://localhost:8080
+
+There you go, you're setup and ready to build a react app. 
+
+You'll likely want to import CSS (or SASS). For that, check out my [other tutorial](/blog/basic-setup-for-a-web-application), or have a look at some [webpack loaders](https://webpack.js.org/loaders/) on their site.
