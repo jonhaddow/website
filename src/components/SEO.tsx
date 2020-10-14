@@ -66,7 +66,10 @@ export const SEO: React.FC<SEOProps> = ({
 				},
 				{
 					property: `og:url`,
-					content: window.location.href,
+					content:
+						typeof window !== `undefined`
+							? window.location.href
+							: "",
 				},
 				{
 					property: `og:title`,
