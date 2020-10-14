@@ -10,7 +10,11 @@ interface SEOProps {
 		HTMLMetaElement
 	>[];
 	title: string;
-	image?: string;
+	image?: {
+		src?: string;
+		width?: number;
+		height?: number;
+	};
 }
 
 export const SEO: React.FC<SEOProps> = ({
@@ -36,6 +40,8 @@ export const SEO: React.FC<SEOProps> = ({
 					childImageSharp {
 						original {
 							src
+							height
+							width
 						}
 					}
 				}
@@ -44,7 +50,7 @@ export const SEO: React.FC<SEOProps> = ({
 	);
 
 	const metaDescription = description ?? site?.siteMetadata?.description;
-	const metaImage = image ?? placeholderImage?.childImageSharp?.original?.src;
+	const metaImage = image ?? placeholderImage?.childImageSharp?.original;
 
 	return (
 		<Helmet
@@ -57,6 +63,10 @@ export const SEO: React.FC<SEOProps> = ({
 				{
 					name: `description`,
 					content: metaDescription,
+				},
+				{
+					property: `og:url`,
+					content: window.location.href,
 				},
 				{
 					property: `og:title`,
@@ -72,7 +82,15 @@ export const SEO: React.FC<SEOProps> = ({
 				},
 				{
 					property: "og:image",
-					content: metaImage,
+					content: metaImage.src,
+				},
+				{
+					property: "og:image:width",
+					content: metaImage.width,
+				},
+				{
+					property: "og:image:height",
+					content: metaImage.height,
 				},
 				{
 					name: `twitter:card`,
@@ -80,15 +98,7 @@ export const SEO: React.FC<SEOProps> = ({
 				},
 				{
 					name: `twitter:creator`,
-					content: site?.siteMetadata?.author,
-				},
-				{
-					name: `twitter:title`,
-					content: title,
-				},
-				{
-					name: `twitter:description`,
-					content: metaDescription,
+					content: site?.siteMetadata?.twitterHandle,
 				},
 			])}
 		/>

@@ -22,10 +22,9 @@ const Article: React.FC<PostProps> = ({ data }) => {
 		<Layout>
 			<SEO
 				title={post.frontmatter?.title ?? ""}
-				description={post.frontmatter?.abstract}
+				description={post.frontmatter?.abstract ?? post.excerpt}
 				image={
 					post.frontmatter?.featuredImage?.childImageSharp?.original
-						?.src
 				}
 			/>
 			<Header>
@@ -102,6 +101,7 @@ export const postQuery = graphql`
 	query Article($slug: String!) {
 		mdx(frontmatter: { slug: { eq: $slug } }) {
 			body
+			excerpt
 			timeToRead
 			fields {
 				editLink
@@ -117,6 +117,8 @@ export const postQuery = graphql`
 						}
 						original {
 							src
+							height
+							width
 						}
 					}
 				}

@@ -8,6 +8,7 @@ export interface AllMdx {
 
 export interface Mdx {
 	id: string;
+	excerpt: string;
 	body: string;
 	frontmatter?: {
 		slug: string;

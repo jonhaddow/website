@@ -6,6 +6,7 @@ module.exports = {
 		author: `Jon Haddow`,
 		description: "Jon Haddow's personal site",
 		siteUrl: `https://jon.haddow.me`,
+		twitterHandle: "@Haddowjon",
 	},
 	plugins: [
 		{
