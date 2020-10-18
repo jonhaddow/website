@@ -3,7 +3,14 @@ import { jsx } from "@emotion/core";
 import React from "react";
 import { Link, graphql } from "gatsby";
 import Img from "gatsby-image";
-import { Card, Layout, SEO, RecentPosts, ThemeSwitcher } from "../components";
+import {
+	Card,
+	Layout,
+	SEO,
+	RecentPosts,
+	ThemeSwitcher,
+	SocialLinks,
+} from "../components";
 import { mq } from "../utils/mediaQueries";
 import { FluidImg } from "../models";
 
@@ -82,7 +89,7 @@ const Home: React.FC<IndexProps> = ({ data }) => {
 						>
 							Web Developer
 						</p>
-						<nav>
+						<nav css={{ marginBottom: 15 }}>
 							<ul
 								css={{
 									display: "flex",
@@ -137,6 +144,7 @@ const Home: React.FC<IndexProps> = ({ data }) => {
 								))}
 							</ul>
 						</nav>
+						<SocialLinks />
 					</div>
 					<Img
 						css={{

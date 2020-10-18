@@ -2,7 +2,15 @@
 import { jsx } from "@emotion/core";
 import React from "react";
 import { graphql } from "gatsby";
-import { Layout, NavBar, Header, Title, Card, SEO } from "../components";
+import {
+	Layout,
+	NavBar,
+	Header,
+	Title,
+	Card,
+	SEO,
+	SocialLinks,
+} from "../components";
 import Img from "gatsby-image";
 
 import { mq } from "../utils/mediaQueries";
@@ -40,6 +48,7 @@ const Article: React.FC<PostProps> = ({ data }) => {
 						}`
 					}
 				/>
+				<SocialLinks />
 			</Header>
 			<main>
 				<Card

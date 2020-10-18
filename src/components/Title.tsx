@@ -15,7 +15,7 @@ export const Title: React.FC<TitleProps> = ({ title, subText }) => (
 			width: "100%",
 			maxWidth: "700px",
 			margin: "0 auto",
-			padding: "0 0 64px",
+			padding: "0 0 24px",
 			fontWeight: 700,
 			fontSize: "3rem",
 			color: "var(--header-text)",
