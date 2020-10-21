@@ -31,7 +31,11 @@ const Blog: React.FC<BlogProps> = ({ data }) => {
 
 	if (query) {
 		filteredPosts = matchSorter(filteredPosts, query, {
-			keys: ["node.frontmatter.title", "node.frontmatter.abstract"],
+			keys: [
+				"node.frontmatter.title",
+				"node.frontmatter.abstract",
+				"node.frontmatter.tags",
+			],
 		});
 	}
 
@@ -154,6 +158,7 @@ export const query = graphql`
 					id
 					frontmatter {
 						slug
+						tags
 						title
 						abstract
 						featuredImage {
