@@ -65,6 +65,10 @@ export const SEO: React.FC<SEOProps> = ({
 					content: metaDescription,
 				},
 				{
+					name: `image`,
+					content: metaImage.src,
+				},
+				{
 					property: `og:url`,
 					content:
 						typeof window !== `undefined`
@@ -88,20 +92,24 @@ export const SEO: React.FC<SEOProps> = ({
 					content: metaImage.src,
 				},
 				{
-					property: "og:image:width",
-					content: metaImage.width,
-				},
-				{
-					property: "og:image:height",
-					content: metaImage.height,
-				},
-				{
 					name: `twitter:card`,
 					content: `summary`,
 				},
 				{
 					name: `twitter:creator`,
 					content: site?.siteMetadata?.twitterHandle,
+				},
+				{
+					name: "twitter:title",
+					content: title,
+				},
+				{
+					name: "twitter:description",
+					content: metaDescription,
+				},
+				{
+					name: "twitter:image",
+					content: metaImage.src,
 				},
 			])}
 		/>
