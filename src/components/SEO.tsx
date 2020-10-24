@@ -33,6 +33,7 @@ export const SEO: React.FC<SEOProps> = ({
 						author
 						description
 						twitterHandle
+						siteUrl
 					}
 				}
 				placeholderImage: file(
@@ -51,7 +52,9 @@ export const SEO: React.FC<SEOProps> = ({
 	);
 
 	const metaDescription = description ?? site?.siteMetadata?.description;
-	const metaImage = image ?? placeholderImage?.childImageSharp?.original;
+	const metaImage = `${site?.siteMetadata?.siteUrl}${
+		image?.src ?? placeholderImage?.childImageSharp?.original?.src
+	}`;
 
 	return (
 		<Helmet
@@ -67,7 +70,7 @@ export const SEO: React.FC<SEOProps> = ({
 				},
 				{
 					name: `image`,
-					content: metaImage.src,
+					content: metaImage,
 				},
 				{
 					property: `og:url`,
@@ -90,7 +93,7 @@ export const SEO: React.FC<SEOProps> = ({
 				},
 				{
 					property: "og:image",
-					content: metaImage.src,
+					content: metaImage,
 				},
 				{
 					name: `twitter:card`,
@@ -110,7 +113,7 @@ export const SEO: React.FC<SEOProps> = ({
 				},
 				{
 					name: "twitter:image",
-					content: metaImage.src,
+					content: metaImage,
 				},
 			])}
 		/>
