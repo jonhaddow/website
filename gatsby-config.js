@@ -107,6 +107,7 @@ module.exports = {
 			},
 		},
 		`gatsby-plugin-sharp`,
+		"gatsby-plugin-preact",
 		"gatsby-transformer-sharp",
 		{
 			resolve: `gatsby-plugin-mdx`,
