@@ -32,6 +32,7 @@ export const SEO: React.FC<SEOProps> = ({
 						title
 						author
 						description
+						twitterHandle
 					}
 				}
 				placeholderImage: file(
