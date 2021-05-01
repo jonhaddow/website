@@ -6,12 +6,6 @@ featuredImage: ./images/featured-image.jpg
 tags: ["webpack", "build", "tools", "javascript", "react"]
 ---
 
-import { CodeSnippet } from "../../../src/components/mdx";
-import srcIndexCode from "!!raw-loader!./example-app/src/index.js";
-import srcAppCode from "!!raw-loader!./example-app/src/App.jsx";
-import srcAssetsIndexCode from "!!raw-loader!./example-app/src/assets/index.html";
-import webpackConfigCode from "!!raw-loader!./example-app/webpack.config.js";
-
 [React](https://reactjs.org) is currently the most popular, modern UI framework for the web. 
 
 It's well known for its functional, declarative style and I would argue it's really easy pick up as a new developer.
@@ -34,8 +28,6 @@ I tend to recommend the last option as knowing your tools enhances your ability 
 
 The rest of this post will cover how to setup a React application with the build tool, [webpack](https://webpack.js.org).
 
-As part of this tutorial, I've put together an [example app](https://github.com/jonhaddow/website/tree/master/content/posts/setup-react-with-webpack/example-app) you can follow.
-
 I have covered how to build JavaScript, HTML, and CSS using webpack in a [previous post](https://jon.haddow.me/blog/basic-setup-for-a-web-application), so that is worth reading first if unfamiliar.
 
 ---
@@ -50,15 +42,42 @@ The two React dependencies we'll need to install is `react` and `react-dom`. So 
 
 Next, we'll create a file `/src/index.js` (this will be the application's entry point) with the following content:
 
-<CodeSnippet codeString={srcIndexCode} language="jsx" />
+```jsx
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App.jsx";
+
+ReactDOM.render(<App />, document.getElementById("root"));
+```
 
 then we'll create our `App` component in `/src/App.jsx` which prints a joyful message to brighten your day:
 
-<CodeSnippet codeString={srcAppCode} language="jsx" />
+```jsx
+import React from "react";
+
+const App = () => {
+  return <h1>🎵 I can see clearly now the rain has gone! 🎵</h1>;
+};
+
+export default App;
+```
 
 Lets create a HTML template in `/src/assets/index.html`:
 
-<CodeSnippet codeString={srcAssetsIndexCode} language="html" />
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My app</title>
+  </head>
+
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+```
 
 We'll setup webpack to use this HTML template and inject the JavaScript bundle once built.
 
@@ -107,7 +126,30 @@ Install the following packages:
 
 Next we'll update the webpack config to look like this:
 
-<CodeSnippet codeString={webpackConfigCode} language="javascript" />
+```javascript
+var HtmlWebpackPlugin = require("html-webpack-plugin");
+
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.jsx?/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env", "@babel/preset-react"],
+          },
+        },
+      },
+    ],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./src/assets/index.html",
+    }),
+  ],
+};
+```
 
 Here we are giving webpack a set of rules on how to handle `.jsx` and `.js` files. We want webpack to use the `babel-loader` to compile our JS files and we've specified to use the 2 presets we've installed to do it.
 
