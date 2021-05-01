@@ -67,3 +67,7 @@ blockquote {
 hr {
 	background: var(--text-lighter);
 }
+
+code {
+	background: var(--background);
+}
