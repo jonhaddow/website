@@ -1,0 +1,40 @@
+name: Build
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container: cypress/base:14.16.0
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          start: yarn start
+          # quote the url to be safe against YML parsing surprises
+          wait-on: 'http://localhost:8000'
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    container: node:14
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install
+        run: yarn install
+      - name: Build
+        run: yarn build
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v1.1
+        with:
+          production-branch: master
+          publish-dir: "./public"
+          deploy-message: "Deploy from GitHub Actions"
+          netlify-config-path: ./netlify.toml
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
