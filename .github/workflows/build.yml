@@ -4,7 +4,7 @@ on: push
 jobs:
   test:
     runs-on: ubuntu-latest
-    container: node:14
+    container: cypress/base:14.16.0
     steps:
       - name: Checkout
         uses: actions/checkout@v2
