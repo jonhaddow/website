@@ -1,0 +1,30 @@
+---
+slug: tailwind-favourite-way-to-style
+title: Tailwind CSS - my favourite way to style a site
+date: 2021-06-06
+featuredImage: ./images/featured-image.jpg
+tags: ["javascript", "tailwind", "css", "styling"]
+---
+
+I've recently stumbled across [Tailwind CSS](https://tailwindcss.com/). 
+
+Initially I thought this was a similar framework to [Bootstrap](https://getbootstrap.com/) which I found to be centred around component based classes (`btn` and `btn-warning`) and not helpful in making a site look *unique*.
+
+Tailwind instead is a *utility-based framework* which makes it highly flexible for **any** site. Each class they provide maps to a specific CSS style. 
+
+For example `flex` becomes `display: flex;` and `text-left` becomes `text-align: left;`
+
+These classes can be applied to any component on your site.
+
+Tailwind can cover every style you can think of, giving you little reason to have CSS directly in your code anymore.
+
+My favourite reasons to use Tailwind:
+
+- **There are no magic numbers, everything is part of a design system.** You don't need to remember that the header had a font size of 18px, but rather that all components with `text-lg` will have the same size. Having a predefined design system makes it a lot easier to build visually consistant UIs.
+- **Never needing to come up with class names.** No more `header-btn` or `header-nav-dropdown`. Simply think up the styles you want and add the Tailwind classes directly. The context switch between the markup and the CSS file is enough of a pain point for me.
+- **The CSS styles are tied to each component.** If you remove a component, the styles go with it. Not only does that remove dead code, but could also reduce the bundle size as Tailwind purges unused utility classes.
+
+I think Tailwind is worth trying out. It's pretty fun to use even if it looks a little ugly at first. Here are a couple tips to help you get going:
+
+- If you find yourself repeating classes across multiple parts of your site, you likely need to build smaller components - a good practice in general.
+- Use the [Tailwind VS Code extension](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) to have an auto suggestion feature for Tailwind classes.
