@@ -16,10 +16,11 @@ export function preToCodeBlock(
 	| ({
 			codeString: string;
 			className: string;
-			language?: Language;
-			metaString?: string;
-			key?: string | number;
-	  } & React.ReactNode)
+			language: Language | undefined;
+	  } & React.DetailedHTMLProps<
+			React.HTMLAttributes<HTMLElement>,
+			HTMLElement
+	  >)
 	| undefined {
 	if (preProps?.children?.props?.mdxType === "code") {
 		// we have a <pre><code> situation

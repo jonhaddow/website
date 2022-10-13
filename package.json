@@ -2,7 +2,7 @@
 	"name": "website",
 	"description": "A project for hosting Jon's site",
 	"version": "0.0.0",
-	"author": "Jon Haddow <haddowjon@protonmail.com>",
+	"author": "Jon Haddow <jon@haddow.me>",
 	"dependencies": {
 		"@emotion/core": "^10.0.28",
 		"@types/match-sorter": "^4.0.0",
@@ -74,12 +74,9 @@
 		"prismjs": "^1.20.0",
 		"remark-emoji": "^2.1.0",
 		"start-server-and-test": "^1.11.2",
-		"typescript": "^3.8.3",
+		"typescript": "^4.8.4",
 		"webpack": "^4.42.1"
 	},
-	"keywords": [
-		"gatsby"
-	],
 	"scripts": {
 		"build": "gatsby build",
 		"start": "gatsby develop",
