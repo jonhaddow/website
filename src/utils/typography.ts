@@ -1,26 +1,27 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-import Typography from "typography";
+import Typography, { TypographyOptions } from "typography";
+import kirkhamTheme from "typography-theme-kirkham";
+import CodePlugin from "typography-plugin-code";
 
-const codePlugin = require("typography-plugin-code").default;
-const kirkhamTheme = require("typography-theme-kirkham");
+const typographyOptions = kirkhamTheme as TypographyOptions;
 
-kirkhamTheme.baseFontSize = "18px";
-kirkhamTheme.baseLineHeight = 1.8;
-kirkhamTheme.plugins = [new codePlugin()];
-kirkhamTheme.googleFonts = [
-	{
-		name: "Bree Serif",
-		styles: ["400", "700"],
-	},
-	{
-		name: "Fira Sans",
-		styles: ["400", "400i", "700", "700i"],
-	},
+typographyOptions.baseFontSize = "18px";
+typographyOptions.baseLineHeight = 1.8;
+typographyOptions.plugins = [new CodePlugin()];
+typographyOptions.googleFonts = [
+  {
+    name: "Bree Serif",
+    styles: ["400", "700"],
+  },
+  {
+    name: "Fira Sans",
+    styles: ["400", "400i", "700", "700i"],
+  },
 ];
-kirkhamTheme.headerFontFamily = ["Bree Serif", "serif"];
-kirkhamTheme.headerWeight = 700;
-kirkhamTheme.bodyFontFamily = ["Fira Sans", "sans-serif"];
+typographyOptions.headerFontFamily = ["Bree Serif", "serif"];
+typographyOptions.headerWeight = 700;
+typographyOptions.headerColor = "inherit";
+typographyOptions.bodyFontFamily = ["Fira Sans", "sans-serif"];
 
-const typography = new Typography(kirkhamTheme);
+const typography = new Typography(typographyOptions);
 
 export default typography;

@@ -7,22 +7,22 @@ featuredImage: ./images/featured-image.jpg
 tags: ["css", "styling", "css-in-js", "javascript", "emotion"]
 ---
 
-Tradionally CSS is constructed in separate files to JavaScript. There are good reasons for keeping those separate but I want to list some benefits to consider when building CSS inline with your code.
+Traditionally CSS is constructed in separate files to JavaScript. There are good reasons for keeping those separate but I want to list some benefits to consider when building CSS inline with your code.
 
 Before looking at those benefits, if you haven't come across CSS-in-JS before, it looks something like this:
 
 ```jsx
 const title = () => (
-	<h1
-		css={{
-			paddingTop: 16,
-			fontSize: "2rem",
-			fontWeight: 400,
-			color: "red",
-		}}
-	>
-		Oooo look at me!
-	</h1>
+  <h1
+    css={{
+      paddingTop: 16,
+      fontSize: "2rem",
+      fontWeight: 400,
+      color: "red",
+    }}
+  >
+    Oooo look at me!
+  </h1>
 );
 ```
 

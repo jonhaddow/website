@@ -15,7 +15,7 @@ jobs:
         with:
           start: yarn start
           # quote the url to be safe against YML parsing surprises
-          wait-on: 'http://localhost:8000'
+          wait-on: "http://localhost:8000"
   deploy:
     needs: test
     runs-on: ubuntu-latest
