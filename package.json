@@ -52,7 +52,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "start-server-and-test start http-get://localhost:8000 cy:run",
-    "cy:run": "cypress run"
+    "cy:run": "cypress run --config-file=cypress.config.ts"
   },
   "license": "MIT",
   "resolutions": {
