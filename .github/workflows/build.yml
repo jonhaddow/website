@@ -11,6 +11,9 @@ jobs:
       # and run all Cypress tests
       - name: Cypress run
         uses: cypress-io/github-action@v5
+        with:
+          start: npm start
+          wait-on: "http://localhost:8000"
   deploy:
     needs: test
     runs-on: ubuntu-latest
