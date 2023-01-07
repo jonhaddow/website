@@ -4,7 +4,7 @@ on: push
 jobs:
   test:
     runs-on: ubuntu-latest
-    container: cypress/base:14.16.0
+    container: cypress/base:16.18.1
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -13,21 +13,21 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v4
         with:
-          start: yarn start
+          start: npm start
           # quote the url to be safe against YML parsing surprises
           wait-on: "http://localhost:8000"
   deploy:
     needs: test
     runs-on: ubuntu-latest
-    container: node:14
+    container: node:16
     if: github.ref == 'refs/heads/master'
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install
-        run: yarn install
+        run: npm install
       - name: Build
-        run: yarn build
+        run: npm run build
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.1
         with:
