@@ -32,7 +32,7 @@
 		"gatsby-remark-images": "^3.3.23",
 		"gatsby-remark-twemoji-shortcut": "^0.10.1",
 		"gatsby-source-filesystem": "^2.3.23",
-		"gatsby-transformer-remark": "^2.8.27",
+		"gatsby-transformer-remark": "^5.25.1",
 		"gatsby-transformer-sharp": "^2.5.12",
 		"match-sorter": "^4.1.0",
 		"preact": "^10.5.5",
