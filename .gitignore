@@ -73,6 +73,3 @@ cypress/screenshots/
 cypress/videos
 # Local Netlify folder
 .netlify
-
-# Gatsby auto-generated types
-src/gatsby-types.d.ts
