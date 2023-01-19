@@ -52,7 +52,7 @@ const About = () => {
               <a href="https://github.com/jonhaddow/">GitHub</a>
             </li>
             <li>
-              <a href="https://drive.google.com/file/d/10dIz8YtLZ9lMi3vvb8OCDHpTeAIuejR2/view?usp=sharing">
+              <a href="https://drive.google.com/file/d/1DjRzlbXvP9xKGRO80LNO52GKkBYQlQE3/view?usp=share_link">
                 CV
               </a>
             </li>
