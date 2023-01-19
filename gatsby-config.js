@@ -1,6 +1,4 @@
-import type { GatsbyConfig } from "gatsby";
-
-const config: GatsbyConfig = {
+module.exports = {
   siteMetadata: {
     title: `Jon Haddow`,
     author: `Jon Haddow`,
@@ -70,7 +68,49 @@ const config: GatsbyConfig = {
       },
     },
     "gatsby-plugin-emotion",
+    {
+      resolve: "gatsby-plugin-feed",
+      options: {
+        feeds: [
+          {
+            serialize: ({ query: { site, allMdx } }) => {
+              return allMdx.edges.map(({ node }) => ({
+                title: node.frontmatter.title,
+                date: node.frontmatter.date,
+                description: node.frontmatter.abstract || node.excerpt,
+                url: `${site.siteMetadata.siteUrl}/blog/${node.frontmatter.slug}`,
+                guid: `${site.siteMetadata.siteUrl}/blog/${node.frontmatter.slug}`,
+                custom_elements: [{ "content:encoded": node.body }],
+                categories: node.frontmatter.tags,
+              }));
+            },
+            query: `
+            {
+              allMdx(
+                sort: { order: DESC, fields: [frontmatter___date] },
+              ) {
+                edges {
+                  node {
+                    body
+                    excerpt
+                    frontmatter {
+                      slug
+                      title
+                      date
+                      abstract
+                      tags
+                    }
+                  }
+                }
+              }
+            }
+            `,
+            output: "/rss.xml",
+            title: `Jon Haddow's blog RSS Feed`,
+            site_url: `https://jon.haddow.me`,
+          },
+        ],
+      },
+    },
   ],
 };
-
-export default config;
