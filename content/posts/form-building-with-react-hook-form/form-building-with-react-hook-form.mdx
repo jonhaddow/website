@@ -6,7 +6,7 @@ featuredImage: "./images/featured-image.jpeg"
 tags: ["react", "react-hook-form", "forms", "javascript"]
 ---
 
-*Note: This article was written with React Hook Form v5. The library may have changed since the time of writing.*
+_Note: This article was written with React Hook Form v5. The library may have changed since the time of writing._
 
 Within a React application, you may come across a scenario where you want to capture user input. This could be a "Contact Us" form for a blog, a questionnaire, or perhaps an authoring environment for an Event you want to share.
 
@@ -30,67 +30,67 @@ We'll start by building out the JSX for our form.
 
 ```jsx
 export const Form = () => {
-	const [startDate, setStartDate] = React.useState(null);
-	const [endDate, setEndDate] = React.useState(null);
+  const [startDate, setStartDate] = React.useState(null);
+  const [endDate, setEndDate] = React.useState(null);
 
-	return (
-		<div className="layout">
-			<h1>My Event Form</h1>
-			<form>
-				<div className="form-section">
-					<label htmlFor="title" className="form-label">
-						Title
-					</label>
-					<input id="title" name="title" type="text" />
-				</div>
-				<div className="form-section">
-					<label htmlFor="description" className="form-label">
-						Description
-					</label>
-					<textarea id="description" name="description" />
-				</div>
-				<div className="form-section">
-					<label htmlFor="startDate" className="form-label">
-						Start Date
-					</label>
-					<DatePicker
-						id="startDate"
-						name="startDate"
-						selected={startDate}
-						onChange={(date) => setStartDate(date)}
-						minDate={new Date()}
-						showTimeSelect
-						dateFormat="Pp"
-						selectsStart
-						startDate={startDate}
-						endDate={endDate}
-					/>
-				</div>
-				<div className="form-section">
-					<label htmlFor="endDate" className="form-label">
-						End Date
-					</label>
-					<DatePicker
-						id="endDate"
-						name="endDate"
-						selected={endDate}
-						onChange={(date) => setEndDate(date)}
-						minDate={startDate || new Date()}
-						showTimeSelect
-						dateFormat="Pp"
-						selectsEnd
-						startDate={startDate}
-						endDate={endDate}
-					/>
-				</div>
-				<button type="submit">Submit</button>
-			</form>
-		</div>
-	);
+  return (
+    <div className="layout">
+      <h1>My Event Form</h1>
+      <form>
+        <div className="form-section">
+          <label htmlFor="title" className="form-label">
+            Title
+          </label>
+          <input id="title" name="title" type="text" />
+        </div>
+        <div className="form-section">
+          <label htmlFor="description" className="form-label">
+            Description
+          </label>
+          <textarea id="description" name="description" />
+        </div>
+        <div className="form-section">
+          <label htmlFor="startDate" className="form-label">
+            Start Date
+          </label>
+          <DatePicker
+            id="startDate"
+            name="startDate"
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
+            minDate={new Date()}
+            showTimeSelect
+            dateFormat="Pp"
+            selectsStart
+            startDate={startDate}
+            endDate={endDate}
+          />
+        </div>
+        <div className="form-section">
+          <label htmlFor="endDate" className="form-label">
+            End Date
+          </label>
+          <DatePicker
+            id="endDate"
+            name="endDate"
+            selected={endDate}
+            onChange={(date) => setEndDate(date)}
+            minDate={startDate || new Date()}
+            showTimeSelect
+            dateFormat="Pp"
+            selectsEnd
+            startDate={startDate}
+            endDate={endDate}
+          />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  );
 };
 ```
 
-Now we'll need to add React Hook Form's `useForm` hook and deconstruct the `handleSubmit` and `register` functions from it. 
+Now we'll need to add React Hook Form's `useForm` hook and deconstruct the `handleSubmit` and `register` functions from it.
 
 We'll pass `register` to each form input `ref` prop. Let's just cover the title and description for now, and we'll leave the date picker to be handled separately.
 
@@ -98,104 +98,104 @@ We'll setup an `onSubmit` function to print the data returned from `handleSubmit
 
 ```jsx {6,15,20,26}
 export const Form = () => {
-	const [startDate, setStartDate] = React.useState(null);
-	const [endDate, setEndDate] = React.useState(null);
-	const [submittedData, setSubmittedData] = React.useState({});
+  const [startDate, setStartDate] = React.useState(null);
+  const [endDate, setEndDate] = React.useState(null);
+  const [submittedData, setSubmittedData] = React.useState({});
 
-	const { handleSubmit, register } = useForm();
+  const { handleSubmit, register } = useForm();
 
-	const onSubmit = (data) => {
-		setSubmittedData(data);
-	};
+  const onSubmit = (data) => {
+    setSubmittedData(data);
+  };
 
-	return (
-		<div className="layout">
-			<h1>My Event Form</h1>
-			<form onSubmit={handleSubmit(onSubmit)}>
-				<div className="form-section">
-					<label htmlFor="title" className="form-label">
-						Title
-					</label>
-					<input id="title" name="title" type="text" ref={register} />
-				</div>
-				<div className="form-section">
-					<label htmlFor="description" className="form-label">
-						Description
-					</label>
-					<textarea id="description" name="description" ref={register} />
-				</div>
-				<div className="form-section">
-					<label htmlFor="startDate" className="form-label">
-						Start Date
-					</label>
-					<DatePicker
-						id="startDate"
-						name="startDate"
-						selected={startDate}
-						onChange={(date) => setStartDate(date)}
-						minDate={new Date()}
-						showTimeSelect
-						dateFormat="Pp"
-						selectsStart
-						startDate={startDate}
-						endDate={endDate}
-					/>
-				</div>
-				<div className="form-section">
-					<label htmlFor="endDate" className="form-label">
-						End Date
-					</label>
-					<DatePicker
-						id="endDate"
-						name="endDate"
-						selected={endDate}
-						onChange={(date) => setEndDate(date)}
-						minDate={startDate || new Date()}
-						showTimeSelect
-						dateFormat="Pp"
-						selectsEnd
-						startDate={startDate}
-						endDate={endDate}
-					/>
-				</div>
-				<button type="submit">Submit</button>
-			</form>
-			<p>Submitted data:</p>
-			<pre>{JSON.stringify(submittedData, null, 2)}</pre>
-		</div>
-	);
+  return (
+    <div className="layout">
+      <h1>My Event Form</h1>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="form-section">
+          <label htmlFor="title" className="form-label">
+            Title
+          </label>
+          <input id="title" name="title" type="text" ref={register} />
+        </div>
+        <div className="form-section">
+          <label htmlFor="description" className="form-label">
+            Description
+          </label>
+          <textarea id="description" name="description" ref={register} />
+        </div>
+        <div className="form-section">
+          <label htmlFor="startDate" className="form-label">
+            Start Date
+          </label>
+          <DatePicker
+            id="startDate"
+            name="startDate"
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
+            minDate={new Date()}
+            showTimeSelect
+            dateFormat="Pp"
+            selectsStart
+            startDate={startDate}
+            endDate={endDate}
+          />
+        </div>
+        <div className="form-section">
+          <label htmlFor="endDate" className="form-label">
+            End Date
+          </label>
+          <DatePicker
+            id="endDate"
+            name="endDate"
+            selected={endDate}
+            onChange={(date) => setEndDate(date)}
+            minDate={startDate || new Date()}
+            showTimeSelect
+            dateFormat="Pp"
+            selectsEnd
+            startDate={startDate}
+            endDate={endDate}
+          />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+      <p>Submitted data:</p>
+      <pre>{JSON.stringify(submittedData, null, 2)}</pre>
+    </div>
+  );
 };
-
 ```
 
-Give that form a try in the browser. You'll notice the title and description values are printed when the form is submitted, however the start and end dates haven't yet been handled. 
+Give that form a try in the browser. You'll notice the title and description values are printed when the form is submitted, however the start and end dates haven't yet been handled.
 
 ## Controlled inputs
 
-The 3rd party library used to render these date pickers, aren't using native html form inputs. This means that React Hook Form wouldn't know how to capture the data. These are **controlled** inputs. To handle them, React Hook Form provides a [Controller](https://react-hook-form.com/api#Controller) wrapper component. 
+The 3rd party library used to render these date pickers, aren't using native html form inputs. This means that React Hook Form wouldn't know how to capture the data. These are **controlled** inputs. To handle them, React Hook Form provides a [Controller](https://react-hook-form.com/api#Controller) wrapper component.
 
 Let's try to wrap our start date picker in a Controller:
 
 ```jsx
 <Controller
-	as={
-		<DatePicker
-			id="startDate"
-			minDate={new Date()}
-			showTimeSelect
-			dateFormat="Pp"
-			selectsStart
-			startDate={startDate}
-			endDate={endDate}
-		/>
-	}
-	name="startDate"
-	control={control}
-	valueName="selected"
+  as={
+    <DatePicker
+      id="startDate"
+      minDate={new Date()}
+      showTimeSelect
+      dateFormat="Pp"
+      selectsStart
+      startDate={startDate}
+      endDate={endDate}
+    />
+  }
+  name="startDate"
+  control={control}
+  valueName="selected"
 />
 ```
 
 The key changes that have been made are:
+
 - the name has been moved up to the Controller. This is so that React Hook Form can track the name of the property and it's value.
 - a control function (which comes from the `useForm` hook) has been passed into the Controller's `control` prop.
 - the `selected` prop on the DatePicker (which was set to the currently selected date/time) has been removed, and the `valueName` prop on the Controller is set to "selected". This is telling React Hook Form that the name of the property that is anticipating the current form value, is not "value" but rather "selected". In a similar way, if DatePicker had an `onEdit` method instead of an `onChange` method, then we'd have to specific that change with the `onChangeName` prop on the Controller. By default React Hook Form expects the controlled input to have a `value` prop and a `onChange` prop. If that's not the case, we need to specify. This is why the `onChange` prop has also been removed from the internal DatePicker component.
@@ -216,7 +216,7 @@ const { handleSubmit, register, watch } = useForm();
 const { startDate, endDate } = watch(["startDate", "endDate"]);
 ```
 
-Watch is used to listen to those particular values that are stored on the form. 
+Watch is used to listen to those particular values that are stored on the form.
 
 ## Validation
 
@@ -224,22 +224,22 @@ Before the user submits our form, let's add some basic validation checks. Here's
 
 - The title must be provided, and less than 30 characters
 - The description must be less than 100 characters
-- The start date must not be on the 13th :ghost: (sorry, just wanted an interesting example...)
+- The start date must not be on the 13th 👻 (sorry, just wanted an interesting example...)
 
 React Hook Form provides a simple way to define these rules through the `register` function. Here's how we'd define the title validation:
 
 ```jsx
 <input
-	id="title"
-	name="title"
-	type="text"
-	ref={register({
-		required: { message: "The title is required", value: true },
-		maxLength: {
-			message: "The title must be less than 30 characters",
-			value: 30,
-		},
-	})}
+  id="title"
+  name="title"
+  type="text"
+  ref={register({
+    required: { message: "The title is required", value: true },
+    maxLength: {
+      message: "The title must be less than 30 characters",
+      value: 30,
+    },
+  })}
 />
 ```
 
@@ -247,26 +247,24 @@ When the user submits the form and one of the fields is invalid, the `handleSubm
 
 So we want to use this `errors` object to give visual feedback to the user on what needs to be fixed. Something like this does the job:
 
-```jsx {17-19}
+```jsx {17}
 <div className="form-section">
-	<label htmlFor="title" className="form-label">
-		Title
-	</label>
-	<input
-		id="title"
-		name="title"
-		type="text"
-		ref={register({
-			required: { message: "The title is required", value: true },
-			maxLength: {
-				message: "The title must be less than 30 characters",
-				value: 30,
-			},
-		})}
-	/>
-	{errors.title && (
-		<span className="error">{errors.title.message}</span>
-	)}
+  <label htmlFor="title" className="form-label">
+    Title
+  </label>
+  <input
+    id="title"
+    name="title"
+    type="text"
+    ref={register({
+      required: { message: "The title is required", value: true },
+      maxLength: {
+        message: "The title must be less than 30 characters",
+        value: 30,
+      },
+    })}
+  />
+  {errors.title && <span className="error">{errors.title.message}</span>}
 </div>
 ```
 
@@ -274,48 +272,46 @@ To cover the description, we'd have a similar rule set to the title:
 
 ```javascript
 register({
-	maxLength: {
-		message: "The description must have less than 100 characters",
-		value: 100,
-	},
-})
+  maxLength: {
+    message: "The description must have less than 100 characters",
+    value: 100,
+  },
+});
 ```
 
 For the start date, we'll need to use React Hook Form's custom `validate` function to check that the value isn't on the 13th. We'll need to pass these rules into the Controller's `rules` prop
 
 ```jsx {21-26}
 <div className="form-section">
-	<label htmlFor="startDate" className="form-label">
-		Start Date
-	</label>
-	<Controller
-		as={
-			<DatePicker
-				id="startDate"
-				onChange={(date) => setStartDate(date)}
-				minDate={new Date()}
-				showTimeSelect
-				dateFormat="Pp"
-				selectsStart
-				startDate={startDate}
-				endDate={endDate}
-			/>
-		}
-		name="startDate"
-		control={control}
-		valueName="selected"
-		rules={{
-			validate: (data) => {
-				const date = new Date(data);
-				return date.getDate() !== 13;
-			},
-		}}
-	/>
-	{errors.startDate && (
-		<span className="error">
-			The start date must not be on the 13th!
-		</span>
-	)}
+  <label htmlFor="startDate" className="form-label">
+    Start Date
+  </label>
+  <Controller
+    as={
+      <DatePicker
+        id="startDate"
+        onChange={(date) => setStartDate(date)}
+        minDate={new Date()}
+        showTimeSelect
+        dateFormat="Pp"
+        selectsStart
+        startDate={startDate}
+        endDate={endDate}
+      />
+    }
+    name="startDate"
+    control={control}
+    valueName="selected"
+    rules={{
+      validate: (data) => {
+        const date = new Date(data);
+        return date.getDate() !== 13;
+      },
+    }}
+  />
+  {errors.startDate && (
+    <span className="error">The start date must not be on the 13th!</span>
+  )}
 </div>
 ```
 

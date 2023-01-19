@@ -6,7 +6,7 @@ featuredImage: ./images/featured-image.jpg
 tags: ["webpack", "build", "tools", "javascript", "react"]
 ---
 
-[React](https://reactjs.org) is currently the most popular, modern UI framework for the web. 
+[React](https://reactjs.org) is currently the most popular, modern UI framework for the web.
 
 It's well known for its functional, declarative style and I would argue it's really easy pick up as a new developer.
 
@@ -16,12 +16,12 @@ It's well worth trying React if you are a developer or are interested in learnin
 
 ---
 
-When first building a React application you have a few options available. 
+When first building a React application you have a few options available.
 
-- You can add a couple script tags to the HTML and then React should work. 
-However this isn't the recommended approach for a production site.
+- You can add a couple script tags to the HTML and then React should work.
+  However this isn't the recommended approach for a production site.
 - You can also run `npx create-react-app my-app` to have [Create React App](https://github.com/facebookincubator/create-react-app)
-automatically setup a project for you with all the tools you need under the hood.
+  automatically setup a project for you with all the tools you need under the hood.
 - You can build the tooling yourself and learn more about how the tools work.
 
 I tend to recommend the last option as knowing your tools enhances your ability as a developer.
@@ -85,7 +85,7 @@ React uses the latest Javascript syntax which needs compilation to make it frien
 
 Lets start by installing `webpack` and `webpack-cli` to bring in the basic webpack tooling for running a local development server.
 
-> *Note: For this tutorial, I'm using webpack v5.x and webpack-cli v4.x.*
+> _Note: For this tutorial, I'm using webpack v5.x and webpack-cli v4.x._
 
 We'll also need to install `html-webpack-plugin` for embeding the bundled javascript into our html template.
 
@@ -95,11 +95,11 @@ We can then add a file to the root of the project called `webpack.config.js` wit
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-	plugins: [
-		new HtmlWebpackPlugin({
-			template: "./src/assets/index.html",
-		}),
-	],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./src/assets/index.html",
+    }),
+  ],
 };
 ```
 
@@ -120,7 +120,8 @@ then run `npm start`. This will give us a lovely... error 😞
 We need a loader to handle the funky JSX syntax from React. We'll use [Babel](https://babeljs.io) for this.
 
 Install the following packages:
-- `babel-loader` (for hooking up babel compilation into webpack), 
+
+- `babel-loader` (for hooking up babel compilation into webpack),
 - `@babel/core` (the core babel package),
 - `@babel/preset-env` and `@babel/preset-react` (Babel presets for next generation JavaScript and for React).
 
@@ -157,6 +158,6 @@ When you run `npm start` now, it should show up nicely in the browser: http://lo
 
 ---
 
-There you go, you're setup and ready to build a react app. 
+There you go, you're setup and ready to build a react app.
 
 You'll likely want to import CSS (or SASS). For that, check out my [other tutorial](https://jon.haddow.me/blog/basic-setup-for-a-web-application), or have a browse at some [webpack loaders](https://webpack.js.org/loaders/) on their site.

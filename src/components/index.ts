@@ -7,4 +7,3 @@ export * from "./SearchCard";
 export * from "./SEO";
 export * from "./SocialLinks";
 export * from "./Title";
-export * from "./ThemeSwitcher";
