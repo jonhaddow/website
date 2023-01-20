@@ -6,7 +6,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
-    "@mdx-js/mdx": "^2.1.5",
+    "@mdx-js/mdx": "^2.2.1",
     "@mdx-js/react": "^2.1.5",
     "gatsby": "^4.25.4",
     "gatsby-plugin-emotion": "^7.24.0",
