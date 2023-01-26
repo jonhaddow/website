@@ -9,7 +9,7 @@ export const RecentPosts: React.FC = () => {
     query RecentPosts {
       allMdx(
         limit: 3
-        sort: { order: DESC, fields: frontmatter___date }
+        sort: { frontmatter: { date: DESC } }
         filter: { fields: { type: { eq: "posts" } } }
       ) {
         edges {
