@@ -134,7 +134,7 @@ export default Blog;
 export const query = graphql`
   query Blog {
     allMdx(
-      sort: { order: DESC, fields: frontmatter___date }
+      sort: { frontmatter: { date: DESC } }
       filter: { fields: { type: { eq: "posts" } } }
     ) {
       edges {
