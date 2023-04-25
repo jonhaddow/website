@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   /* Main primary color */
   --primary-transparent: #00796b15;
@@ -17,29 +21,6 @@
   --serif-font: "Bree Serif", serif;
   --sans-serif-font: "Fira Sans", sans-serif;
   --animation-speed: 0.2s;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
-html {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  background: var(--background);
-  color: var(--text);
-}
-
-a {
-  color: var(--dark-primary);
-}
-a:focus {
-  outline: 2px var(--dark-primary) solid;
 }
 
 blockquote {

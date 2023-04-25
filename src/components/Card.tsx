@@ -1,19 +1,13 @@
-/** @jsx jsx */
-import { jsx } from "@emotion/react";
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 
 interface CardProps extends React.HTMLAttributes<HTMLElement> {
   children: ReactNode;
 }
-export const Card = (props: CardProps) => (
+export const Card = ({ className = "", children, ...rest }: CardProps) => (
   <section
-    css={{
-      padding: "32px 48px",
-      borderRadius: "8px",
-      background: "var(--card)",
-    }}
-    {...props}
+    className={`${className} shadow-lg py-8 px-12 bg-white rounded-lg`}
+    {...rest}
   >
-    {props.children}
+    {children}
   </section>
 );

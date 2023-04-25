@@ -24,5 +24,9 @@ export const Layout = ({ children }: LayoutProps) => {
     document.body.appendChild(script);
   }, []);
 
-  return <>{children}</>;
+  return (
+    <div id="layout" className="bg-gray-100">
+      {children}
+    </div>
+  );
 };

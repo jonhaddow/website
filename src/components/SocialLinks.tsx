@@ -2,8 +2,11 @@
 import { jsx } from "@emotion/react";
 import { mq } from "../utils/mediaQueries";
 
+const svgClass = "inline";
+
 const linkedIn = (
   <svg
+    className={svgClass}
     xmlns="http://www.w3.org/2000/svg"
     width="24"
     height="24"
@@ -16,6 +19,7 @@ const linkedIn = (
 
 const twitter = (
   <svg
+    className={svgClass}
     xmlns="http://www.w3.org/2000/svg"
     width="24"
     height="24"
@@ -28,6 +32,7 @@ const twitter = (
 
 const rss = (
   <svg
+    className={svgClass}
     xmlns="http://www.w3.org/2000/svg"
     width="24"
     height="24"
@@ -40,6 +45,7 @@ const rss = (
 
 const github = (
   <svg
+    className={svgClass}
     xmlns="http://www.w3.org/2000/svg"
     width="24"
     height="24"

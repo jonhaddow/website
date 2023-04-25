@@ -143,15 +143,9 @@ const Home = ({ data }: PageProps<Queries.HomeQuery>) => {
         </div>
       </header>
       <main>
-        <Card
-          css={{
-            width: "90%",
-            maxWidth: "700px",
-            margin: "-64px auto 64px",
-          }}
-        >
+        <Card className="w-9/12 max-w-3xl -mt-16 mb-16 mx-auto">
           <p>
-            I am a full stack web developer that builds quality, scalable web
+            I am a software engineer that builds quality, scalable web
             applications. I work primarily with React, TypeScript and .NET.
           </p>
           <Link
