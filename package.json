@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "author": "Jon Haddow <jon@haddow.me>",
   "dependencies": {
-    "@emotion/react": "^11.10.5",
+    "@emotion/react": "^11.10.8",
     "@emotion/styled": "^11.10.5",
     "@mdx-js/mdx": "^2.2.1",
     "@mdx-js/react": "^2.3.0",
