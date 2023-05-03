@@ -5,7 +5,7 @@ interface CardProps extends React.HTMLAttributes<HTMLElement> {
 }
 export const Card = ({ className = "", children, ...rest }: CardProps) => (
   <section
-    className={`${className} shadow-lg py-8 px-12 bg-white rounded-lg`}
+    className={`${className} rounded-lg bg-white px-12 py-8 shadow-lg`}
     {...rest}
   >
     {children}
