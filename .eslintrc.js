@@ -3,7 +3,7 @@ module.exports = {
     browser: true,
     node: true,
   },
-  extends: ["jonhaddow", "jonhaddow/react"],
+  extends: ["jonhaddow", "jonhaddow/react", "plugin:tailwindcss/recommended"],
   rules: {
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
