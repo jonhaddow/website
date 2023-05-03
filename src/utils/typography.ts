@@ -4,7 +4,7 @@ import CodePlugin from "typography-plugin-code";
 
 const typographyOptions = kirkhamTheme as TypographyOptions;
 
-typographyOptions.baseFontSize = "18px";
+typographyOptions.baseFontSize = "16px";
 typographyOptions.baseLineHeight = 1.8;
 typographyOptions.plugins = [new CodePlugin()];
 typographyOptions.googleFonts = [
