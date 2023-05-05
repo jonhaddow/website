@@ -85,18 +85,7 @@ export const SocialLinks: React.FC = () => {
   ];
 
   return (
-    <ul
-      css={{
-        width: "100%",
-        maxWidth: "700px",
-        margin: "0 auto",
-        padding: 0,
-        textAlign: "center",
-        [mq.desktop]: {
-          textAlign: "left",
-        },
-      }}
-    >
+    <ul className="m-auto flex items-center md:mx-0 md:items-start">
       {links.map((l) => (
         <li
           key={l.link}

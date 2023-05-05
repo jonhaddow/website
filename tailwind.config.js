@@ -2,6 +2,10 @@
 module.exports = {
   content: ["./src/pages/**/*.{ts,tsx}", "./src/components/**/*.{ts,tsx}"],
   theme: {
+    fontFamily: {
+      sans: ["Fira Sans", "sans-serif"],
+      serif: ["Bree Serif", "serif"],
+    },
     extend: {
       colors: {
         primary: "#00796b",

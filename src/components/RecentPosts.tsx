@@ -1,9 +1,8 @@
-/** @jsx jsx */
-import { jsx } from "@emotion/react";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import { Card } from ".";
-import { mq } from "../utils/mediaQueries";
 import { GatsbyImage } from "gatsby-plugin-image";
+import React from "react";
+
 export const RecentPosts: React.FC = () => {
   const data = useStaticQuery<Queries.RecentPostsQuery>(graphql`
     query RecentPosts {
@@ -33,58 +32,19 @@ export const RecentPosts: React.FC = () => {
   `);
 
   return (
-    <Card
-      css={{
-        width: "90%",
-        maxWidth: "700px",
-        margin: "0 auto 64px",
-      }}
-    >
-      <h2
-        css={{
-          marginBottom: "1.5rem",
-          fontWeight: 400,
-          fontSize: "1.4rem",
-        }}
-      >
-        Recent posts
-      </h2>
-      <ul
-        css={{
-          padding: 0,
-          marginLeft: 0,
-          listStyleType: "none",
-        }}
-      >
+    <Card className="mx-auto mb-16 w-9/12 max-w-3xl">
+      <h2 className="mb-6 text-2xl font-normal">Recent posts</h2>
+      <ul>
         {data.allMdx.edges.map(({ node }) => (
           <li key={node.id}>
             <Link
-              css={{
-                width: "100%",
-                textDecoration: "none",
-
-                [mq.desktop]: {
-                  display: "flex",
-                  alignItems: "center",
-                },
-
-                "&:hover strong": {
-                  textDecoration: "underline",
-                },
-              }}
+              className="group items-center md:flex"
               to={`/blog/${node.frontmatter?.slug ?? ""}`}
             >
               {node.frontmatter?.featuredImage?.childImageSharp
                 ?.gatsbyImageData && (
                 <GatsbyImage
-                  css={{
-                    width: "100%",
-                    [mq.desktop]: {
-                      display: "inline-block",
-                      width: 120,
-                      minWidth: 120,
-                    },
-                  }}
+                  className="w-full md:inline-block md:w-[120px]"
                   image={
                     node.frontmatter.featuredImage.childImageSharp
                       .gatsbyImageData
@@ -92,51 +52,14 @@ export const RecentPosts: React.FC = () => {
                   alt=""
                 />
               )}
-              <div
-                css={{
-                  display: "inline-block",
-                  padding: "5px 0 10px",
-                  overflow: "hidden",
-                  width: "100%",
-                  [mq.desktop]: {
-                    paddingLeft: 10,
-                  },
-                }}
-              >
-                <strong
-                  css={{
-                    margin: 0,
-                    padding: "12px 8px 0 0",
-                    color: "var(--text)",
-                    fontSize: "1.5rem",
-                    fontWeight: 400,
-                  }}
-                >
+              <div className="md: inline-block w-full overflow-hidden pb-3 pt-1 md:pl-3">
+                <strong className="pr-2 pt-3 text-2xl font-normal text-text group-hover:underline">
                   {node.frontmatter?.title}
                 </strong>
-                <time
-                  css={{
-                    display: "block",
-                    height: "100%",
-                    margin: "-4px 0",
-                    color: "var(--text-light)",
-                    fontSize: "0.8rem",
-                    fontWeight: 400,
-                    fontFamily: "var(--sans-serif-font)",
-                  }}
-                >
+                <time className="-mt-1 block h-full text-sm text-text-light">
                   {node.frontmatter?.date}
                 </time>
-                <p
-                  css={{
-                    marginTop: 8,
-                    color: "var(--text)",
-                    fontStyle: "italic",
-                    textOverflow: "ellipsis",
-                    whiteSpace: "nowrap",
-                    overflow: "hidden",
-                  }}
-                >
+                <p className="mt-2 overflow-hidden text-ellipsis whitespace-nowrap italic">
                   {node.frontmatter?.abstract}
                 </p>
               </div>
@@ -144,15 +67,7 @@ export const RecentPosts: React.FC = () => {
           </li>
         ))}
       </ul>
-      <Link
-        css={{
-          textDecoration: "none",
-          "&:hover, &:focus, &:active": {
-            textDecoration: "underline",
-          },
-        }}
-        to="/blog"
-      >
+      <Link className="hover:underline" to="/blog">
         View all posts
       </Link>
     </Card>

@@ -35,10 +35,10 @@ export const NavBar = () => {
   `);
 
   return (
-    <nav className="mx-auto my-0 flex w-full max-w-7xl flex-col items-center justify-center p-6 sm:flex-row">
+    <nav className="mx-auto flex w-full max-w-7xl flex-col items-center justify-center p-6 sm:flex-row">
       <Link
         to="/"
-        className="flex shrink-0 items-center self-center text-header-text no-underline sm:self-start"
+        className="flex shrink-0 items-center self-center text-header-text sm:self-start"
       >
         {data.placeholderImage?.childImageSharp?.gatsbyImageData && (
           <GatsbyImage
@@ -47,18 +47,18 @@ export const NavBar = () => {
             className="w-16 rounded-full"
           />
         )}
-        <h1 className="m-0 pl-4 text-2xl font-light">
+        <h1 className="pl-4 text-2xl font-light">
           {data.site?.siteMetadata?.title}
         </h1>
       </Link>
-      <ul className="mt-8 flex w-full list-none items-center justify-center sm:m-0 sm:justify-end">
+      <ul className="mt-8 flex w-full items-center justify-center sm:m-0 sm:justify-end">
         {navItems.map((navItem) => (
           <li key={navItem.link} className="inline pl-8 first-of-type:pl-0">
             <Link
               to={navItem.link}
               activeClassName="font-bold border-b-2"
               partiallyActive={true}
-              className="pb-2 text-lg uppercase text-header-text no-underline hover:border-b-2"
+              className="pb-2 text-lg uppercase text-header-text hover:border-b-2"
             >
               {navItem.text}
             </Link>
