@@ -9,7 +9,7 @@
     "@mdx-js/mdx": "^2.2.1",
     "@mdx-js/react": "^2.3.0",
     "gatsby": "^5.10.0",
-    "gatsby-plugin-emotion": "^8.9.0",
+    "gatsby-plugin-emotion": "^8.10.0",
     "gatsby-plugin-feed": "^5.10.0",
     "gatsby-plugin-image": "^3.10.0",
     "gatsby-plugin-manifest": "^5.9.0",
