@@ -1,7 +1,7 @@
-import React, { ReactNode } from "react";
+import * as React from "react";
 
 interface CardProps extends React.HTMLAttributes<HTMLElement> {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 export const Card = ({ className = "", children, ...rest }: CardProps) => (
   <section

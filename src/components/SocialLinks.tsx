@@ -1,6 +1,4 @@
-/** @jsx jsx */
-import { jsx } from "@emotion/react";
-import { mq } from "../utils/mediaQueries";
+import * as React from "react";
 
 const svgClass = "inline";
 
@@ -56,7 +54,10 @@ const github = (
   </svg>
 );
 
-export const SocialLinks: React.FC = () => {
+interface SocialLinkProps {
+  className?: string;
+}
+export function SocialLinks({ className = "" }: SocialLinkProps) {
   const links: {
     label: string;
     link: string;
@@ -85,17 +86,11 @@ export const SocialLinks: React.FC = () => {
   ];
 
   return (
-    <ul className="m-auto flex items-center md:mx-0 md:items-start">
+    <ul
+      className={`${className} m-auto flex max-w-2xl justify-center md:justify-start`}
+    >
       {links.map((l) => (
-        <li
-          key={l.link}
-          css={{
-            display: "inline",
-            paddingRight: 15,
-            margin: 0,
-            listStyle: "none",
-          }}
-        >
+        <li key={l.link} className="m-0 inline pr-3">
           <a href={l.link} title={l.label}>
             {l.icon}
           </a>
@@ -103,4 +98,4 @@ export const SocialLinks: React.FC = () => {
       ))}
     </ul>
   );
-};
+}

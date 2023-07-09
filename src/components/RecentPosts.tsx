@@ -1,7 +1,7 @@
 import { Link, graphql, useStaticQuery } from "gatsby";
 import { Card } from ".";
 import { GatsbyImage } from "gatsby-plugin-image";
-import React from "react";
+import * as React from "react";
 
 export const RecentPosts: React.FC = () => {
   const data = useStaticQuery<Queries.RecentPostsQuery>(graphql`
@@ -59,7 +59,7 @@ export const RecentPosts: React.FC = () => {
                 <time className="-mt-1 block h-full text-sm text-text-light">
                   {node.frontmatter?.date}
                 </time>
-                <p className="mt-2 overflow-hidden text-ellipsis whitespace-nowrap italic">
+                <p className="mt-2 truncate italic">
                   {node.frontmatter?.abstract}
                 </p>
               </div>

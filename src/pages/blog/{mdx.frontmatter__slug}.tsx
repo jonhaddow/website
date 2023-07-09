@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from "@emotion/react";
 import { PageProps, graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import {
@@ -11,9 +9,8 @@ import {
   SocialLinks,
   Title,
 } from "../../components";
-
+import * as React from "react";
 import { MDXProvider } from "@mdx-js/react";
-import { mq } from "../../utils/mediaQueries";
 
 const Article = (props: PageProps<Queries.ArticleQuery>) => {
   const post = props.data.mdx;
@@ -36,25 +33,11 @@ const Article = (props: PageProps<Queries.ArticleQuery>) => {
         <SocialLinks />
       </Header>
       <main>
-        <Card
-          css={{
-            width: "100%",
-            maxWidth: 900,
-            borderRadius: 0,
-            margin: "-32px auto 0",
-            [mq.desktop]: {
-              borderRadius: 8,
-              marginBottom: 64,
-            },
-          }}
-        >
+        <Card className="mx-auto -mt-8 mb-0 w-full max-w-4xl rounded-none lg:mb-16 lg:rounded-lg">
           {post.frontmatter?.featuredImage?.childImageSharp
             ?.gatsbyImageData && (
             <GatsbyImage
-              css={{
-                marginBottom: 32,
-                borderRadius: 8,
-              }}
+              className="mb-8 rounded-md"
               image={
                 post.frontmatter?.featuredImage?.childImageSharp
                   ?.gatsbyImageData
@@ -62,23 +45,13 @@ const Article = (props: PageProps<Queries.ArticleQuery>) => {
               alt=""
             />
           )}
-          <p
-            css={{
-              fontWeight: 200,
-              color: "var(--text-lighter)",
-              fontStyle: "italic",
-            }}
-          >
+          <p className="font-extralight italic text-text-lighter">
             {post.frontmatter?.abstract}
           </p>
           <MDXProvider>{props.children}</MDXProvider>
-          <p
-            css={{
-              textAlign: "right",
-            }}
-          >
+          <p className="text-right">
             <a
-              css={{ color: "var(--text-lighter)" }}
+              className="text-text-lighter underline hover:no-underline"
               href={post.fields?.editLink ?? undefined}
             >
               Edit this post on GitHub

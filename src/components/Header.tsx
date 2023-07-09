@@ -1,7 +1,7 @@
-import React, { ReactNode } from "react";
+import * as React from "react";
 
 interface HeaderProps {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 export const Header = ({ children }: HeaderProps) => {
   return (

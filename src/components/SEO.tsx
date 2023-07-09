@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
-import React from "react";
+import * as React from "react";
 import Helmet from "react-helmet";
 import { graphql, useStaticQuery } from "gatsby";
 

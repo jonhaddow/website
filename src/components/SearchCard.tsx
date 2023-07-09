@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import * as React from "react";
 import { WindowLocation } from "@reach/router";
 import { Card } from ".";
 import { navigate } from "gatsby";
@@ -7,7 +7,7 @@ interface SearchCardProps {
   location: WindowLocation;
 }
 export const SearchCard = (props: SearchCardProps) => {
-  const [input, setInput] = useState(() => {
+  const [input, setInput] = React.useState(() => {
     const searchParams = new URLSearchParams(props.location.search);
     return searchParams.get("s");
   });

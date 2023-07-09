@@ -1,8 +1,4 @@
-/** @jsx jsx */
-import { jsx } from "@emotion/react";
-import React from "react";
-
-import { mq } from "../utils/mediaQueries";
+import * as React from "react";
 
 interface TitleProps {
   title: string;
@@ -10,33 +6,10 @@ interface TitleProps {
 }
 
 export const Title: React.FC<TitleProps> = ({ title, subText }) => (
-  <h2
-    css={{
-      width: "100%",
-      maxWidth: "700px",
-      margin: "0 auto",
-      padding: "0 0 24px",
-      fontWeight: 700,
-      fontSize: "3rem",
-      color: "var(--header-text)",
-      textAlign: "center",
-      [mq.desktop]: {
-        textAlign: "left",
-      },
-    }}
-  >
+  <h2 className="mx-auto w-full max-w-2xl p-0 pb-6 text-center text-5xl font-bold text-header-text md:text-left">
     {title}
     {subText && (
-      <span
-        css={{
-          display: "block",
-          paddingTop: "16px",
-          fontSize: "0.9rem",
-          fontWeight: 400,
-          letterSpacing: "0.5px",
-          color: "var(--header-text)",
-        }}
-      >
+      <span className="block pt-4 text-sm font-normal tracking-wider">
         {subText}
       </span>
     )}
