@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx } from "@emotion/react";
+import * as React from "react";
 import {
   Card,
   Header,
@@ -9,8 +8,6 @@ import {
   SocialLinks,
   Title,
 } from "../components";
-
-import { mq } from "../utils/mediaQueries";
 
 const About = () => {
   return (
@@ -22,18 +19,7 @@ const About = () => {
         <SocialLinks />
       </Header>
       <main>
-        <Card
-          css={{
-            width: "100%",
-            maxWidth: 900,
-            borderRadius: 0,
-            margin: "-32px auto 0",
-            [mq.desktop]: {
-              borderRadius: 8,
-              marginBottom: 64,
-            },
-          }}
-        >
+        <Card className="mx-auto -mt-8 mb-0 w-full max-w-4xl rounded-none md:mb-16 md:rounded-lg">
           <h1>Hi! I&apos;m Jon 👋</h1>
           <p>I am a full stack web developer based in Swansea, Wales.</p>
           <p>

@@ -23,6 +23,10 @@
   --animation-speed: 0.2s;
 }
 
+body {
+  @apply bg-gray-100;
+}
+
 blockquote {
   padding-left: 0.75rem;
   margin-left: 0.75rem;

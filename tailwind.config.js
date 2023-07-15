@@ -20,6 +20,9 @@ module.exports = {
         "text-light": "#444",
         "text-lighter": "#555",
       },
+      gridTemplateColumns: {
+        "auto-fill-400": "repeat(auto-fill, minmax(400px, 1fr))",
+      },
     },
   },
   plugins: [],

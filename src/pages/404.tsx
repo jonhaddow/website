@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx } from "@emotion/react";
+import * as React from "react";
 
 import { Card, Header, Layout, NavBar, SEO, Title } from "../components";
 import { Link } from "gatsby";
@@ -11,13 +10,7 @@ const NotFoundPage = () => (
       <NavBar />
       <Title title="404: Not Found" />
     </Header>
-    <Card
-      css={{
-        width: "100%",
-        maxWidth: "900px",
-        margin: "-16px auto",
-      }}
-    >
+    <Card className="-my-4 mx-auto w-full max-w-4xl">
       <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
       <p>
         <Link to="/">Go back home</Link> and try again

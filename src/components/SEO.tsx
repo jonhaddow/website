@@ -18,13 +18,13 @@ interface SEOProps {
   } | null;
 }
 
-export const SEO: React.FC<SEOProps> = ({
+export const SEO = ({
   description,
   lang = "en",
   meta = [],
   title,
   image,
-}) => {
+}: SEOProps) => {
   const { site, placeholderImage } = useStaticQuery<Queries.SEOQuery>(
     graphql`
       query SEO {

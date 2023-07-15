@@ -1,13 +1,12 @@
 import * as React from "react";
+import { twMerge } from "tailwind-merge";
 
 interface CardProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
 }
-export const Card = ({ className = "", children, ...rest }: CardProps) => (
+export const Card = ({ className = "", ...rest }: CardProps) => (
   <section
-    className={`${className} rounded-lg bg-white px-12 py-8 shadow-lg`}
+    className={twMerge("rounded-lg bg-white px-12 py-8 shadow-lg", className)}
     {...rest}
-  >
-    {children}
-  </section>
+  />
 );
