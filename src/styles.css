@@ -2,41 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  /* Main primary color */
-  --primary-transparent: #00796b15;
-  --primary: #00796b;
-  --dark-primary: #004c40;
-
-  --header-bg: var(--primary);
-  --header-text: #fdfdfd;
-
-  --background: #f0f0f0;
-  --card: #fcfcfc;
-
-  --text: #333;
-  --text-light: #444;
-  --text-lighter: #555;
-
-  --serif-font: "Bree Serif", serif;
-  --sans-serif-font: "Fira Sans", sans-serif;
-  --animation-speed: 0.2s;
-}
-
 body {
   @apply bg-gray-100;
 }
 
-blockquote {
-  padding-left: 0.75rem;
-  margin-left: 0.75rem;
-  border-left: solid var(--text-lighter) 3px;
+.content a {
+  @apply underline text-primary-dark;
 }
 
-hr {
-  background: var(--text-lighter);
+.content p {
+  @apply mb-6 leading-7;
 }
 
-code {
-  background: var(--background);
+.content p:empty {
+  @apply mb-0;
+}
+
+.content blockquote {
+  @apply border-l-4 border-text-lighter mb-6 ml-4;
+}
+
+.content hr {
+  @apply bg-text-lighter h-[1px] mb-6;
+}
+
+.content code {
+  @apply bg-background;
+}
+
+.content ul {
+  @apply list-disc list-inside ml-6 mb-6;
+}
+
+.content h1 {
+  @apply text-3xl font-bold mb-6;
+}
+.content h2 {
+  @apply text-2xl font-bold mb-6;
+}
+.content h3 {
+  @apply text-xl font-bold mb-6;
+}
+.content h4 {
+  @apply text-lg font-bold mb-6;
+}
+.content h5 {
+  @apply text-base font-bold mb-6;
 }

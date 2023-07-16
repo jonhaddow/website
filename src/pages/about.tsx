@@ -19,7 +19,8 @@ const About = () => {
         <SocialLinks />
       </Header>
       <main>
-        <Card className="mx-auto -mt-8 mb-0 w-full max-w-4xl rounded-none md:mb-16 md:rounded-lg">
+        {/* eslint-disable-next-line tailwindcss/no-custom-classname -- content*/}
+        <Card className="content mx-auto -mt-8 mb-0 w-full max-w-4xl rounded-none md:mb-16 md:rounded-lg">
           <h1>Hi! I&apos;m Jon 👋</h1>
           <p>I am a full stack web developer based in Swansea, Wales.</p>
           <p>
