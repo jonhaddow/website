@@ -62,6 +62,7 @@ module.exports = {
     },
     "gatsby-plugin-eslint",
     "gatsby-plugin-react-svg",
+    "gatsby-plugin-netlify",
     {
       resolve: `gatsby-plugin-typography`,
       options: {
