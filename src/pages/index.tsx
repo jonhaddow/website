@@ -1,124 +1,30 @@
-/** @jsx jsx */
-import { jsx } from "@emotion/react";
-import React from "react";
+import * as React from "react";
 import { Link, PageProps, graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Card, Layout, RecentPosts, SEO, SocialLinks } from "../components";
-import { mq } from "../utils/mediaQueries";
 
 const Home = ({ data }: PageProps<Queries.HomeQuery>) => {
   return (
     <Layout>
       <SEO title="Home" />
-      <header
-        css={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          padding: "48px 0 64px",
-          background: "var(--header-bg)",
-          color: "var(--header-text)",
-        }}
-      >
-        <div
-          css={{
-            width: "100%",
-            maxWidth: "450px",
-            display: "flex",
-            flexDirection: "column-reverse",
-            justifyContent: "space-between",
-            alignItems: "center",
-            padding: "32px 16px",
-
-            [mq.desktop]: {
-              flexDirection: "row",
-            },
-          }}
-        >
-          <div
-            css={{
-              display: "flex",
-              flexDirection: "column",
-
-              [mq.desktop]: {
-                marginRight: 32,
-              },
-            }}
-          >
-            <h1
-              css={{
-                margin: "24px 0 0",
-                fontSize: "2rem",
-                textAlign: "center",
-                letterSpacing: "1px",
-
-                [mq.desktop]: {
-                  margin: 0,
-                  textAlign: "left",
-                },
-              }}
-            >
+      <header className="flex items-center justify-center bg-primary px-0 pb-16 pt-12 text-header-text">
+        <div className="flex w-full max-w-md flex-col-reverse items-center justify-between px-4 py-8 md:flex-row">
+          <div className="flex flex-col md:mr-8">
+            <h1 className="mt-6 text-center text-3xl tracking-wider md:m-0 md:text-left">
               Jon Haddow
             </h1>
-            <p
-              css={{
-                margin: "12px 0 0",
-                fontWeight: 300,
-                fontSize: "1.2rem",
-                textAlign: "center",
-
-                [mq.desktop]: {
-                  textAlign: "left",
-                },
-              }}
-            >
+            <p className="m-0 mt-3 text-center text-xl font-light md:text-left">
               Web Developer
             </p>
-            <nav css={{ marginBottom: 15 }}>
-              <ul
-                css={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  margin: "32px 0 0",
-                  padding: "0 8px",
-
-                  [mq.desktop]: {
-                    justifyContent: "start",
-                    padding: 0,
-                  },
-                }}
-              >
+            <nav className="mb-4">
+              <ul className="m-0 mt-8 flex items-center justify-center px-2 py-0 md:justify-start md:p-0">
                 {[
                   { text: "About", link: "/about" },
                   { text: "Blog", link: "/blog" },
                 ].map((x) => (
-                  <li
-                    key={x.link}
-                    css={{
-                      display: "inline",
-                      marginRight: 16,
-                      "&:last-child": { marginRight: 0 },
-                    }}
-                  >
+                  <li key={x.link} className="mr-4 inline last:mr-0">
                     <Link
-                      css={{
-                        padding: "8px 12px",
-                        color: "var(--header-text)",
-                        textDecoration: "none",
-                        borderRadius: "4px",
-                        border: "solid var(--header-text) 1px",
-                        fontSize: "1.2rem",
-                        opacity: "0.9",
-                        transition:
-                          "opacity var(--animation-speed), background var(--animation-speed)",
-
-                        "&:focus, &:active, &:hover": {
-                          background: "rgba(100, 100, 100, 0.2)",
-                          outline: "none",
-                          opacity: 1,
-                        },
-                      }}
+                      className="rounded-md border border-solid border-header-text px-3 py-2 text-xl text-header-text no-underline opacity-90 transition-opacity hover:opacity-100 focus:opacity-100"
                       to={x.link}
                     >
                       {x.text}
@@ -127,15 +33,11 @@ const Home = ({ data }: PageProps<Queries.HomeQuery>) => {
                 ))}
               </ul>
             </nav>
-            <SocialLinks />
+            <SocialLinks className="md:mx-0" />
           </div>
           {data.placeholderImage?.childImageSharp?.gatsbyImageData && (
             <GatsbyImage
-              css={{
-                height: "140px",
-                width: "140px",
-                borderRadius: "50%",
-              }}
+              className="h-36 w-36 rounded-full"
               image={data.placeholderImage?.childImageSharp?.gatsbyImageData}
               alt=""
             />
@@ -143,24 +45,13 @@ const Home = ({ data }: PageProps<Queries.HomeQuery>) => {
         </div>
       </header>
       <main>
-        <Card
-          css={{
-            width: "90%",
-            maxWidth: "700px",
-            margin: "-64px auto 64px",
-          }}
-        >
-          <p>
-            I am a full stack web developer that builds quality, scalable web
+        <Card className="mx-auto -mt-16 mb-16 w-9/12 max-w-3xl">
+          <p className="mb-4">
+            I am a software engineer that builds quality, scalable web
             applications. I work primarily with React, TypeScript and .NET.
           </p>
           <Link
-            css={{
-              textDecoration: "none",
-              "&:hover, &:focus, &:active": {
-                textDecoration: "underline",
-              },
-            }}
+            className="no-underline hover:underline focus:underline"
             to="/about"
           >
             Read more about me

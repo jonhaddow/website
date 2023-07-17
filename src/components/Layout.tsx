@@ -1,14 +1,14 @@
-import React, { ReactNode, useEffect } from "react";
+import * as React from "react";
 
 import "../styles.css";
 import "../prism-theme.css";
 
 interface LayoutProps {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 export const Layout = ({ children }: LayoutProps) => {
   // Add analytics to the end of the document
-  useEffect(() => {
+  React.useEffect(() => {
     const script = document.createElement("script");
 
     script.setAttribute(
@@ -24,5 +24,9 @@ export const Layout = ({ children }: LayoutProps) => {
     document.body.appendChild(script);
   }, []);
 
-  return <>{children}</>;
+  return (
+    <div id="layout" className="bg-gray-100">
+      {children}
+    </div>
+  );
 };

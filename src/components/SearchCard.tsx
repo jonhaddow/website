@@ -1,31 +1,20 @@
-/** @jsx jsx */
-import { jsx } from "@emotion/react";
-import React, { useState } from "react";
+import * as React from "react";
 import { WindowLocation } from "@reach/router";
 import { Card } from ".";
-import { mq } from "../utils/mediaQueries";
 import { navigate } from "gatsby";
 
 interface SearchCardProps {
   location: WindowLocation;
 }
 export const SearchCard = (props: SearchCardProps) => {
-  const [input, setInput] = useState(() => {
+  const [input, setInput] = React.useState(() => {
     const searchParams = new URLSearchParams(props.location.search);
     return searchParams.get("s");
   });
 
   return (
     <Card
-      css={{
-        width: "100%",
-        maxWidth: "700px",
-        margin: "-32px auto 0",
-        borderRadius: "0",
-        [mq.desktop]: {
-          borderRadius: "8px",
-        },
-      }}
+      className="mx-auto -mt-8 max-w-3xl rounded-none md:rounded-lg"
       {...props}
     >
       <form
@@ -33,35 +22,11 @@ export const SearchCard = (props: SearchCardProps) => {
           e.preventDefault();
         }}
       >
-        <label
-          css={{
-            display: "block",
-            marginBottom: "32px",
-            fontSize: "1.4rem",
-            fontWeight: 400,
-            fontFamily: "var(--serif-font)",
-          }}
-          htmlFor="searchPosts"
-        >
+        <label className="mb-8 block font-serif text-2xl" htmlFor="searchPosts">
           Search posts
         </label>
         <input
-          css={{
-            height: "48px",
-            width: "100%",
-            padding: "4px 16px",
-            display: "block",
-            marginTop: "12px",
-            background: "transparent",
-            borderRadius: "16px",
-            border: "1px var(--text-lighter) solid",
-            lineHeight: "32px",
-            color: "var(--text-light)",
-            "&:focus": {
-              border: "3px var(--primary) solid",
-              outline: "none",
-            },
-          }}
+          className="mt-3 block h-12 w-full rounded-2xl border border-text-lighter bg-transparent px-4 py-1 leading-8 text-text-light focus:border-4 focus:border-primary focus:outline-none"
           id="searchPosts"
           value={input ?? ""}
           onChange={(e) => {

@@ -11,6 +11,7 @@ module.exports = {
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
+    "gatsby-plugin-postcss",
     "gatsby-plugin-image",
     {
       resolve: "gatsby-plugin-manifest",
@@ -61,13 +62,13 @@ module.exports = {
     },
     "gatsby-plugin-eslint",
     "gatsby-plugin-react-svg",
+    "gatsby-plugin-netlify",
     {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography`,
       },
     },
-    "gatsby-plugin-emotion",
     {
       resolve: "gatsby-plugin-feed",
       options: {

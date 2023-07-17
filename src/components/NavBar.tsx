@@ -1,8 +1,6 @@
-/** @jsx jsx */
-import { jsx } from "@emotion/react";
+import * as React from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
-import { mq } from "../utils/mediaQueries";
 
 interface NavItem {
   link: string;
@@ -37,102 +35,30 @@ export const NavBar = () => {
   `);
 
   return (
-    <nav
-      css={{
-        width: "100%",
-        maxWidth: "1200px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        margin: "0 auto",
-        padding: "24px",
-        [mq.desktop]: {
-          flexDirection: "row",
-          paddingRight: "128px",
-        },
-      }}
-    >
+    <nav className="mx-auto flex w-full max-w-7xl flex-col items-center justify-center p-6 sm:flex-row">
       <Link
         to="/"
-        css={{
-          display: "flex",
-          alignItems: "center",
-          alignSelf: "start",
-          flexShrink: 0,
-          color: "var(--header-text)",
-          textDecoration: "none",
-          [mq.desktop]: {
-            alignSelf: "center",
-          },
-        }}
+        className="flex shrink-0 items-center self-center text-header-text sm:self-start"
       >
         {data.placeholderImage?.childImageSharp?.gatsbyImageData && (
           <GatsbyImage
             image={data.placeholderImage.childImageSharp.gatsbyImageData}
             alt=""
-            css={{
-              width: "64px",
-              borderRadius: "50%",
-            }}
+            className="w-16 rounded-full"
           />
         )}
-        <h1
-          css={{
-            display: "initial",
-            margin: 0,
-            paddingLeft: "15px",
-            fontWeight: 300,
-            fontSize: "1.6rem",
-          }}
-        >
+        <h1 className="pl-4 text-2xl font-light">
           {data.site?.siteMetadata?.title}
         </h1>
       </Link>
-      <ul
-        css={{
-          width: "100%",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          margin: "32px 0 0",
-          padding: 0,
-          listStyle: "none",
-          [mq.desktop]: {
-            justifyContent: "flex-end",
-            margin: 0,
-          },
-        }}
-      >
+      <ul className="mt-8 flex w-full items-center justify-center sm:m-0 sm:justify-end">
         {navItems.map((navItem) => (
-          <li
-            key={navItem.link}
-            css={{
-              display: "inline",
-              paddingLeft: "30px",
-              margin: 0,
-              "&:first-of-type": {
-                paddingLeft: 0,
-              },
-            }}
-          >
+          <li key={navItem.link} className="inline pl-8 first-of-type:pl-0">
             <Link
               to={navItem.link}
-              activeStyle={{
-                fontWeight: 700,
-                borderBottom: "solid var(--header-text) 3px",
-              }}
+              activeClassName="font-bold border-b-2"
               partiallyActive={true}
-              css={{
-                color: "var(--header-text)",
-                textDecoration: "none",
-                textTransform: "uppercase",
-                fontSize: "1.1rem",
-                paddingBottom: "8px",
-                "&:hover": {
-                  borderBottom: "solid var(--header-text) 3px",
-                },
-              }}
+              className="pb-2 text-lg uppercase text-header-text hover:border-b-2"
             >
               {navItem.text}
             </Link>

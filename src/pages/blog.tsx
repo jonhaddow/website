@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx } from "@emotion/react";
+import * as React from "react";
 
 import {
   Card,
@@ -38,80 +37,27 @@ const Blog = ({ data, location }: PageProps<Queries.BlogQuery>) => {
       </Header>
       <main>
         <SearchCard location={location} />
-        <ul
-          css={{
-            display: "grid",
-            gridTemplateColumns:
-              "repeat(auto-fill, minmax(min(400px, 100%), 1fr))",
-            gridGap: "1rem",
-            margin: "32px",
-            padding: "0",
-            listStyle: "none",
-          }}
-        >
+        <ul className="m-8 grid list-none auto-rows-fr grid-cols-auto-fill-400 gap-4 p-0">
           {filteredPosts.map(({ node }) => (
             <li key={node.id}>
               <Link
-                css={{
-                  height: "100%",
-                  display: "block",
-                  textDecoration: "none",
-                  color: "var(--text)",
-                  outline: "none",
-                }}
+                className="block h-full text-text no-underline outline-none"
                 to={`/blog/${node.frontmatter?.slug ?? ""}`}
               >
-                <Card
-                  css={{
-                    display: "flex",
-                    flexDirection: "column",
-                    height: "100%",
-                    padding: "0",
-                  }}
-                >
-                  <h3
-                    css={{
-                      margin: "0 0 12px",
-                      padding: "32px 48px 0",
-                      fontWeight: 400,
-                      fontSize: "1.6rem",
-                      color: "var(--text)",
-                    }}
-                  >
+                <Card className="flex h-full flex-col p-0">
+                  <h3 className="m-0 mb-3 px-12 pb-0 pt-8 text-2xl font-normal text-text">
                     {node.frontmatter?.title}
                   </h3>
-                  <span
-                    css={{
-                      padding: "0 48px",
-                      fontWeight: 300,
-                      color: "var(--text)",
-                    }}
-                  >
+                  <span className="px-12 py-0 font-light text-text">
                     <time>{node.frontmatter?.date}</time>
                   </span>
-                  <p
-                    css={{
-                      margin: 0,
-                      padding: "12px 48px 24px",
-                      fontWeight: 400,
-                      fontSize: "1.2rem",
-                      color: "var(--text-lighter)",
-                      lineHeight: "1.6rem",
-                    }}
-                  >
+                  <p className="m-0 px-12 py-3 pb-6 text-lg font-normal leading-6 text-text-lighter">
                     {node.frontmatter?.abstract}
                   </p>
                   {node.frontmatter?.featuredImage?.childImageSharp
                     ?.gatsbyImageData && (
                     <GatsbyImage
-                      css={{
-                        width: "100%",
-                        height: "120px",
-                        flexGrow: 1,
-                        display: "block",
-                        objectFit: "cover",
-                        borderRadius: "0 0 5px 5px",
-                      }}
+                      className="block h-[120px] w-full grow rounded-b-lg object-cover"
                       image={
                         node.frontmatter.featuredImage.childImageSharp
                           .gatsbyImageData

@@ -1,19 +1,12 @@
-/** @jsx jsx */
-import { jsx } from "@emotion/react";
-import { ReactNode } from "react";
+import * as React from "react";
+import { twMerge } from "tailwind-merge";
 
 interface CardProps extends React.HTMLAttributes<HTMLElement> {
-  children: ReactNode;
+  children: React.ReactNode;
 }
-export const Card = (props: CardProps) => (
+export const Card = ({ className = "", ...rest }: CardProps) => (
   <section
-    css={{
-      padding: "32px 48px",
-      borderRadius: "8px",
-      background: "var(--card)",
-    }}
-    {...props}
-  >
-    {props.children}
-  </section>
+    className={twMerge("rounded-lg bg-white px-12 py-8 shadow-lg", className)}
+    {...rest}
+  />
 );

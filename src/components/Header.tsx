@@ -1,25 +1,10 @@
-/** @jsx jsx */
-import { jsx } from "@emotion/react";
-import { ReactNode } from "react";
+import * as React from "react";
 
 interface HeaderProps {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 export const Header = ({ children }: HeaderProps) => {
   return (
-    <header
-      css={{
-        background: "var(--header-bg)",
-        color: "#fdfdfd",
-        paddingBottom: 64,
-        a: {
-          ":focus": {
-            outline: "2px var(--header-text) solid",
-          },
-        },
-      }}
-    >
-      {children}
-    </header>
+    <header className="bg-primary pb-16 text-header-text">{children}</header>
   );
 };

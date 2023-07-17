@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
-import React from "react";
+import * as React from "react";
 import Helmet from "react-helmet";
 import { graphql, useStaticQuery } from "gatsby";
 
@@ -18,13 +18,13 @@ interface SEOProps {
   } | null;
 }
 
-export const SEO: React.FC<SEOProps> = ({
+export const SEO = ({
   description,
   lang = "en",
   meta = [],
   title,
   image,
-}) => {
+}: SEOProps) => {
   const { site, placeholderImage } = useStaticQuery<Queries.SEOQuery>(
     graphql`
       query SEO {
