@@ -34,7 +34,7 @@ const Article = (props: PageProps<Queries.ArticleQuery>) => {
       </Header>
       <main>
         {/* eslint-disable-next-line tailwindcss/no-custom-classname -- content*/}
-        <Card className="content mx-auto -mt-8 mb-0 w-full max-w-4xl rounded-none lg:mb-16 lg:rounded-lg">
+        <Card className="content mx-auto -mt-8 mb-0 w-full max-w-4xl rounded-none p-4 md:rounded-lg md:p-8 lg:mb-16">
           {post.frontmatter?.featuredImage?.childImageSharp
             ?.gatsbyImageData && (
             <GatsbyImage
