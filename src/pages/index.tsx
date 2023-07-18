@@ -45,7 +45,7 @@ const Home = ({ data }: PageProps<Queries.HomeQuery>) => {
         </div>
       </header>
       <main>
-        <Card className="mx-auto -mt-16 mb-16 w-9/12 max-w-3xl">
+        <Card className="mx-auto -mt-16 mb-16 max-w-3xl rounded-none md:w-9/12 md:rounded-lg">
           <p className="mb-4">
             I am a software engineer that builds quality, scalable web
             applications. I work primarily with React, TypeScript and .NET.

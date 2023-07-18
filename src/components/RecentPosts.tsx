@@ -32,7 +32,7 @@ export const RecentPosts: React.FC = () => {
   `);
 
   return (
-    <Card className="mx-auto mb-16 w-9/12 max-w-3xl">
+    <Card className="mx-auto mb-16 max-w-3xl rounded-none px-4 md:w-9/12 md:rounded-lg md:px-8">
       <h2 className="mb-6 text-2xl font-normal">Recent posts</h2>
       <ul>
         {data.allMdx.edges.map(({ node }) => (
@@ -52,7 +52,7 @@ export const RecentPosts: React.FC = () => {
                   alt=""
                 />
               )}
-              <div className="md: inline-block w-full overflow-hidden pb-3 pt-1 md:pl-3">
+              <div className="w-full overflow-hidden pb-3 pt-1 md:inline-block md:pl-3">
                 <strong className="pr-2 pt-3 text-2xl font-normal text-text group-hover:underline">
                   {node.frontmatter?.title}
                 </strong>

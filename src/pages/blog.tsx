@@ -37,9 +37,9 @@ const Blog = ({ data, location }: PageProps<Queries.BlogQuery>) => {
       </Header>
       <main>
         <SearchCard location={location} />
-        <ul className="m-8 grid list-none auto-rows-fr grid-cols-auto-fill-400 gap-4 p-0">
+        <ul className="lg: m-8 grid max-w-screen-lg list-none grid-cols-1 gap-4 sm:grid-cols-2 lg:mx-auto lg:grid-cols-3">
           {filteredPosts.map(({ node }) => (
-            <li key={node.id}>
+            <li key={node.id} className="">
               <Link
                 className="block h-full text-text no-underline outline-none"
                 to={`/blog/${node.frontmatter?.slug ?? ""}`}
