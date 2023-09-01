@@ -32,7 +32,7 @@
   "devDependencies": {
     "@babel/preset-typescript": "^7.21.4",
     "@testing-library/cypress": "^9.0.0",
-    "@types/node": "^20.4.5",
+    "@types/node": "^20.5.7",
     "@types/react": "^18.2.18",
     "@types/react-dom": "^18.2.4",
     "@types/react-helmet": "^6.1.6",
