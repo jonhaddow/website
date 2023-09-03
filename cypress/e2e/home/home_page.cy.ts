@@ -11,7 +11,7 @@ it('should render the "Read more" link to about page', () => {
   cy.findByRole("link", { name: /Read more/ }).should(
     "have.attr",
     "href",
-    "/about/"
+    "/about/",
   );
 });
 
@@ -21,6 +21,6 @@ it('should render the "/View all posts" link to blog page', () => {
   cy.findByRole("link", { name: /View all posts/ }).should(
     "have.attr",
     "href",
-    "/blog/"
+    "/blog/",
   );
 });

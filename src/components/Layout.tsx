@@ -13,12 +13,12 @@ export const Layout = ({ children }: LayoutProps) => {
 
     script.setAttribute(
       "src",
-      "https://static.cloudflareinsights.com/beacon.min.js"
+      "https://static.cloudflareinsights.com/beacon.min.js",
     );
 
     script.setAttribute(
       "data-cf-beacon",
-      '{"token": "afd8b37af7cb4ff29b3a5d1a70976ead"}'
+      '{"token": "afd8b37af7cb4ff29b3a5d1a70976ead"}',
     );
 
     document.body.appendChild(script);

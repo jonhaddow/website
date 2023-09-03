@@ -25,30 +25,28 @@ export const SEO = ({
   title,
   image,
 }: SEOProps) => {
-  const { site, placeholderImage } = useStaticQuery<Queries.SEOQuery>(
-    graphql`
-      query SEO {
-        site {
-          siteMetadata {
-            title
-            author
-            description
-            twitterHandle
-            siteUrl
-          }
+  const { site, placeholderImage } = useStaticQuery<Queries.SEOQuery>(graphql`
+    query SEO {
+      site {
+        siteMetadata {
+          title
+          author
+          description
+          twitterHandle
+          siteUrl
         }
-        placeholderImage: file(relativePath: { eq: "profile-img.jpg" }) {
-          childImageSharp {
-            original {
-              src
-              height
-              width
-            }
+      }
+      placeholderImage: file(relativePath: { eq: "profile-img.jpg" }) {
+        childImageSharp {
+          original {
+            src
+            height
+            width
           }
         }
       }
-    `
-  );
+    }
+  `);
 
   const metaDescription = description ?? site?.siteMetadata?.description;
   const metaImage = `${site?.siteMetadata?.siteUrl}${

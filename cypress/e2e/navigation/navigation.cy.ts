@@ -5,7 +5,7 @@ describe("homepage", () => {
     cy.findByRole("link", { name: "About" }).should(
       "have.attr",
       "href",
-      "/about/"
+      "/about/",
     );
   });
 
@@ -15,7 +15,7 @@ describe("homepage", () => {
     cy.findByRole("link", { name: "Blog" }).should(
       "have.attr",
       "href",
-      "/blog/"
+      "/blog/",
     );
   });
 });
@@ -27,7 +27,7 @@ describe("about", () => {
     cy.findByRole("link", { name: /Jon Haddow/ }).should(
       "have.attr",
       "href",
-      "/"
+      "/",
     );
   });
 
@@ -37,7 +37,7 @@ describe("about", () => {
     cy.findByRole("link", { name: "Blog" }).should(
       "have.attr",
       "href",
-      "/blog/"
+      "/blog/",
     );
   });
 });
@@ -49,7 +49,7 @@ describe("blog", () => {
     cy.findByRole("link", { name: /Jon Haddow/ }).should(
       "have.attr",
       "href",
-      "/"
+      "/",
     );
   });
 
@@ -59,7 +59,7 @@ describe("blog", () => {
     cy.findByRole("link", { name: "About" }).should(
       "have.attr",
       "href",
-      "/about/"
+      "/about/",
     );
   });
 });
