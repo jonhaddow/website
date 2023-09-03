@@ -3,5 +3,15 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "monthly"
+      interval: "weekly"
     open-pull-requests-limit: 10
+    group:
+      production-dependencies:
+        dependency-type: 'production'
+        update-types: 
+          - 'patch'
+      development-dependencies:
+        dependency-type: 'development'
+        update-types: 
+         - 'patch'
+         - 'minor'
