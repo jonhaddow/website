@@ -5,6 +5,6 @@ it("should filter items when a query is entered", () => {
 
   cy.findAllByRole("link", { name: /CSS-in-JS/ }).should(
     "have.length.at.least",
-    1
+    1,
   );
 });
