@@ -11,3 +11,6 @@ public
 # cypress screenshots and videos
 cypress/screenshots/
 cypress/videos
+
+# vscode generated files
+.vscode/
