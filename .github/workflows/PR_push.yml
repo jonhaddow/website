@@ -1,7 +1,20 @@
-name: PR push
+name: PR build
 on: pull_request
 
 jobs:
+  linting:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.13.0
+      - name: Type check
+        run: npm run type-check
+      - name: ESLint
+        run: npm run lint
+      - name: Prettier
+        run: npm run prettier
   cypress:
     runs-on: ubuntu-latest
     steps:
