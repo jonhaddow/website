@@ -59,8 +59,8 @@
     "clean": "gatsby clean",
     "test": "start-server-and-test start http-get://localhost:8000 cy:run",
     "cy:run": "cypress run --config-file=cypress.config.ts",
-    "type-check": "tsc --noEmit",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "type-check": "tsc",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --ignore-path .gitignore",
     "prettier": "prettier . -c"
   },
   "license": "MIT",

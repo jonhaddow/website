@@ -10,9 +10,9 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "noEmit": false,
+    "noEmit": true,
     "jsx": "react",
     "skipLibCheck": true
   },
-  "include": ["src", "./gatsby-node.ts", "./cypress.config.ts"]
+  "include": ["src", "./gatsby-node.ts", "./cypress.config.ts", ".eslintrc.js"]
 }

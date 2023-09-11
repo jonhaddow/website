@@ -1,7 +1,0 @@
-.cache
-node_modules
-public
-
-*.js
-*.jsx
-*.d.ts
