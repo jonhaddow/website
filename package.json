@@ -30,7 +30,7 @@
     "typography-theme-kirkham": "^0.16.19"
   },
   "devDependencies": {
-    "@babel/preset-typescript": "^7.21.4",
+    "@babel/preset-typescript": "^7.23.0",
     "@testing-library/cypress": "^9.0.0",
     "@types/node": "^20.5.7",
     "@types/react": "^18.2.18",
