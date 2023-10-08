@@ -11,7 +11,7 @@
     "gatsby-plugin-image": "^3.10.0",
     "gatsby-plugin-manifest": "^5.11.0",
     "gatsby-plugin-mdx": "^5.12.0",
-    "gatsby-plugin-netlify": "^5.1.0",
+    "gatsby-plugin-netlify": "^5.1.1",
     "gatsby-plugin-react-svg": "^3.3.0",
     "gatsby-plugin-sharp": "^5.11.0",
     "gatsby-plugin-typography": "^5.12.0",
