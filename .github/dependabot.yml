@@ -15,3 +15,7 @@ updates:
         update-types:
           - "patch"
           - "minor"
+      gatsby:
+        patterns:
+          - "gatsby"
+          - "gatsby-*"
