@@ -24,7 +24,7 @@
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-typography": "^0.16.23",
-    "tailwind-merge": "^2.2.1",
+    "tailwind-merge": "^2.2.2",
     "typography": "^0.16.21",
     "typography-plugin-code": "^0.16.20",
     "typography-theme-kirkham": "^0.16.19"
