@@ -37,7 +37,7 @@ const Home = ({ data }: PageProps<Queries.HomeQuery>) => {
           </div>
           {data.placeholderImage?.childImageSharp?.gatsbyImageData && (
             <GatsbyImage
-              className="h-36 w-36 rounded-full"
+              className="size-36 rounded-full"
               image={data.placeholderImage?.childImageSharp?.gatsbyImageData}
               alt=""
             />
