@@ -8,7 +8,10 @@ module.exports = [
 
   ...eslintConfigJH.react,
 
-  ...compat.extends("plugin:tailwindcss/recommended"),
+  ...compat.extends(
+    "plugin:tailwindcss/recommended",
+    "plugin:cypress/recommended"
+  ),
 
   {
     languageOptions: {
