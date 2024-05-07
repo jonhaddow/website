@@ -60,7 +60,6 @@ module.exports = {
         path: `${__dirname}/content/posts`,
       },
     },
-    "gatsby-plugin-eslint",
     "gatsby-plugin-react-svg",
     "gatsby-plugin-netlify",
     {
