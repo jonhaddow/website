@@ -10,7 +10,7 @@ module.exports = [
 
   ...compat.extends(
     "plugin:tailwindcss/recommended",
-    "plugin:cypress/recommended"
+    "plugin:cypress/recommended",
   ),
 
   {
