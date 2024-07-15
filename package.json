@@ -47,9 +47,9 @@
     "eslint-plugin-tailwindcss": "^3.17.4",
     "gatsby-plugin-postcss": "^6.13.1",
     "postcss": "^8.4.39",
-    "prettier": "^3.3.2",
+    "prettier": "^3.3.3",
     "start-server-and-test": "^2.0.4",
-    "tailwindcss": "^3.4.4",
+    "tailwindcss": "^3.4.5",
     "typescript": "^5.5.3"
   },
   "scripts": {
