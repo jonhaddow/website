@@ -25,7 +25,7 @@
     "react-dom": "^18.3.1",
     "react-helmet": "^6.1.0",
     "react-typography": "^0.16.23",
-    "tailwind-merge": "^2.4.0",
+    "tailwind-merge": "^2.5.2",
     "typography": "^0.16.21",
     "typography-plugin-code": "^0.16.20",
     "typography-theme-kirkham": "^0.16.19"
@@ -33,7 +33,7 @@
   "devDependencies": {
     "@babel/preset-typescript": "^7.24.7",
     "@testing-library/cypress": "^10.0.2",
-    "@types/node": "^22.1.0",
+    "@types/node": "^22.2.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@types/react-helmet": "^6.1.11",
@@ -43,13 +43,13 @@
     "cypress-axe": "^1.5.0",
     "eslint": "^8.57.0",
     "eslint-config-jonhaddow": "^5.1.0",
-    "eslint-plugin-cypress": "^3.4.0",
+    "eslint-plugin-cypress": "^3.5.0",
     "eslint-plugin-tailwindcss": "^3.17.4",
     "gatsby-plugin-postcss": "^6.13.1",
-    "postcss": "^8.4.40",
+    "postcss": "^8.4.41",
     "prettier": "^3.3.3",
     "start-server-and-test": "^2.0.5",
-    "tailwindcss": "^3.4.7",
+    "tailwindcss": "^3.4.9",
     "typescript": "^5.5.4"
   },
   "scripts": {
