@@ -43,7 +43,7 @@
     "cypress-axe": "^1.5.0",
     "eslint": "^8.57.0",
     "eslint-config-jonhaddow": "^5.1.0",
-    "eslint-plugin-cypress": "^3.5.0",
+    "eslint-plugin-cypress": "^3.6.0",
     "eslint-plugin-tailwindcss": "^3.17.4",
     "gatsby-plugin-postcss": "^6.13.1",
     "postcss": "^8.4.47",
