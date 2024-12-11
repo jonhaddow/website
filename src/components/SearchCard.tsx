@@ -32,6 +32,7 @@ export const SearchCard = (props: SearchCardProps) => {
           onChange={(e) => {
             const newInput = e.currentTarget.value;
             setInput(newInput);
+            // @ts-expect-error -- https://github.com/gatsbyjs/gatsby/issues/39158
             navigate(`${props.location.pathname}?s=${newInput}`, {
               replace: true,
             });
