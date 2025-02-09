@@ -1,8 +1,8 @@
-const eslintConfigJH = require("eslint-config-jonhaddow");
-const pluginCypress = require("eslint-plugin-cypress/flat");
-const tailwind = require("eslint-plugin-tailwindcss");
+import eslintConfigJH from "eslint-config-jonhaddow";
+import pluginCypress from "eslint-plugin-cypress/flat";
+import tailwind from "eslint-plugin-tailwindcss";
 
-module.exports = [
+export default [
   ...eslintConfigJH.base,
 
   ...eslintConfigJH.react,
@@ -17,7 +17,7 @@ module.exports = [
     languageOptions: {
       parserOptions: {
         project: true,
-        tsconfigRootDir: __dirname,
+        tsconfigRootDir: import.meta.dirname,
       },
     },
     rules: {
