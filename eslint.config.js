@@ -1,19 +1,19 @@
 const eslintConfigJH = require("eslint-config-jonhaddow");
-const { FlatCompat } = require("@eslint/eslintrc");
-
-const compat = new FlatCompat();
+const pluginCypress = require("eslint-plugin-cypress/flat");
+const tailwind = require("eslint-plugin-tailwindcss");
 
 module.exports = [
   ...eslintConfigJH.base,
 
   ...eslintConfigJH.react,
 
-  ...compat.extends(
-    "plugin:tailwindcss/recommended",
-    "plugin:cypress/recommended",
-  ),
+  pluginCypress.configs.recommended,
+
+  ...tailwind.configs["flat/recommended"],
 
   {
+    files: ["**/*.{tsx,ts}"],
+
     languageOptions: {
       parserOptions: {
         project: true,
