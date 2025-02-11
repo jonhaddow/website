@@ -38,7 +38,7 @@
     "@types/react-helmet": "^6.1.11",
     "@types/typography": "^0.16.8",
     "autoprefixer": "^10.4.20",
-    "cypress": "^13.17.0",
+    "cypress": "^14.0.2",
     "cypress-axe": "^1.6.0",
     "eslint": "^9.20.0",
     "eslint-config-jonhaddow": "^5.2.0",
