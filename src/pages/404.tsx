@@ -1,5 +1,3 @@
-import * as React from "react";
-
 import { Card, Header, Layout, NavBar, SEO, Title } from "../components";
 import { Link } from "gatsby";
 

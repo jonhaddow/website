@@ -1,5 +1,3 @@
-import * as React from "react";
-
 const svgClass = "inline text-header-text fill-current";
 
 const linkedIn = (

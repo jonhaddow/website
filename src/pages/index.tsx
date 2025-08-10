@@ -1,4 +1,3 @@
-import * as React from "react";
 import { Link, PageProps, graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Card, Layout, RecentPosts, SEO, SocialLinks } from "../components";
