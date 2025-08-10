@@ -1,4 +1,3 @@
-import * as React from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 

@@ -22,3 +22,14 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = ({
     });
   }
 };
+
+export const onCreateBabelConfig: GatsbyNode["onCreateBabelConfig"] = ({
+  actions,
+}) => {
+  actions.setBabelPreset({
+    name: "@babel/preset-react",
+    options: {
+      runtime: "automatic",
+    },
+  });
+};

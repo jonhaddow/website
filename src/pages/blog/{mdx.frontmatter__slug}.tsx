@@ -9,7 +9,6 @@ import {
   SocialLinks,
   Title,
 } from "../../components";
-import * as React from "react";
 import { MDXProvider } from "@mdx-js/react";
 
 const Article = (props: PageProps<Queries.ArticleQuery>) => {
