@@ -1,75 +1,48 @@
-import { Link, graphql, useStaticQuery } from "gatsby";
 import { Card } from ".";
-import { GatsbyImage } from "gatsby-plugin-image";
 import * as React from "react";
 
 export const RecentPosts: React.FC = () => {
-  const data = useStaticQuery<Queries.RecentPostsQuery>(graphql`
-    query RecentPosts {
-      allMdx(
-        limit: 3
-        sort: { frontmatter: { date: DESC } }
-        filter: { fields: { type: { eq: "posts" } } }
-      ) {
-        edges {
-          node {
-            id
-            frontmatter {
-              slug
-              title
-              abstract
-              date(formatString: "MMMM DD, YYYY")
-              featuredImage {
-                childImageSharp {
-                  gatsbyImageData
-                }
-              }
-            }
-          }
-        }
-      }
+  // For now, we'll use placeholder data
+  // This will be replaced with proper Astro content collection data
+  const recentPosts = [
+    {
+      id: '1',
+      slug: 'test-post',
+      title: 'Test Post',
+      abstract: 'This is a test post',
+      date: 'January 1, 2024',
+      featuredImage: null
     }
-  `);
+  ];
 
   return (
     <Card className="mx-auto mb-16 max-w-3xl rounded-none px-4 md:w-9/12 md:rounded-lg md:px-8">
       <h2 className="mb-6 text-2xl font-normal">Recent posts</h2>
       <ul>
-        {data.allMdx.edges.map(({ node }) => (
-          <li key={node.id}>
-            <Link
+        {recentPosts.map((post) => (
+          <li key={post.id}>
+            <a
               className="group items-center md:flex"
-              to={`/blog/${node.frontmatter?.slug ?? ""}`}
+              href={`/blog/${post.slug}`}
             >
-              {node.frontmatter?.featuredImage?.childImageSharp
-                ?.gatsbyImageData && (
-                <GatsbyImage
-                  className="w-full md:inline-block md:w-[120px]"
-                  image={
-                    node.frontmatter.featuredImage.childImageSharp
-                      .gatsbyImageData
-                  }
-                  alt=""
-                />
-              )}
               <div className="w-full overflow-hidden pb-3 pt-1 md:inline-block md:pl-3">
                 <strong className="pr-2 pt-3 text-2xl font-normal text-text group-hover:underline">
-                  {node.frontmatter?.title}
+                  {post.title}
                 </strong>
                 <time className="-mt-1 block h-full text-sm text-text-light">
-                  {node.frontmatter?.date}
+                  {post.date}
                 </time>
                 <p className="mt-2 truncate italic">
-                  {node.frontmatter?.abstract}
+                  {post.abstract}
                 </p>
               </div>
-            </Link>
+            </a>
           </li>
         ))}
       </ul>
-      <Link className="hover:underline" to="/blog">
+      <a className="hover:underline" href="/blog">
         View all posts
-      </Link>
+      </a>
     </Card>
   );
 };

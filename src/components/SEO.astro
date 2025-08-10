@@ -1,0 +1,52 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+}
+
+const { title, description, image } = Astro.props;
+
+// Site metadata (previously from gatsby-config.js)
+const site = {
+  title: 'Jon Haddow',
+  author: 'Jon Haddow',  
+  description: "Jon Haddow's personal site",
+  siteUrl: 'https://jon.haddow.me',
+  twitterHandle: '@Haddowjon'
+};
+
+const metaDescription = description || site.description;
+const metaImage = `${site.siteUrl}${image || '/profile-img.jpg'}`;
+const pageTitle = title ? `${title} | ${site.title}` : site.title;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <title>{pageTitle}</title>
+    <meta name="description" content={metaDescription} />
+    <meta name="image" content={metaImage} />
+    
+    <!-- Open Graph -->
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={metaImage} />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content={site.twitterHandle} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={metaDescription} />
+    <meta name="twitter:image" content={metaImage} />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+  </head>
+</html>

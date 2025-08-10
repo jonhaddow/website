@@ -1,0 +1,77 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const { title = 'Home', description, image } = Astro.props;
+
+// Site metadata (previously from gatsby-config.js)
+const site = {
+  title: 'Jon Haddow',
+  author: 'Jon Haddow',  
+  description: "Jon Haddow's personal site",
+  siteUrl: 'https://jon.haddow.me',
+  twitterHandle: '@Haddowjon'
+};
+
+const metaDescription = description || site.description;
+const metaImage = `${site.siteUrl}${image || '/profile-img.jpg'}`;
+const pageTitle = title ? `${title} | ${site.title}` : site.title;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <title>{pageTitle}</title>
+    <meta name="description" content={metaDescription} />
+    <meta name="image" content={metaImage} />
+    
+    <!-- Open Graph -->
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={metaImage} />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content={site.twitterHandle} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={metaDescription} />
+    <meta name="twitter:image" content={metaImage} />
+  </head>
+  <body>
+    <div id="layout" class="bg-gray-100">
+      <slot />
+    </div>
+    
+    <script>
+      // Add analytics to the end of the document
+      const script = document.createElement("script");
+
+      script.setAttribute(
+        "src",
+        "https://static.cloudflareinsights.com/beacon.min.js",
+      );
+
+      script.setAttribute(
+        "data-cf-beacon",
+        '{"token": "afd8b37af7cb4ff29b3a5d1a70976ead"}',
+      );
+
+      document.body.appendChild(script);
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  @import "../styles.css";
+  @import "../prism-theme.css";
+</style>
