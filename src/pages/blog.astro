@@ -1,0 +1,84 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../components/Layout.astro';
+
+// Get all blog posts and sort by date
+const blogPosts = await getCollection('blog');
+const sortedPosts = blogPosts.sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<Layout title="Blog">
+  <!-- Header section -->
+  <header class="flex items-center justify-center bg-primary px-0 pb-16 pt-12 text-header-text">
+    <div class="container">
+      <!-- Navigation -->
+      <nav class="mx-auto flex max-w-4xl items-center justify-between py-4">
+        <a href="/" class="text-2xl font-light tracking-wider text-header-text no-underline">
+          Jon Haddow
+        </a>
+        <ul class="flex items-center space-x-6">
+          <li>
+            <a href="/" class="text-header-text hover:underline">Home</a>
+          </li>
+          <li>
+            <a href="/about" class="text-header-text hover:underline">About</a>
+          </li>
+        </ul>
+      </nav>
+      
+      <!-- Page title -->
+      <div class="mx-auto mt-8 max-w-4xl text-center">
+        <h1 class="text-4xl font-light tracking-wider">Blog</h1>
+        <p class="mt-4 text-xl">Thoughts on web development and technology</p>
+      </div>
+    </div>
+  </header>
+  
+  <main>
+    <!-- Blog posts listing -->
+    <section class="mx-auto mb-16 max-w-4xl px-4">
+      {sortedPosts.map((post) => (
+        <article class="mb-8 rounded-lg bg-white p-6 shadow-lg">
+          <h2 class="mb-3 text-2xl font-normal">
+            <a 
+              href={`/blog/${post.slug}`}
+              class="text-text hover:underline"
+            >
+              {post.data.title}
+            </a>
+          </h2>
+          
+          <time class="mb-3 block text-sm text-text-light">
+            {post.data.date.toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            })}
+          </time>
+          
+          <p class="mb-4 italic text-gray-600">
+            {post.data.abstract || 'No summary available.'}
+          </p>
+          
+          {post.data.tags && (
+            <div class="flex flex-wrap gap-2">
+              {post.data.tags.map((tag) => (
+                <span class="rounded-full bg-gray-200 px-3 py-1 text-sm text-gray-700">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+        </article>
+      ))}
+      
+      {sortedPosts.length === 0 && (
+        <div class="rounded-lg bg-white p-8 shadow-lg text-center">
+          <p class="text-gray-600">No blog posts found.</p>
+        </div>
+      )}
+    </section>
+  </main>
+</Layout>

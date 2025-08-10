@@ -1,0 +1,53 @@
+---
+slug: benefits-of-css-in-js
+title: Benefits of CSS-in-JS
+abstract: 5 reasons why you should consider writing CSS within your JSX
+date: 2020-07-29
+featuredImage: ./images/featured-image.jpg
+tags: ["css", "styling", "css-in-js", "javascript", "emotion"]
+---
+
+Traditionally CSS is constructed in separate files to JavaScript. There are good reasons for keeping those separate but I want to list some benefits to consider when building CSS inline with your code.
+
+Before looking at those benefits, if you haven't come across CSS-in-JS before, it looks something like this:
+
+```jsx
+const title = () => (
+  <h1
+    css={{
+      paddingTop: 16,
+      fontSize: "2rem",
+      fontWeight: 400,
+      color: "red",
+    }}
+  >
+    Oooo look at me!
+  </h1>
+);
+```
+
+I spent some time trying out a CSS-in-JS library called [Emotion](https://emotion.sh). In fact I wrote all the styling on this page with it (You can check it out on [GitHub](https://github.com/jonhaddow/website)). I wanted to highlight a few things I think improve the development of a application, when using CSS-in-JS.
+
+## 1. No dead code
+
+With CSS-in-JS, when you delete a component (or just part of a component), the css is removed along with it. I've worked in many projects where hundreds of lines of legacy CSS has been left around long after a feature has been removed. CSS in isolation is often so loosely coupled from its original intent, that it becomes difficult to remove in case there are unexpected side effects (see the issue of [append only stylesheets!](https://css-tricks.com/oh-no-stylesheet-grows-grows-grows-append-stylesheet-problem/)). Dead code not only adds to technical debt within your project, but will also increase the size of the CSS files your users are downloading.
+
+## 2. No class names
+
+If there is a way to avoid having to think up variable names, I'm all for it! CSS by design is globally scoped and therefore class names need careful consideration to ensure they are not duplicated elsewhere. However with CSS-in-JS, there isn't a need to come up with class names. They will be generated for you during the compilation process.
+
+## 3. Greater confidence
+
+If I spot an issue with a component's styling, I can simply go to that component and confidently modify, add or remove styles without worrying about side effects on other components. It also makes the experience much faster to debug and resolve styling bugs. I don't need to track various class names and span through css files to find the styles which apply.
+
+## 4. Easy refactoring
+
+With CSS-in-JS, if I need to split out a large component I directly move the components between files and the styling comes along with it. With separate CSS files, I may need to add new CSS files and move parts of the styling around to match the JavaScript file structure.
+
+## 5. Better tooling
+
+There is arguablely better tooling available with CSS-in-JS as JavaScript (or TypeScript) is used to enforce best practices and spot issues early in development. For example, you'll often find that these libraries (like Emotion) will have type definitions to allow VSCode to auto-complete css properties. If you're using TypeScript you may even get compilation errors highlighting mispelt css properties or invalid values.
+
+---
+
+CSS is, for me, the least exciting part of building an application. So if you take anything from this article, I hope CSS-in-JS is considered as a fun, easier, and more interesting approach to try on your next project.

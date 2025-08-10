@@ -1,6 +1,13 @@
 ---
 // Import components and utilities
 import Layout from '../components/Layout.astro';
+import { getCollection } from 'astro:content';
+
+// Get recent blog posts
+const blogPosts = await getCollection('blog');
+const recentPosts = blogPosts
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
 
 // Profile image - we'll use the public path for now
 const profileImage = '/profile-img.jpg';
@@ -94,24 +101,30 @@ const profileImage = '/profile-img.jpg';
     <section class="mx-auto mb-16 max-w-3xl rounded-none px-4 md:w-9/12 md:rounded-lg md:px-8 rounded-lg bg-white px-12 py-8 shadow-lg">
       <h2 class="mb-6 text-2xl font-normal">Recent posts</h2>
       <ul>
-        <li>
-          <a
-            class="group items-center md:flex"
-            href="/blog/test-post"
-          >
-            <div class="w-full overflow-hidden pb-3 pt-1 md:inline-block md:pl-3">
-              <strong class="pr-2 pt-3 text-2xl font-normal text-text group-hover:underline">
-                Test Post
-              </strong>
-              <time class="-mt-1 block h-full text-sm text-text-light">
-                January 1, 2024
-              </time>
-              <p class="mt-2 truncate italic">
-                This is a test post
-              </p>
-            </div>
-          </a>
-        </li>
+        {recentPosts.map((post) => (
+          <li key={post.slug}>
+            <a
+              class="group items-center md:flex"
+              href={`/blog/${post.slug}`}
+            >
+              <div class="w-full overflow-hidden pb-3 pt-1 md:inline-block md:pl-3">
+                <strong class="pr-2 pt-3 text-2xl font-normal text-text group-hover:underline">
+                  {post.data.title}
+                </strong>
+                <time class="-mt-1 block h-full text-sm text-text-light">
+                  {post.data.date.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}
+                </time>
+                <p class="mt-2 truncate italic">
+                  {post.data.abstract || 'No summary available.'}
+                </p>
+              </div>
+            </a>
+          </li>
+        ))}
       </ul>
       <a class="hover:underline" href="/blog">
         View all posts

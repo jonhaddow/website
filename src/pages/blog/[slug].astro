@@ -1,0 +1,131 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../components/Layout.astro';
+
+// Generate static paths for all blog posts
+export async function getStaticPaths() {
+  const blogPosts = await getCollection('blog');
+  return blogPosts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout title={post.data.title} description={post.data.abstract}>
+  <!-- Header section -->
+  <header class="flex items-center justify-center bg-primary px-0 pb-16 pt-12 text-header-text">
+    <div class="container">
+      <!-- Navigation -->
+      <nav class="mx-auto flex max-w-4xl items-center justify-between py-4">
+        <a href="/" class="text-2xl font-light tracking-wider text-header-text no-underline">
+          Jon Haddow
+        </a>
+        <ul class="flex items-center space-x-6">
+          <li>
+            <a href="/" class="text-header-text hover:underline">Home</a>
+          </li>
+          <li>
+            <a href="/about" class="text-header-text hover:underline">About</a>
+          </li>
+          <li>
+            <a href="/blog" class="text-header-text hover:underline">Blog</a>
+          </li>
+        </ul>
+      </nav>
+      
+      <!-- Post header -->
+      <div class="mx-auto mt-8 max-w-4xl text-center">
+        <h1 class="text-4xl font-light tracking-wider">{post.data.title}</h1>
+        <time class="mt-4 block text-xl text-header-text/80">
+          {post.data.date.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })}
+        </time>
+        {post.data.tags && (
+          <div class="mt-4 flex flex-wrap justify-center gap-2">
+            {post.data.tags.map((tag) => (
+              <span class="rounded-full bg-header-text/20 px-3 py-1 text-sm text-header-text">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  </header>
+  
+  <main>
+    <!-- Blog post content -->
+    <article class="prose prose-lg mx-auto mb-16 max-w-4xl px-4 rounded-lg bg-white p-8 shadow-lg">
+      <Content />
+    </article>
+    
+    <!-- Navigation -->
+    <div class="mx-auto max-w-4xl px-4 text-center">
+      <a 
+        href="/blog"
+        class="inline-block rounded-lg bg-primary px-6 py-3 text-white no-underline hover:bg-primary/90"
+      >
+        ← Back to Blog
+      </a>
+    </div>
+  </main>
+</Layout>
+
+<style is:global>
+  /* Blog post styling */
+  .prose {
+    color: #333;
+    max-width: none;
+  }
+  
+  .prose h1 {
+    @apply text-3xl font-bold mb-6 text-gray-900;
+  }
+  
+  .prose h2 {
+    @apply text-2xl font-semibold mb-4 mt-8 text-gray-800;
+  }
+  
+  .prose h3 {
+    @apply text-xl font-semibold mb-3 mt-6 text-gray-800;
+  }
+  
+  .prose p {
+    @apply mb-4 leading-relaxed;
+  }
+  
+  .prose a {
+    @apply text-primary hover:underline;
+  }
+  
+  .prose ul {
+    @apply mb-4 pl-6;
+  }
+  
+  .prose li {
+    @apply mb-2;
+  }
+  
+  .prose code {
+    @apply bg-gray-100 px-1 py-0.5 rounded text-sm;
+  }
+  
+  .prose pre {
+    @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto mb-4;
+  }
+  
+  .prose pre code {
+    @apply bg-transparent p-0;
+  }
+  
+  .prose blockquote {
+    @apply border-l-4 border-primary pl-4 italic my-4 text-gray-700;
+  }
+</style>

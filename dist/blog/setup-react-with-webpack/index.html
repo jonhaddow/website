@@ -1,0 +1,117 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><link rel="icon" type="image/png" href="/favicon.png"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v5.12.9"><title>Building a React application with webpack | Jon Haddow</title><meta name="description" content="Jon Haddow's personal site"><meta name="image" content="https://jon.haddow.me/profile-img.jpg"><!-- Open Graph --><meta property="og:url" content="https://jon.haddow.me/blog/setup-react-with-webpack/"><meta property="og:title" content="Building a React application with webpack"><meta property="og:description" content="Jon Haddow's personal site"><meta property="og:type" content="website"><meta property="og:image" content="https://jon.haddow.me/profile-img.jpg"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@Haddowjon"><meta name="twitter:title" content="Building a React application with webpack"><meta name="twitter:description" content="Jon Haddow's personal site"><meta name="twitter:image" content="https://jon.haddow.me/profile-img.jpg"><link rel="stylesheet" href="/_astro/about.DyEK3XyF.css">
+<style>.prose{color:#333;max-width:none}.prose h1{margin-bottom:1.5rem;font-size:1.875rem;line-height:2.25rem;font-weight:700;--tw-text-opacity: 1;color:rgb(17 24 39 / var(--tw-text-opacity, 1))}.prose h2{margin-bottom:1rem;margin-top:2rem;font-size:1.5rem;line-height:2rem;font-weight:600;--tw-text-opacity: 1;color:rgb(31 41 55 / var(--tw-text-opacity, 1))}.prose h3{margin-bottom:.75rem;margin-top:1.5rem;font-size:1.25rem;line-height:1.75rem;font-weight:600;--tw-text-opacity: 1;color:rgb(31 41 55 / var(--tw-text-opacity, 1))}.prose p{margin-bottom:1rem;line-height:1.625}.prose a{--tw-text-opacity: 1;color:rgb(0 121 107 / var(--tw-text-opacity, 1))}.prose a:hover{text-decoration-line:underline}.prose ul{margin-bottom:1rem;padding-left:1.5rem}.prose li{margin-bottom:.5rem}.prose code{border-radius:.25rem;--tw-bg-opacity: 1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1));padding:.125rem .25rem;font-size:.875rem;line-height:1.25rem}.prose pre{margin-bottom:1rem;overflow-x:auto;border-radius:.5rem;--tw-bg-opacity: 1;background-color:rgb(17 24 39 / var(--tw-bg-opacity, 1));padding:1rem;--tw-text-opacity: 1;color:rgb(243 244 246 / var(--tw-text-opacity, 1))}.prose pre code{background-color:transparent;padding:0}.prose blockquote{margin-top:1rem;margin-bottom:1rem;border-left-width:4px;--tw-border-opacity: 1;border-color:rgb(0 121 107 / var(--tw-border-opacity, 1));padding-left:1rem;font-style:italic;--tw-text-opacity: 1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}
+</style></head> <body> <div id="layout" class="bg-gray-100">   <header class="flex items-center justify-center bg-primary px-0 pb-16 pt-12 text-header-text"> <div class="container"> <!-- Navigation --> <nav class="mx-auto flex max-w-4xl items-center justify-between py-4"> <a href="/" class="text-2xl font-light tracking-wider text-header-text no-underline">
+Jon Haddow
+</a> <ul class="flex items-center space-x-6"> <li> <a href="/" class="text-header-text hover:underline">Home</a> </li> <li> <a href="/about" class="text-header-text hover:underline">About</a> </li> <li> <a href="/blog" class="text-header-text hover:underline">Blog</a> </li> </ul> </nav> <!-- Post header --> <div class="mx-auto mt-8 max-w-4xl text-center"> <h1 class="text-4xl font-light tracking-wider">Building a React application with webpack</h1> <time class="mt-4 block text-xl text-header-text/80"> October 13, 2020 </time> <div class="mt-4 flex flex-wrap justify-center gap-2"> <span class="rounded-full bg-header-text/20 px-3 py-1 text-sm text-header-text"> webpack </span><span class="rounded-full bg-header-text/20 px-3 py-1 text-sm text-header-text"> build </span><span class="rounded-full bg-header-text/20 px-3 py-1 text-sm text-header-text"> tools </span><span class="rounded-full bg-header-text/20 px-3 py-1 text-sm text-header-text"> javascript </span><span class="rounded-full bg-header-text/20 px-3 py-1 text-sm text-header-text"> react </span> </div> </div> </div> </header> <main> <!-- Blog post content --> <article class="prose prose-lg mx-auto mb-16 max-w-4xl px-4 rounded-lg bg-white p-8 shadow-lg"> <p><a href="https://reactjs.org">React</a> is currently the most popular, modern UI framework for the web.</p>
+<p>It’s well known for its functional, declarative style and I would argue it’s really easy pick up as a new developer.</p>
+<p>The structure of an React application (especially with its <a href="https://reactjs.org/docs/introducing-jsx.html">JSX syntax</a>) feels close to HTML, so it’s easy to follow logic.</p>
+<p>It’s well worth trying React if you are a developer or are interested in learning front-end development.</p>
+<hr/>
+<p>When first building a React application you have a few options available.</p>
+<ul>
+<li>You can add a couple script tags to the HTML and then React should work.
+However this isn’t the recommended approach for a production site.</li>
+<li>You can also run <code>npx create-react-app my-app</code> to have <a href="https://github.com/facebookincubator/create-react-app">Create React App</a>
+automatically setup a project for you with all the tools you need under the hood.</li>
+<li>You can build the tooling yourself and learn more about how the tools work.</li>
+</ul>
+<p>I tend to recommend the last option as knowing your tools enhances your ability as a developer.</p>
+<p>The rest of this post will cover how to setup a React application with the build tool, <a href="https://webpack.js.org">webpack</a>.</p>
+<p>I have covered how to build JavaScript, HTML, and CSS using webpack in a <a href="https://jon.haddow.me/blog/basic-setup-for-a-web-application">previous post</a>, so that is worth reading first if unfamiliar.</p>
+<hr/>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Install <a href="https://nodejs.org/en/download/">Node.js</a> to allow you to install and run JavaScript packages.</li>
+</ul>
+<h2 id="steps">Steps</h2>
+<p>The two React dependencies we’ll need to install is <code>react</code> and <code>react-dom</code>. So setup a new repository, run <code>npm init</code> to setup the <code>package.json</code>, then run <code>npm install react react-dom</code>.</p>
+<p>Next, we’ll create a file <code>/src/index.js</code> (this will be the application’s entry point) with the following content:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="jsx"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> React </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> &quot;react&quot;</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> ReactDOM </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> &quot;react-dom&quot;</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> App </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> &quot;./App.jsx&quot;</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">ReactDOM.</span><span style="color:#B392F0">render</span><span style="color:#E1E4E8">(&lt;</span><span style="color:#79B8FF">App</span><span style="color:#E1E4E8"> /&gt;, document.</span><span style="color:#B392F0">getElementById</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&quot;root&quot;</span><span style="color:#E1E4E8">));</span></span></code></pre>
+<p>then we’ll create our <code>App</code> component in <code>/src/App.jsx</code> which prints a joyful message to brighten your day:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="jsx"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> React </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> &quot;react&quot;</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#B392F0"> App</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=&gt;</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> &lt;</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">&gt;🎵 I can see clearly now the rain has gone! 🎵&lt;/</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">&gt;;</span></span>
+<span class="line"><span style="color:#E1E4E8">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> default</span><span style="color:#E1E4E8"> App;</span></span></code></pre>
+<p>Lets create a HTML template in <code>/src/assets/index.html</code>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&lt;!</span><span style="color:#85E89D">doctype</span><span style="color:#B392F0"> html</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">&lt;</span><span style="color:#85E89D">html</span><span style="color:#B392F0"> lang</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">&quot;en&quot;</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">  &lt;</span><span style="color:#85E89D">head</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">    &lt;</span><span style="color:#85E89D">meta</span><span style="color:#B392F0"> charset</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">&quot;UTF-8&quot;</span><span style="color:#E1E4E8"> /&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">    &lt;</span><span style="color:#85E89D">meta</span><span style="color:#B392F0"> name</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">&quot;viewport&quot;</span><span style="color:#B392F0"> content</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">&quot;width=device-width, initial-scale=1.0&quot;</span><span style="color:#E1E4E8"> /&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">    &lt;</span><span style="color:#85E89D">title</span><span style="color:#E1E4E8">&gt;My app&lt;/</span><span style="color:#85E89D">title</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">  &lt;/</span><span style="color:#85E89D">head</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">  &lt;</span><span style="color:#85E89D">body</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">    &lt;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> id</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">&quot;root&quot;</span><span style="color:#E1E4E8">&gt;&lt;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">  &lt;/</span><span style="color:#85E89D">body</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">&lt;/</span><span style="color:#85E89D">html</span><span style="color:#E1E4E8">&gt;</span></span></code></pre>
+<p>We’ll setup webpack to use this HTML template and inject the JavaScript bundle once built.</p>
+<p>React uses the latest Javascript syntax which needs compilation to make it friendly for all browsers. We’ll also need to configure this within webpack.</p>
+<p>Lets start by installing <code>webpack</code> and <code>webpack-cli</code> to bring in the basic webpack tooling for running a local development server.</p>
+<blockquote>
+<p><em>Note: For this tutorial, I’m using webpack v5.x and webpack-cli v4.x.</em></p>
+</blockquote>
+<p>We’ll also need to install <code>html-webpack-plugin</code> for embeding the bundled javascript into our html template.</p>
+<p>We can then add a file to the root of the project called <code>webpack.config.js</code> with the following configuration:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#F97583">var</span><span style="color:#E1E4E8"> HtmlWebpackPlugin </span><span style="color:#F97583">=</span><span style="color:#B392F0"> require</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&quot;html-webpack-plugin&quot;</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF">module</span><span style="color:#E1E4E8">.</span><span style="color:#79B8FF">exports</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">  plugins: [</span></span>
+<span class="line"><span style="color:#F97583">    new</span><span style="color:#B392F0"> HtmlWebpackPlugin</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E1E4E8">      template: </span><span style="color:#9ECBFF">&quot;./src/assets/index.html&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    }),</span></span>
+<span class="line"><span style="color:#E1E4E8">  ],</span></span>
+<span class="line"><span style="color:#E1E4E8">};</span></span></code></pre>
+<p>Add a script to the <code>package.json</code>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">	...</span></span>
+<span class="line"><span style="color:#79B8FF">	&quot;scripts&quot;</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">		&quot;start&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;webpack serve&quot;</span></span>
+<span class="line"><span style="color:#E1E4E8">	}</span></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">	...</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>then run <code>npm start</code>. This will give us a lovely… error 😞</p>
+<p>We need a loader to handle the funky JSX syntax from React. We’ll use <a href="https://babeljs.io">Babel</a> for this.</p>
+<p>Install the following packages:</p>
+<ul>
+<li><code>babel-loader</code> (for hooking up babel compilation into webpack),</li>
+<li><code>@babel/core</code> (the core babel package),</li>
+<li><code>@babel/preset-env</code> and <code>@babel/preset-react</code> (Babel presets for next generation JavaScript and for React).</li>
+</ul>
+<p>Next we’ll update the webpack config to look like this:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#F97583">var</span><span style="color:#E1E4E8"> HtmlWebpackPlugin </span><span style="color:#F97583">=</span><span style="color:#B392F0"> require</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&quot;html-webpack-plugin&quot;</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF">module</span><span style="color:#E1E4E8">.</span><span style="color:#79B8FF">exports</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">  module: {</span></span>
+<span class="line"><span style="color:#E1E4E8">    rules: [</span></span>
+<span class="line"><span style="color:#E1E4E8">      {</span></span>
+<span class="line"><span style="color:#E1E4E8">        test:</span><span style="color:#9ECBFF"> /</span><span style="color:#85E89D;font-weight:bold">\.</span><span style="color:#DBEDFF">jsx</span><span style="color:#F97583">?</span><span style="color:#9ECBFF">/</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">        use: {</span></span>
+<span class="line"><span style="color:#E1E4E8">          loader: </span><span style="color:#9ECBFF">&quot;babel-loader&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">          options: {</span></span>
+<span class="line"><span style="color:#E1E4E8">            presets: [</span><span style="color:#9ECBFF">&quot;@babel/preset-env&quot;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&quot;@babel/preset-react&quot;</span><span style="color:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#E1E4E8">          },</span></span>
+<span class="line"><span style="color:#E1E4E8">        },</span></span>
+<span class="line"><span style="color:#E1E4E8">      },</span></span>
+<span class="line"><span style="color:#E1E4E8">    ],</span></span>
+<span class="line"><span style="color:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#E1E4E8">  plugins: [</span></span>
+<span class="line"><span style="color:#F97583">    new</span><span style="color:#B392F0"> HtmlWebpackPlugin</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E1E4E8">      template: </span><span style="color:#9ECBFF">&quot;./src/assets/index.html&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    }),</span></span>
+<span class="line"><span style="color:#E1E4E8">  ],</span></span>
+<span class="line"><span style="color:#E1E4E8">};</span></span></code></pre>
+<p>Here we are giving webpack a set of rules on how to handle <code>.jsx</code> and <code>.js</code> files. We want webpack to use the <code>babel-loader</code> to compile our JS files and we’ve specified to use the 2 presets we’ve installed to do it.</p>
+<p>When you run <code>npm start</code> now, it should show up nicely in the browser: <a href="http://localhost:8080">http://localhost:8080</a></p>
+<hr/>
+<p>There you go, you’re setup and ready to build a react app.</p>
+<p>You’ll likely want to import CSS (or SASS). For that, check out my <a href="https://jon.haddow.me/blog/basic-setup-for-a-web-application">other tutorial</a>, or have a browse at some <a href="https://webpack.js.org/loaders/">webpack loaders</a> on their site.</p> </article> <!-- Navigation --> <div class="mx-auto max-w-4xl px-4 text-center"> <a href="/blog" class="inline-block rounded-lg bg-primary px-6 py-3 text-white no-underline hover:bg-primary/90">
+← Back to Blog
+</a> </div> </main>  </div> <script type="module">const t=document.createElement("script");t.setAttribute("src","https://static.cloudflareinsights.com/beacon.min.js");t.setAttribute("data-cf-beacon",'{"token": "afd8b37af7cb4ff29b3a5d1a70976ead"}');document.body.appendChild(t);</script> </body> </html>  

@@ -1,0 +1,58 @@
+---
+import Layout from '../components/Layout.astro';
+---
+
+<Layout title="404 - Page Not Found">
+  <!-- Header section -->
+  <header class="flex items-center justify-center bg-primary px-0 pb-16 pt-12 text-header-text">
+    <div class="container">
+      <!-- Navigation -->
+      <nav class="mx-auto flex max-w-4xl items-center justify-between py-4">
+        <a href="/" class="text-2xl font-light tracking-wider text-header-text no-underline">
+          Jon Haddow
+        </a>
+        <ul class="flex items-center space-x-6">
+          <li>
+            <a href="/about" class="text-header-text hover:underline">About</a>
+          </li>
+          <li>
+            <a href="/blog" class="text-header-text hover:underline">Blog</a>
+          </li>
+        </ul>
+      </nav>
+      
+      <!-- Page title -->
+      <div class="mx-auto mt-8 max-w-4xl text-center">
+        <h1 class="text-6xl font-light tracking-wider">404</h1>
+        <p class="mt-4 text-xl">Page Not Found</p>
+      </div>
+    </div>
+  </header>
+  
+  <main>
+    <!-- 404 content -->
+    <section class="mx-auto mb-16 max-w-4xl px-4 text-center">
+      <div class="rounded-lg bg-white p-8 shadow-lg">
+        <p class="mb-6 text-lg text-gray-600">
+          Sorry, the page you're looking for doesn't exist.
+        </p>
+        
+        <div class="space-y-4">
+          <a 
+            href="/"
+            class="inline-block rounded-lg bg-primary px-6 py-3 text-white no-underline hover:bg-primary/90 mr-4"
+          >
+            Go Home
+          </a>
+          
+          <a 
+            href="/blog"
+            class="inline-block rounded-lg border border-primary px-6 py-3 text-primary no-underline hover:bg-primary/10"
+          >
+            Browse Blog
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
