@@ -5,6 +5,10 @@
 [build.environment]
   NODE_VERSION = "18"
 
+# Explicitly set empty plugins array to prevent auto-detection of Gatsby
+# This ensures Netlify doesn't automatically apply the @netlify/plugin-gatsby
+plugins = []
+
 [[redirects]]
 	from = "https://haddow.me"
 	to = "https://jon.haddow.me"
