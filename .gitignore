@@ -1,9 +1,9 @@
 # Dependency directories
 node_modules/
 
-# gatsby files
+# build output
 .cache/
-public
+dist
 
 # Mac files
 .DS_Store
