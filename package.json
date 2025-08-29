@@ -41,7 +41,7 @@
     "autoprefixer": "^10.4.21",
     "cypress": "^13.17.0",
     "cypress-axe": "^1.6.0",
-    "eslint": "^9.33.0",
+    "eslint": "^9.34.0",
     "eslint-config-jonhaddow": "^5.5.0",
     "eslint-plugin-cypress": "^5.1.1",
     "eslint-plugin-tailwindcss": "^3.18.2",
