@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "author": "Jon Haddow <jon@haddow.me>",
   "dependencies": {
-    "@mdx-js/mdx": "^3.1.0",
+    "@mdx-js/mdx": "^3.1.1",
     "@mdx-js/react": "^2.3.0",
     "gatsby": "^5.14.6",
     "gatsby-plugin-feed": "^5.14.0",
@@ -40,7 +40,7 @@
     "@types/typography": "^0.16.8",
     "autoprefixer": "^10.4.21",
     "cypress": "^13.17.0",
-    "cypress-axe": "^1.6.0",
+    "cypress-axe": "^1.7.0",
     "eslint": "^9.34.0",
     "eslint-config-jonhaddow": "^5.5.0",
     "eslint-plugin-cypress": "^5.1.1",
