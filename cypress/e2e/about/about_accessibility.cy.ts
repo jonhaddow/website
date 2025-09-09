@@ -3,5 +3,5 @@ it("Has no detectable a11y violations on load", () => {
   cy.injectAxe();
 
   cy.findByRole("heading", { name: "About Me" }).should("exist");
-  cy.checkA11y();
+  cy.testA11y();
 });

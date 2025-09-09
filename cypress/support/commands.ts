@@ -28,9 +28,9 @@ import "@testing-library/cypress/add-commands";
 
 import type { Result } from "axe-core";
 
-Cypress.Commands.add("checkA11y", (options) => {
+Cypress.Commands.add("testA11y", () => {
   cy.checkA11y(
-    options,
+    undefined,
     {
       retries: 3,
       interval: 1000,
