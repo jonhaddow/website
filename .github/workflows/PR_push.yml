@@ -31,3 +31,9 @@ jobs:
         with:
           start: npm start
           wait-on: "http://[::1]:8000/"
+      - name: Upload Cypress screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
