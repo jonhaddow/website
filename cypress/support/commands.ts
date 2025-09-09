@@ -25,3 +25,38 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
 import "@testing-library/cypress/add-commands";
+
+import type { Result } from "axe-core";
+
+Cypress.Commands.add("checkA11y", (options) => {
+  cy.checkA11y(
+    options,
+    {
+      retries: 3,
+      interval: 1000,
+    },
+    terminalLog,
+  );
+});
+
+// Define at the top of the spec file or just import it
+function terminalLog(violations: Result[]) {
+  if (!violations) return;
+  cy.task(
+    "log",
+    `${violations.length} accessibility violation${
+      violations.length === 1 ? "" : "s"
+    } ${violations.length === 1 ? "was" : "were"} detected`,
+  );
+  // pluck specific keys to keep the table readable
+  const violationData = violations.map(
+    ({ id, impact, description, nodes }) => ({
+      id,
+      impact,
+      description,
+      nodes: nodes.length,
+    }),
+  );
+
+  cy.task("table", violationData);
+}
