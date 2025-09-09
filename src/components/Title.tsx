@@ -1,5 +1,3 @@
-import * as React from "react";
-
 interface TitleProps {
   title: string;
   subText?: string | null;
