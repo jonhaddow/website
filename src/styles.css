@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 body {
-  @apply bg-gray-100;
+  @apply bg-background;
 }
 
 .content a {
-  @apply underline text-primary-dark;
+  @apply underline text-link;
 }
 
 .content p {
-  @apply mb-6 leading-7;
+  @apply leading-7;
 }
 
 .content p:empty {

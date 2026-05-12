@@ -1,7 +1,6 @@
 import * as React from "react";
 
 import "../styles.css";
-import "../prism-theme.css";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -25,7 +24,7 @@ export const Layout = ({ children }: LayoutProps) => {
   }, []);
 
   return (
-    <div id="layout" className="bg-gray-100">
+    <div id="layout" className="min-h-screen bg-background">
       {children}
     </div>
   );

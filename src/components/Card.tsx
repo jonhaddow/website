@@ -6,7 +6,10 @@ interface CardProps extends React.HTMLAttributes<HTMLElement> {
 }
 export const Card = ({ className = "", ...rest }: CardProps) => (
   <section
-    className={twMerge("rounded-lg bg-white px-12 py-8 shadow-lg", className)}
+    className={twMerge(
+      "rounded-lg bg-card px-12 py-8 shadow-lg text-text",
+      className,
+    )}
     {...rest}
   />
 );

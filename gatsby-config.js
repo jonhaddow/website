@@ -14,7 +14,7 @@ module.exports = {
     "gatsby-plugin-postcss",
     "gatsby-plugin-image",
     {
-      resolve: "gatsby-plugin-manifest",
+      resolve: `gatsby-plugin-manifest`,
       options: {
         name: `jon.haddow.me`,
         short_name: `Jon's site`,
@@ -22,26 +22,7 @@ module.exports = {
         background_color: `#333`,
         theme_color: `#00796b`,
         display: `minimal-ui`,
-        icon: `content/images/favicon.png`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-mdx`,
-      options: {
-        gatsbyRemarkPlugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 800,
-            },
-          },
-          {
-            resolve: `gatsby-remark-prismjs`,
-            options: {
-              noInlineHighlight: true,
-            },
-          },
-        ],
+        icon: `src/assets/favicon.png`,
       },
     },
     "gatsby-plugin-sharp",
@@ -50,14 +31,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/content/images`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `posts`,
-        path: `${__dirname}/content/posts`,
+        path: `${__dirname}/src/assets`,
       },
     },
     "gatsby-plugin-react-svg",
@@ -66,50 +40,6 @@ module.exports = {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography`,
-      },
-    },
-    {
-      resolve: "gatsby-plugin-feed",
-      options: {
-        feeds: [
-          {
-            serialize: ({ query: { site, allMdx } }) => {
-              return allMdx.edges.map(({ node }) => ({
-                title: node.frontmatter.title,
-                date: node.frontmatter.date,
-                description: node.frontmatter.abstract || node.excerpt,
-                url: `${site.siteMetadata.siteUrl}/blog/${node.frontmatter.slug}`,
-                guid: `${site.siteMetadata.siteUrl}/blog/${node.frontmatter.slug}`,
-                custom_elements: [{ "content:encoded": node.body }],
-                categories: node.frontmatter.tags,
-              }));
-            },
-            query: `
-            {
-              allMdx(
-                sort: { order: DESC, fields: [frontmatter___date] },
-              ) {
-                edges {
-                  node {
-                    body
-                    excerpt
-                    frontmatter {
-                      slug
-                      title
-                      date
-                      abstract
-                      tags
-                    }
-                  }
-                }
-              }
-            }
-            `,
-            output: "/rss.xml",
-            title: `Jon Haddow's blog RSS Feed`,
-            site_url: `https://jon.haddow.me`,
-          },
-        ],
       },
     },
   ],
