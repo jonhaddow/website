@@ -1,4 +1,4 @@
-import eslintConfigJH from "eslint-config-jonhaddow";
+import { base } from "eslint-config-jonhaddow";
 import astro from "eslint-plugin-astro";
 import tailwind from "eslint-plugin-tailwindcss";
 
@@ -7,9 +7,7 @@ export default [
     ignores: ["dist", "node_modules", ".astro", ".cache", "public"],
   },
 
-  ...eslintConfigJH.base,
-
-  ...eslintConfigJH.react,
+  ...base,
 
   ...tailwind.configs["flat/recommended"],
 
