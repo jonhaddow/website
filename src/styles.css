@@ -1,8 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Fira+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@theme {
+  --font-sans: "Fira Sans", sans-serif;
+  --font-serif: "Bree Serif", serif;
+
+  --color-primary: #00796b;
+  --color-primary-dark: #004c40;
+
+  --color-header-text: #e2e8f0;
+  --color-background: #1a1a1a;
+  --color-card: #2e3a38;
+  --color-link: #4db6ac;
+
+  --color-text: #e2e8f0;
+  --color-text-light: #cbd5e1;
+  --color-text-lighter: #94a3b8;
+}
 
 body {
   @apply bg-background;
