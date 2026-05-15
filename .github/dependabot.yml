@@ -6,10 +6,10 @@ updates:
       interval: "weekly"
 
     groups:
-      gatsby:
+      astro:
         patterns:
-          - "gatsby"
-          - "gatsby-*"
+          - "astro"
+          - "@astrojs/*"
       dependencies:
         update-types:
           - "patch"

@@ -1,17 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Fira+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  @apply bg-gray-100;
+  @apply bg-background;
 }
 
 .content a {
-  @apply underline text-primary-dark;
+  @apply underline text-link;
 }
 
 .content p {
-  @apply mb-6 leading-7;
+  @apply leading-7;
 }
 
 .content p:empty {
