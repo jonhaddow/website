@@ -1,0 +1,24 @@
+---
+import { Image } from "astro:assets";
+import profileImg from "../assets/profile-img.jpg";
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+---
+
+<Layout title="Home">
+  <main
+    class="flex min-h-screen flex-col items-center justify-center gap-8 px-4 py-12"
+  >
+    <Image src={profileImg} alt="Jon Haddow" class="size-36 rounded-full" />
+    <div class="text-center text-header-text">
+      <h1 class="font-serif text-3xl tracking-wider">Jon Haddow</h1>
+    </div>
+    <Card class="content max-w-md text-balance rounded-lg p-8 text-center">
+      <p>
+        Hey 👋 I'm a developer based in Swansea, Wales. Find me on
+        <a href="https://github.com/jonhaddow">GitHub</a> and
+        <a href="https://www.linkedin.com/in/jonathan-haddow">LinkedIn</a>.
+      </p>
+    </Card>
+  </main>
+</Layout>

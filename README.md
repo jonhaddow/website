@@ -11,7 +11,6 @@ Built with [Gatsbyjs](https://www.gatsbyjs.org/), hosted on [Netlify](https://ww
 - `yarn` - installs dependencies
 - `yarn start` - runs local Gatsby server on http://localhost:8000/
 - `yarn build` - runs production build
-- `yarn serve` - serves production output on http://localhost:9000/
-- `yarn test` - starts server and runs [Cypress](https://www.cypress.io/) tests
+- `yarn serve` - serves production output on http://localhost:9000/ tests
 
 See `package.json` for more.

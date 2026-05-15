@@ -1,16 +1,13 @@
 # Dependency directories
 node_modules/
 
-# gatsby files
+# astro files
+.astro/
+dist/
 .cache/
-public
 
 # Mac files
 .DS_Store
-
-# cypress screenshots and videos
-cypress/screenshots/
-cypress/videos
 
 # vscode generated files
 .vscode/

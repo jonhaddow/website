@@ -1,15 +1,19 @@
 import eslintConfigJH from "eslint-config-jonhaddow";
-import pluginCypress from "eslint-plugin-cypress/flat";
+import astro from "eslint-plugin-astro";
 import tailwind from "eslint-plugin-tailwindcss";
 
 export default [
+  {
+    ignores: ["dist", "node_modules", ".astro", ".cache", "public"],
+  },
+
   ...eslintConfigJH.base,
 
   ...eslintConfigJH.react,
 
-  pluginCypress.configs.recommended,
-
   ...tailwind.configs["flat/recommended"],
+
+  ...astro.configs.recommended,
 
   {
     files: ["**/*.{tsx,ts}"],
