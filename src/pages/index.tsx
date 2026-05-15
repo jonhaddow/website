@@ -15,7 +15,7 @@ const Home = ({ data }: PageProps<Queries.HomeQuery>) => {
           />
         )}
         <div className="text-center text-header-text">
-          <h1 className="text-3xl tracking-wider">Jon Haddow</h1>
+          <h1 className="font-serif text-3xl tracking-wider">Jon Haddow</h1>
         </div>
         <Card className="content max-w-md text-balance rounded-lg p-8 text-center">
           <p>
