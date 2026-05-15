@@ -4,7 +4,12 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-
+    cooldown:
+      default-days: 3
+    ignore:
+      - dependency-name: "eslint"
+        versions:
+          - "10"
     groups:
       astro:
         patterns:
