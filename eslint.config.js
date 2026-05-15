@@ -1,6 +1,5 @@
 import { base } from "eslint-config-jonhaddow";
 import astro from "eslint-plugin-astro";
-import tailwind from "eslint-plugin-tailwindcss";
 
 export default [
   {
@@ -8,8 +7,6 @@ export default [
   },
 
   ...base,
-
-  ...tailwind.configs["flat/recommended"],
 
   ...astro.configs.recommended,
 
