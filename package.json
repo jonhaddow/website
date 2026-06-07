@@ -27,7 +27,7 @@
     "eslint-plugin-astro": "^1.7.0",
     "postcss": "^8.5.15",
     "prettier": "^3.8.3",
-    "start-server-and-test": "^3.0.2",
+    "start-server-and-test": "^3.0.6",
     "typescript": "^6.0.3"
   },
   "resolutions": {
