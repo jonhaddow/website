@@ -22,9 +22,9 @@
   "devDependencies": {
     "@testing-library/cypress": "^10.1.0",
     "@types/node": "^26.0.0",
-    "eslint": "^9.39.2",
-    "eslint-config-jonhaddow": "^6.0.3",
-    "eslint-plugin-astro": "^1.7.0",
+    "eslint": "^10.6.0",
+    "eslint-config-jonhaddow": "^7.1.0",
+    "eslint-plugin-astro": "^2.1.1",
     "postcss": "^8.5.15",
     "prettier": "^3.8.4",
     "start-server-and-test": "^3.0.11",
