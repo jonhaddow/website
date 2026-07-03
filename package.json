@@ -15,18 +15,18 @@
   "license": "MIT",
   "dependencies": {
     "@astrojs/check": "^0.9.9",
-    "@tailwindcss/vite": "^4.3.1",
+    "@tailwindcss/vite": "^4.3.2",
     "astro": "^7.0.4",
     "tailwindcss": "^4.3.0"
   },
   "devDependencies": {
     "@testing-library/cypress": "^10.1.0",
-    "@types/node": "^26.0.0",
+    "@types/node": "^26.0.1",
     "eslint": "^10.6.0",
     "eslint-config-jonhaddow": "^7.1.0",
     "eslint-plugin-astro": "^2.1.1",
-    "postcss": "^8.5.15",
-    "prettier": "^3.8.4",
+    "postcss": "^8.5.16",
+    "prettier": "^3.9.4",
     "start-server-and-test": "^3.0.11",
     "typescript": "^6.0.3"
   },
