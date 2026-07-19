@@ -24,7 +24,7 @@
     "@types/node": "^26.1.1",
     "eslint": "^10.7.0",
     "eslint-config-jonhaddow": "^7.1.0",
-    "eslint-plugin-astro": "^2.1.1",
+    "eslint-plugin-astro": "^3.0.1",
     "postcss": "^8.5.19",
     "prettier": "^3.9.5",
     "start-server-and-test": "^3.0.11",
