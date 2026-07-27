@@ -15,3 +15,11 @@ updates:
         update-types:
           - "patch"
           - "minor"
+    ignore:
+      # TypeScript 7 is the native compiler, which doesn't yet ship the
+      # programmatic API that @astrojs/language-server (astro check) relies on,
+      # so `npm run type-check` fails on it. Remove once Astro supports TS 7.
+      # https://github.com/withastro/astro/pull/17345
+      - dependency-name: "typescript"
+        update-types:
+          - "version-update:semver-major"
