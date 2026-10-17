@@ -4,7 +4,7 @@
 
 Hosts my website - https://jon.haddow.me
 
-Built with [Astro](https://astro.build/), hosted on [Netlify](https://www.netlify.com/).
+Built with [Astro](https://astro.build/), hosted on [Cloudflare Workers](https://workers.cloudflare.com/) (`worker/index.js`, `wrangler.jsonc`). Pushing to `master` deploys via Workers Builds; `npm run deploy` deploys from a laptop (needs `CLOUDFLARE_API_TOKEN`).
 
 ## Commands
 

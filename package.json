@@ -10,7 +10,9 @@
     "serve": "astro preview",
     "type-check": "astro check",
     "lint": "eslint .",
-    "prettier": "prettier . -c"
+    "prettier": "prettier . -c",
+    "deploy": "npm run build && wrangler deploy",
+    "preview": "npm run build && wrangler dev"
   },
   "license": "MIT",
   "dependencies": {
@@ -28,7 +30,8 @@
     "postcss": "^8.5.28",
     "prettier": "^3.9.9",
     "start-server-and-test": "^3.0.12",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "wrangler": "^4.151.1"
   },
   "resolutions": {
     "graphql": "^14"
