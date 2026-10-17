@@ -1,6 +1,7 @@
-// Serves the built site (dist/) and does what netlify.toml used to:
-// redirects haddow.me to jon.haddow.me and adds security headers.
+// Serves the built site (dist/), redirects haddow.me and www.haddow.me to
+// jon.haddow.me and adds security headers.
 const HOST = "jon.haddow.me";
+const REDIRECT_HOSTS = new Set(["haddow.me", "www.haddow.me"]);
 
 const HEADERS = {
   "X-Frame-Options": "DENY",
@@ -12,7 +13,7 @@ const HEADERS = {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    if (url.hostname === "haddow.me") {
+    if (REDIRECT_HOSTS.has(url.hostname)) {
       url.hostname = HOST;
       return Response.redirect(url.toString(), 301);
     }
