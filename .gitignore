@@ -11,3 +11,6 @@ dist/
 
 # vscode generated files
 .vscode/
+
+# wrangler files
+.wrangler/
