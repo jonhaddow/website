@@ -12,6 +12,7 @@
   "routes": [
     { "pattern": "jon.haddow.me", "custom_domain": true },
     { "pattern": "haddow.me", "custom_domain": true },
+    { "pattern": "www.haddow.me", "custom_domain": true },
   ],
   "workers_dev": false,
   "preview_urls": true,
