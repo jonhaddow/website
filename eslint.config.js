@@ -1,26 +1,17 @@
-import { base } from "eslint-config-jonhaddow";
+import js from "@eslint/js";
 import astro from "eslint-plugin-astro";
+import { defineConfig } from "eslint/config";
+import globals from "globals";
+import ts from "typescript-eslint";
 
-export default [
+export default defineConfig(
+  { ignores: ["dist", ".astro", ".cache", "public"] },
+  js.configs.recommended,
+  ts.configs.recommended,
+  astro.configs.recommended,
   {
-    ignores: ["dist", "node_modules", ".astro", ".cache", "public"],
+    files: ["worker/**/*.js"],
+    languageOptions: { globals: globals.serviceworker },
   },
-
-  ...base,
-
-  ...astro.configs.recommended,
-
-  {
-    files: ["**/*.{tsx,ts}"],
-
-    languageOptions: {
-      parserOptions: {
-        project: true,
-        tsconfigRootDir: import.meta.dirname,
-      },
-    },
-    rules: {
-      "@typescript-eslint/explicit-function-return-type": "off",
-    },
-  },
-];
+  { files: ["**/*.cjs"], languageOptions: { globals: globals.node } },
+);
