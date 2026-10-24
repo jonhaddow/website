@@ -16,7 +16,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@astrojs/check": "^0.9.11",
+    "@astrojs/check": "^0.9.12",
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.4.1",
     "tailwindcss": "^4.3.0"
