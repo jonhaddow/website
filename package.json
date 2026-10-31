@@ -16,24 +16,24 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@astrojs/check": "^0.9.11",
+    "@astrojs/check": "^0.9.12",
     "@tailwindcss/vite": "^4.3.3",
-    "astro": "^7.4.2",
+    "astro": "^7.4.3",
     "tailwindcss": "^4.3.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@testing-library/cypress": "^10.1.0",
-    "@types/node": "^26.6.5",
+    "@types/node": "^26.6.6",
     "eslint": "^10.13.0",
     "eslint-plugin-astro": "^3.2.1",
     "globals": "^17.13.0",
-    "postcss": "^8.5.28",
+    "postcss": "^8.5.32",
     "prettier": "^3.9.10",
     "start-server-and-test": "^3.0.13",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.72.0",
-    "wrangler": "^4.151.3"
+    "typescript-eslint": "^8.72.1",
+    "wrangler": "^4.154.0"
   },
   "resolutions": {
     "graphql": "^14"
