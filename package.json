@@ -33,7 +33,7 @@
     "start-server-and-test": "^3.0.13",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.72.0",
-    "wrangler": "^4.151.3"
+    "wrangler": "^4.156.0"
   },
   "resolutions": {
     "graphql": "^14"
