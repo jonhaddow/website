@@ -4,6 +4,10 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+      # Friday, so PRs are ready for the Saturday PR review.
+      day: "friday"
+      time: "06:00"
+      timezone: "Europe/London"
     cooldown:
       default-days: 3
     groups:
@@ -23,3 +27,15 @@ updates:
       - dependency-name: "typescript"
         update-types:
           - "version-update:semver-major"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "friday"
+      time: "06:00"
+      timezone: "Europe/London"
+    groups:
+      actions:
+        patterns:
+          - "*"
