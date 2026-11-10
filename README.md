@@ -1,16 +1,17 @@
-# website
+# Website
 
-[![Build Status](https://travis-ci.org/jonhaddow/website.svg?branch=master)](https://travis-ci.org/jonhaddow/website)
+My personal website: https://jon.haddow.me
 
-Hosts my website - https://jon.haddow.me
+## Tech stack
 
-Built with [Astro](https://astro.build/), hosted on [Cloudflare Workers](https://workers.cloudflare.com/) (`worker/index.js`, `wrangler.jsonc`). Pushing to `master` deploys via Workers Builds; `npm run deploy` deploys from a laptop (needs `CLOUDFLARE_API_TOKEN`).
+- [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com)
+- Hosted on [Cloudflare Workers](https://workers.cloudflare.com) (`worker/index.js`, `wrangler.jsonc`), deployed from `master` by Workers Builds
 
-## Commands
+## Running locally
 
-- `yarn` - installs dependencies
-- `yarn start` - runs local server on http://localhost:8000/
-- `yarn build` - runs production build
-- `yarn serve` - serves production output on http://localhost:9000/ tests
-
-See `package.json` for more.
+```sh
+npm ci
+npm start        # local dev server
+npm run build    # production build
+npm run deploy   # deploy from a laptop (needs CLOUDFLARE_API_TOKEN)
+```
