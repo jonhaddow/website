@@ -7,7 +7,7 @@ My personal website: https://jon.haddow.me
 - [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com)
 - Hosted on [Cloudflare Workers](https://workers.cloudflare.com) (`worker/index.js`, `wrangler.jsonc`), deployed from `master` by Workers Builds
 
-## Development
+## Running locally
 
 ```sh
 npm ci
